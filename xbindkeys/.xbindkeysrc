@@ -1,0 +1,12 @@
+# Increase volume
+"for SINK in `pactl list sinks short | cut -b1`; do pactl set-sink-volume $SINK +5%; done"
+    XF86AudioRaiseVolume
+
+# Decrease volume
+"for SINK in `pactl list sinks short | cut -b1`; do pactl set-sink-volume $SINK -5%; done"
+    XF86AudioLowerVolume
+
+# Mute volume
+"for SINK in `pactl list sinks short | cut -b1`; do pactl set-sink-mute $SINK toggle; done"
+    XF86AudioMute
+
