@@ -126,12 +126,12 @@ exe "hi! NonText"        .s:fg_none             .s:bg_none             .s:fmt_no
 exe "hi! Boolean"        .s:fg_none             .s:bg_none             .s:fmt_none
 exe "hi! Character"      .s:fg_none             .s:bg_none             .s:fmt_none
 exe "hi! Number"         .s:fg_none             .s:bg_none             .s:fmt_none
-exe "hi! String"         .s:fg_light_blue       .s:bg_none             .s:fmt_none
+exe "hi! String"         .s:fg_dark_blue        .s:bg_none             .s:fmt_none
 exe "hi! Conditional"    .s:fg_dark_yellow      .s:bg_none             .s:fmt_none
 exe "hi! Constant"       .s:fg_none             .s:bg_none             .s:fmt_none
 exe "hi! Cursor"         .s:fg_none             .s:bg_none             .s:fmt_none
 exe "hi! Debug"          .s:fg_none             .s:bg_none             .s:fmt_none
-exe "hi! Define"         .s:fg_light_magenta    .s:bg_none             .s:fmt_none
+exe "hi! Define"         .s:fg_dark_magenta     .s:bg_none             .s:fmt_none
 exe "hi! Delimiter"      .s:fg_none             .s:bg_none             .s:fmt_none
 
 exe "hi! DiffAdd"        .s:fg_none             .s:bg_none             .s:fmt_none
@@ -149,17 +149,16 @@ exe "hi! Folded"         .s:fg_none             .s:bg_none             .s:fmt_no
 exe "hi! Function"       .s:fg_intense_fg       .s:bg_none             .s:fmt_none
 exe "hi! Identifier"     .s:fg_none             .s:bg_none             .s:fmt_none
 exe "hi! Ignore"         .s:fg_none             .s:bg_none             .s:fmt_none
-exe "hi! IncSearch"      .s:fg_light_yellow     .s:bg_none             .s:fmt_none
-
-exe "hi! Keyword"        .s:fg_light_magenta    .s:bg_none             .s:fmt_none
+exe "hi! IncSearch"      .s:fg_none             .s:bg_none             .s:fmt_revbbu
+exe "hi! Keyword"        .s:fg_dark_magenta     .s:bg_none             .s:fmt_none
 exe "hi! Label"          .s:fg_none             .s:bg_none             .s:fmt_none
-exe "hi! Macro"          .s:fg_light_magenta    .s:bg_none             .s:fmt_none
+exe "hi! Macro"          .s:fg_dark_magenta     .s:bg_none             .s:fmt_none
 exe "hi! SpecialKey"     .s:fg_none             .s:bg_none             .s:fmt_none
 
 exe "hi! MatchParen"     .s:fg_none             .s:bg_none             .s:fmt_none
 exe "hi! ModeMsg"        .s:fg_none             .s:bg_none             .s:fmt_none
 exe "hi! MoreMsg"        .s:fg_none             .s:bg_none             .s:fmt_none
-exe "hi! Operator"       .s:fg_light_magenta    .s:bg_none             .s:fmt_none
+exe "hi! Operator"       .s:fg_dark_magenta     .s:bg_none             .s:fmt_none
 
 " !complete menu
 exe "hi! Pmenu"          .s:fg_none             .s:bg_none             .s:fmt_none
@@ -168,10 +167,11 @@ exe "hi! PmenuSbar"      .s:fg_none             .s:bg_none             .s:fmt_no
 exe "hi! PmenuThumb"     .s:fg_none             .s:bg_none             .s:fmt_none
 
 exe "hi! PreCondit"      .s:fg_none             .s:bg_none             .s:fmt_none
-exe "hi! PreProc"        .s:fg_light_magenta    .s:bg_none             .s:fmt_none
+exe "hi! PreProc"        .s:fg_dark_magenta     .s:bg_none             .s:fmt_none
 exe "hi! Question"       .s:fg_none             .s:bg_none             .s:fmt_none
 exe "hi! Repeat"         .s:fg_dark_yellow      .s:bg_none             .s:fmt_none
-exe "hi! Search"         .s:fg_light_yellow     .s:bg_none             .s:fmt_none
+exe "hi! Search"         .s:fg_none             .s:bg_none             .s:fmt_revbbu
+
 
 " !marks column
 exe "hi! SignColumn"     .s:fg_none             .s:bg_none             .s:fmt_none
@@ -181,17 +181,17 @@ exe "hi! Special"        .s:fg_none             .s:bg_none             .s:fmt_no
 exe "hi! SpecialKey"     .s:fg_none             .s:bg_none             .s:fmt_none
 exe "hi! SpellBad"       .s:fg_light_red        .s:bg_none             .s:fmt_undr
 
-exe "hi! Statement"      .s:fg_light_magenta    .s:bg_none             .s:fmt_none
+exe "hi! Statement"      .s:fg_dark_magenta     .s:bg_none             .s:fmt_none
 exe "hi! StatusLine"     .s:fg_light_bg         .s:bg_fg               .s:fmt_none
 exe "hi! StatusLineNC"   .s:fg_light_bg         .s:bg_fg               .s:fmt_none
 exe "hi! StorageClass"   .s:fg_none             .s:bg_none             .s:fmt_none
-exe "hi! Structure"      .s:fg_light_magenta    .s:bg_none             .s:fmt_none
+exe "hi! Structure"      .s:fg_dark_magenta     .s:bg_none             .s:fmt_none
 exe "hi! Tag"            .s:fg_none             .s:bg_none             .s:fmt_none
 exe "hi! Title"          .s:fg_none             .s:bg_none             .s:fmt_none
 exe "hi! Todo"           .s:fg_light_cyan       .s:bg_none             .s:fmt_none
 
-exe "hi! Typedef"        .s:fg_light_magenta    .s:bg_none             .s:fmt_none
-exe "hi! Type"           .s:fg_light_magenta    .s:bg_none             .s:fmt_none
+exe "hi! Typedef"        .s:fg_dark_magenta     .s:bg_none             .s:fmt_none
+exe "hi! Type"           .s:fg_dark_magenta     .s:bg_none             .s:fmt_none
 exe "hi! Underlined"     .s:fg_none             .s:bg_none             .s:fmt_none
 
 exe "hi! VertSplit"      .s:fg_intense_light_bg .s:bg_fg               .s:fmt_none
@@ -205,15 +205,15 @@ exe "hi! WildMenu"       .s:fg_none             .s:bg_none             .s:fmt_no
 " tex highlighting
 " -----------------------------------------------------------------------------
 
-exe "hi! texSection"     .s:fg_light_magenta .s:bg_none .s:fmt_none
-exe "hi! texDelimiter"   .s:fg_light_magenta .s:bg_none .s:fmt_none
+exe "hi! texSection"     .s:fg_dark_magenta .s:bg_none .s:fmt_none
+exe "hi! texDelimiter"   .s:fg_dark_magenta .s:bg_none .s:fmt_none
 
 
 " -----------------------------------------------------------------------------
 " vim highlighting
 " -----------------------------------------------------------------------------
 
-exe "hi! vimCommand"     .s:fg_light_magenta .s:bg_none .s:fmt_none
+exe "hi! vimCommand"     .s:fg_dark_magenta  .s:bg_none .s:fmt_none
 exe "hi! vimOption"      .s:fg_light_blue    .s:bg_none .s:fmt_none
 exe "hi! diffAdded"      .s:fg_light_green   .s:bg_none .s:fmt_none
 exe "hi! diffRemoved"    .s:fg_light_red     .s:bg_none .s:fmt_none
@@ -230,6 +230,6 @@ exe "hi! markdownH4"               .s:fg_dark_yellow   .s:bg_none .s:fmt_none
 exe "hi! markdownH5"               .s:fg_dark_yellow   .s:bg_none .s:fmt_none
 exe "hi! markdownH6"               .s:fg_dark_yellow   .s:bg_none .s:fmt_none
 exe "hi! markdownHeadingDelimiter" .s:fg_dark_yellow   .s:bg_none .s:fmt_none
-exe "hi! markdownListMarker"       .s:fg_light_magenta .s:bg_none .s:fmt_none
+exe "hi! markdownListMarker"       .s:fg_dark_magenta  .s:bg_none .s:fmt_none
 exe "hi! markdownHeadingRule"      .s:fg_dark_yellow   .s:bg_none .s:fmt_none
 
