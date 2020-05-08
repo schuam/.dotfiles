@@ -46,5 +46,12 @@ do
     ln -svn $PWD/xbindkeys/$i $HOME/$i
 done;
 
-# Todo: everything in .config
+echo ".config"
+cd .config
+for dir in `find * -maxdepth 0 -type d`
+do
+    echo $dir
+    mv $HOME/.config/$dir $backup_dir
+    ln -svn $PWD/$dir $HOME/.config/$dir
+done
 
