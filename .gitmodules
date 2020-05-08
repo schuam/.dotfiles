@@ -1,3 +1,9 @@
 [submodule "vim/.vim/pack/vendor/start/vim-surround"]
 	path = vim/.vim/pack/vendor/start/vim-surround
 	url = https://github.com/tpope/vim-surround.git
+[submodule "vim/.vim/pack/vendor/start/vim-snippets"]
+	path = vim/.vim/pack/vendor/start/vim-snippets
+	url = https://github.com/honza/vim-snippets.git
+[submodule "vim/.vim/pack/vendor/start/ultisnips"]
+	path = vim/.vim/pack/vendor/start/ultisnips
+	url = https://github.com/SirVer/ultisnips.git
