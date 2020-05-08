@@ -1,0 +1,23 @@
+# changes all file and dirctory names in the working directory to lower case.
+alias tolower="rename 'y/A-Z/a-z/' *"
+
+# aliases to list all files and to change to higher dictonaries.
+alias ls="ls --color"
+alias l="ls -lh"
+alias lf="ls -lah"
+alias ..="cd .."
+alias ...="cd ../.."
+alias ....="cd ../../.."
+
+# aliases for the use of tmux
+alias tmux="tmux -2"    # Forces tmux to use 256 colors.
+
+# git aliases
+alias gk="gitk --all &"
+
+# vifm aliases
+alias vifm="vifm . ~"
+
+# alias to make it possilbe to use sudo with other aliases
+alias sudo="sudo "
+
