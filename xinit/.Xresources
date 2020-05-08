@@ -1,0 +1,22 @@
+! My version of the solarized color scheme
+! TODO: Check how to define different color schemes and how to quickly switch
+!       between them.
+*background: #002B36
+*foreground: #839496
+*color0:  #083F4D
+*color1:  #DC322F
+*color2:  #859900
+*color3:  #B58900
+*color4:  #268BD2
+*color5:  #D33682
+*color6:  #26958C
+*color7:  #839496
+*color8:  #0C677E
+*color9:  #7B5017
+*color10: #9BAF00
+*color11: #DAA400
+*color12: #2A9DEA
+*color13: #FA3E9C
+*color14: #2DB0A5
+*color15: #B9D2D3
+
