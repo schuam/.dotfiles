@@ -7,3 +7,6 @@
 [submodule "vim/.vim/pack/vendor/start/ultisnips"]
 	path = vim/.vim/pack/vendor/start/ultisnips
 	url = https://github.com/SirVer/ultisnips.git
+[submodule "vim/.vim/pack/vendor/start/nerdcommenter"]
+	path = vim/.vim/pack/vendor/start/nerdcommenter
+	url = https://github.com/preservim/nerdcommenter.git
