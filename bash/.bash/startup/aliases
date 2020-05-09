@@ -16,7 +16,7 @@ alias tmux="tmux -2"    # Forces tmux to use 256 colors.
 alias gk="gitk --all &"
 
 # vifm aliases
-alias vifm="vifm . ~"
+alias vifm="~/.dotfiles/.config/vifm/scripts/vifmrun"
 
 # alias to make it possilbe to use sudo with other aliases
 alias sudo="sudo "

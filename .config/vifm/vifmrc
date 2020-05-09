@@ -229,7 +229,7 @@ filetype *.[1-8] man ./%c
 fileviewer *.[1-8] man ./%c | col -b
 
 " Images
-filextype *.bmp,*.jpg,*.jpeg,*.png,*.gif,*.xpm gwenview
+filextype *.bmp,*.jpg,*.jpeg,*.png,*.gif,*.xpm feh
 "        \ {View in sxiv}
 "        \ sxiv %f,
 "        \ {View in gpicview}
@@ -237,7 +237,10 @@ filextype *.bmp,*.jpg,*.jpeg,*.png,*.gif,*.xpm gwenview
 "        \ {View in shotwell}
 "        \ shotwell,
 fileviewer *.bmp,*.jpg,*.jpeg,*.png,*.gif,*.xpm
-         \ convert -identify %f -verbose /dev/null
+        \ vifmimg draw %px %py %pw %ph %c
+        \ %pc
+        \ vifmimg clear
+"       \ convert -identify %f -verbose /dev/null
 
 " OpenRaster
 filextype *.ora
