@@ -2,7 +2,7 @@
 AntiAliasFonts=true
 BoldIntense=true
 ColorScheme=schuam_solarized_light
-Font=Hack,10,-1,5,50,0,0,0,0,0
+Font=Hack,12,-1,5,50,0,0,0,0,0
 UseFontLineChararacters=false
 
 [General]
