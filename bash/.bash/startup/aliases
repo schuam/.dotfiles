@@ -4,7 +4,7 @@ alias tolower="rename 'y/A-Z/a-z/' *"
 # aliases to list all files and to change to higher dictonaries.
 alias ls="ls --color"
 alias l="ls -lh"
-alias lf="ls -lah"
+alias la="ls -lah"
 alias ..="cd .."
 alias ...="cd ../.."
 alias ....="cd ../../.."
@@ -21,3 +21,5 @@ alias vifm="~/.dotfiles/.config/vifm/scripts/vifmrun"
 # alias to make it possilbe to use sudo with other aliases
 alias sudo="sudo "
 
+# confirm before overwriting something when copying stuff
+alias cp="cp -i"
