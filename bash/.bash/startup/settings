@@ -104,20 +104,3 @@ LS_COLORS+="*.mp4=1;96:*.MP4=1;96:*.m4v=1;96:*.M4V=1;96:"
 
 export LS_COLORS
 
-
-# Global variables
-# *****************************************************************************
-export EDITOR='vim'
-export PATH="$PATH:$HOME/workspaces/tools/bin"
-
-
-# Settings for ruby gems
-# *****************************************************************************
-export GEM_HOME=$HOME/workspaces/ruby/gems
-export PATH="$PATH:$HOME/workspaces/ruby/gems/bin"
-
-# Automatically start the x server when in tty1
-#if [[ "$(tty)" = "/dev/tty1" ]]; then
-#    pgrep qtile || startx
-#fi
-#

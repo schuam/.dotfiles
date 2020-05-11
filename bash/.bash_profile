@@ -1,6 +1,17 @@
-# echo "BASH_PROFILE"
-# [[ -s "$HOME/.profile" ]] && source "$HOME/.profile" # Load the default .profile
-# 
-# [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
+export LANG=en_US.utf8
+
+export EDITOR="vim"
+
+export GEM_HOME=$HOME/workspaces/ruby/gems
+
+export PATH="$PATH:$HOME/workspaces/tools/bin"
+export PATH="$PATH:$HOME/workspaces/ruby/gems/bin"
+
 
 source ~/.bashrc
+
+# Automatically start the x server when in tty1
+#if [[ "$(tty)" = "/dev/tty1" ]]; then
+#    pgrep qtile || startx
+#fi
+#
