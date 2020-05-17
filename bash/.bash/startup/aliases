@@ -1,5 +1,5 @@
 # changes all file and dirctory names in the working directory to lower case.
-alias tolower="rename 'y/A-Z/a-z/' *"
+alias tolower="perl-rename 'y/A-Z/a-z/' *"
 
 # aliases to list all files and to change to higher dictonaries.
 alias ls="ls --color"
@@ -21,5 +21,6 @@ alias vifm="~/.dotfiles/.config/vifm/scripts/vifmrun"
 # alias to make it possilbe to use sudo with other aliases
 alias sudo="sudo "
 
-# confirm before overwriting something when copying stuff
+# confirm before overwriting something when copying or moving stuff
 alias cp="cp -i"
+alias mv="mv -i"
