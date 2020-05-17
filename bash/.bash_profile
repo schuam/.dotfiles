@@ -7,6 +7,7 @@ export GEM_HOME=$HOME/workspaces/ruby/gems
 export PATH="$PATH:$HOME/workspaces/tools/bin"
 export PATH="$PATH:$HOME/workspaces/ruby/gems/bin"
 
+setleds -D +num
 
 source ~/.bashrc
 
