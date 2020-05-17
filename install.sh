@@ -55,3 +55,6 @@ do
     ln -svn $PWD/$dir $HOME/.config/$dir
 done
 
+echo "plasma"
+ln -svn $PWD/plasma/plasma-localerc $HOME/.config/plasma-localerc
+
