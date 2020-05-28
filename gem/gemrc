@@ -1,0 +1,3 @@
+# Make sure gems are intstalled into the directory defined in the environment
+# variable GEM_HOME:
+install: --no-user-install

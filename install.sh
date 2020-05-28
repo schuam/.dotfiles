@@ -58,3 +58,6 @@ done
 echo "plasma"
 ln -svn $PWD/plasma/plasma-localerc $HOME/.config/plasma-localerc
 
+echo "gem"
+mv $HOME/.gemrc $backup_dir
+ln -svn $PWD/gem/gemrc $HOME/.gemrc
