@@ -10,3 +10,6 @@
 [submodule "vim/.vim/pack/vendor/start/nerdcommenter"]
 	path = vim/.vim/pack/vendor/start/nerdcommenter
 	url = https://github.com/preservim/nerdcommenter.git
+[submodule "vim/.vim/pack/vendor/start/tabular"]
+	path = vim/.vim/pack/vendor/start/tabular
+	url = git://github.com/godlygeek/tabular.git
