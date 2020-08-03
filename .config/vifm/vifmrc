@@ -170,7 +170,7 @@ command! reload :write | restart
 " program.
 
 " Pdf
-filextype *.pdf okular
+filextype *.pdf zathura
 fileviewer *.pdf pdftotext -nopgbrk %c -
 
 " PostScript
