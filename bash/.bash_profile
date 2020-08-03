@@ -13,7 +13,7 @@ setleds -D +num
 source ~/.bashrc
 
 # Automatically start the x server when in tty1
-#if [[ "$(tty)" = "/dev/tty1" ]]; then
-#    pgrep qtile || startx
-#fi
-#
+if [[ "$(tty)" = "/dev/tty1" ]]; then
+   pgrep Xorg || startx
+fi
+
