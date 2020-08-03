@@ -24,3 +24,8 @@ alias sudo="sudo "
 # confirm before overwriting something when copying or moving stuff
 alias cp="cp -i"
 alias mv="mv -i"
+
+# Enable/start bluetooth
+alias blue="sudo systemctl start bluetooth"
+alias reblue="sudo systemctl restart bluetooth"
+
