@@ -35,7 +35,12 @@ if [ -d /etc/X11/xinit/xinitrc.d ] ; then
  unset f
 fi
 
-# xbindkeys
-# xscreensaver -no-splash &
-# exec qtile
-exec /usr/bin/startplasma-x11 
+if [[ $2 == "qtile" ]]
+then
+    xbindkeys
+    xscreensaver -no-splash &
+    exec qtile
+else
+    exec /usr/bin/startplasma-x11
+fi
+
