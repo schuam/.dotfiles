@@ -1,0 +1,79 @@
+# Colors
+colors:
+  # Default colors
+  primary:
+    background: '#000000'
+    foreground: '#aaaaaa'
+
+    # Bright and dim foreground colors
+    #
+    # The dimmed foreground color is calculated automatically if it is not present.
+    # If the bright foreground color is not set, or `draw_bold_text_with_bright_colors`
+    # is `false`, the normal foreground color will be used.
+    #dim_foreground: '#9a9a9a'
+    #bright_foreground: '#ffffff'
+
+  # Cursor colors
+  #
+  # Colors which should be used to draw the terminal cursor. If these are unset,
+  # the cursor color will be the inverse of the cell color.
+  #cursor:
+    #text:   '#000000'
+    #cursor: '#aaaaaa'
+
+  # Selection colors
+  #
+  # Colors which should be used to draw the selection area. If selection
+  # background is unset, selection color will be the inverse of the cell colors.
+  # If only text is unset the cell text color will remain the same.
+  # selection:
+  #   background: '#00242D'
+  #   text:       '#839496'
+
+  # Normal colors
+  normal:
+    black:   '#262626'
+    red:     '#cc0000'
+    green:   '#00a100'
+    yellow:  '#a6a600'
+    blue:    '#006cd8'
+    magenta: '#ff00ff'
+    cyan:    '#00a1a1'
+    white:   '#aaaaaa'
+
+  # Bright colors
+  bright:
+    black:   '#626262'
+    red:     '#ff4400'
+    green:   '#00ff00'
+    yellow:  '#ffff00'
+    blue:    '#0080ff'
+    magenta: '#ff55ff'
+    cyan:    '#00eaea'
+    white:   '#dedede'
+
+  # Dim colors
+  #
+  # If the dim colors are not set, they will be calculated automatically based
+  # on the `normal` colors.
+  #dim:
+  #  black:   '#000000'
+  #  red:     '#8c3336'
+  #  green:   '#7a8530'
+  #  yellow:  '#97822e'
+  #  blue:    '#506d8f'
+  #  magenta: '#80638e'
+  #  cyan:    '#497e7a'
+  #  white:   '#9a9a9a'
+
+  # Indexed Colors
+  #
+  # The indexed colors include all colors from 16 to 256.
+  # When these are not set, they're filled with sensible defaults.
+  #
+  # Example:
+  #   `- { index: 16, color: '#ff00ff' }`
+  #
+  #indexed_colors: []
+
+
