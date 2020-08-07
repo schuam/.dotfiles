@@ -1,51 +1,39 @@
 #!/usr/bin/env python
 
+import yaml
 import os
-import glob
+import re
 
 
-config_dir = os.path.realpath(os.path.expanduser("~/.config/alacritty/"))
-config_file_name = "alacritty.yml"
-config_base_file_name = "base_config.yml"
+CONFIG_FILE_NAME = "alacritty.yml"
+CONFIG_FILE_DIR = os.path.expanduser("~/.config/alacritty/")
+CONFIG_FILE_PATH = os.path.join(CONFIG_FILE_DIR, CONFIG_FILE_NAME)
 
-colorscheme_file_name_template = "colorscheme_*.yml"
-colorscheme_path_template = os.path.join(
-    config_dir, colorscheme_file_name_template)
+COLOR_SCHEME_LINE_SEARCH = "colors: \*(\S+)"
+COLOR_SCHEME_LINE_TEMPLATE = "colors: *{}\n"
 
-current_colorscheme_info_file_name = "current_colorscheme.txt"
-current_colorscheme_info_file_path = os.path.join(
-    config_dir, current_colorscheme_info_file_name)
+with open(CONFIG_FILE_PATH, "r") as config_file:
+    config = yaml.safe_load(config_file)
+    config_file.seek(0)
+    lines = config_file.readlines()
 
-colorscheme_file_names = \
-    sorted([os.path.basename(x) for x in glob.glob(colorscheme_path_template)])
+colors_line_index = -1
+for i, line in enumerate(lines):
+    match = re.search(COLOR_SCHEME_LINE_SEARCH, line)
+    if match is not None:
+        current_color_scheme = match.group(1)
+        colors_line_index = i
 
-current_colorscheme = None
-if os.path.exists(current_colorscheme_info_file_path):
-    with open(current_colorscheme_info_file_path, "r") as f:
-        current_colorscheme = f.read().strip()
+available_color_schemes = list(config["schemes"].keys())
 
-if len(colorscheme_file_names) != 0:
-    next_colorscheme = colorscheme_file_names[0]
-    if current_colorscheme in colorscheme_file_names:
-        index = colorscheme_file_names.index(current_colorscheme)
-        next_colorscheme = colorscheme_file_names[(index + 1) %
-                len(colorscheme_file_names)]
-    else:
-        pass
+color_scheme_index = available_color_schemes.index(current_color_scheme)
+color_scheme_index = \
+    (color_scheme_index + 1) % len(available_color_schemes)
 
-    config_file_path = os.path.join(config_dir, config_file_name)
-    base_file_path = os.path.join(config_dir, config_base_file_name)
-    color_file_path = os.path.join(config_dir, next_colorscheme)
+lines[colors_line_index] = COLOR_SCHEME_LINE_TEMPLATE.format(
+    available_color_schemes[color_scheme_index])
 
-    print(next_colorscheme)
-    with open(config_file_path, "w") as out, \
-            open(base_file_path, "r") as base, \
-            open(color_file_path, "r") as color, \
-            open(current_colorscheme_info_file_path, "w") as cur:
-        out.write(base.read())
-        out.write(color.read())
-        cur.write(next_colorscheme)
-
-else:
-    pass
+with open(CONFIG_FILE_PATH, "w") as config_file:
+    for line in lines:
+        config_file.write(line)
 
