@@ -29,3 +29,6 @@ alias mv="mv -i"
 alias blue="sudo systemctl start bluetooth"
 alias reblue="sudo systemctl restart bluetooth"
 
+# Neomutt
+alias mutt="cd ~/Desktop && neomutt"
+
