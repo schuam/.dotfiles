@@ -2,6 +2,8 @@ export LANG=en_US.utf8
 
 export EDITOR="vim"
 
+export PASSWORD_STORE_DIR="$HOME/workspaces/pass"
+
 export GEM_HOME=$HOME/workspaces/ruby/gems
 export GEM_PATH=$HOME/workspaces/ruby/gems
 
