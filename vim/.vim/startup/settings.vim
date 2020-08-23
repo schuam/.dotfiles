@@ -13,6 +13,7 @@ set hlsearch               " Highlights all search results
 set number                 " Shows current line number
 set relativenumber         " Shows relative numbers
 set mouse=a                " Enables the use of the mouse to navigate
+set ttymouse=sgr           " Enable the use of the mouse in alacritty
 set clipboard=unnamedplus  " When text is yanked, put it in the unnamed
                            " register, this way it can be copied into other
                            " applications.
