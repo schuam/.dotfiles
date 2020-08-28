@@ -1,9 +1,9 @@
 # Color Scheme
 
 I work quite a bit in the terminal and therefore like the color scheme to be
-easy on the eyes. My preferred color scheme is a my own variation of the famous
+easy on the eyes. My preferred color scheme is my own variation of the famous
 solarized color scheme (the dark version). While this works great a lot of the
-time, when the sun shines outside it's sometime difficult to read the terminal
+time, when the sun shines outside it's sometimes difficult to read the terminal
 with this color scheme (especially because I don't like shutting the window
 shades until it's dark in my room. Therefore I needed an easy way to quickly
 change the color scheme of Alacritty. Opening and editing the config file
@@ -68,7 +68,7 @@ schemes, checks which one is currently set, and than replaces the current color
 scheme with the next available one.
 
 In order for it to work the Python's **pyyaml** package must be installed on
-the system. When I wrote the script I had Python 3.8.5 installed on my system.
+the system. When I wrote the script I had Python 3.8.5 installed on my machine.
 I haven't tested is with any other version, but it should pretty much work with
 any other version of python (a least any other Python 3 version).
 
