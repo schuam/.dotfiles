@@ -15,7 +15,9 @@ figured out a way to do it. The next section briefly describe my solution.
 
 First of all I put all the color schemes I want to be able to switch between
 into Alacritty's config file (alacritty.yml). All color schemes have to be
-within the **schemes** section of the config file and look something like this:
+within the **schemes** section of the config file and look something like this
+(by the way, in case you're wondering, the example below is not my version of
+the solarized color scheme):
 
 ```yaml
 schemes:
