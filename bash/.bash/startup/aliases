@@ -32,3 +32,5 @@ alias reblue="sudo systemctl restart bluetooth"
 # Neomutt
 alias mutt="cd ~/Desktop && neomutt"
 
+alias sliedshow="feh -F -f"
+
