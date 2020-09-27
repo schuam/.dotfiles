@@ -13,3 +13,6 @@
 [submodule "vim/.vim/pack/vendor/start/tabular"]
 	path = vim/.vim/pack/vendor/start/tabular
 	url = git://github.com/godlygeek/tabular.git
+[submodule "vim/.vim/pack/vendor/start/nerdtree"]
+	path = vim/.vim/pack/vendor/start/nerdtree
+	url = https://github.com/preservim/nerdtree.git
