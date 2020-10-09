@@ -33,42 +33,42 @@ from typing import List  # noqa: F401
 import os
 import subprocess
 
-mod = "mod4"
+WIN = "mod4"
 
 keys = [
     # Window management
-    Key([mod], "j", lazy.layout.down()),
-    Key([mod], "k", lazy.layout.up()),
-    Key([mod], "h", lazy.layout.left()),
-    Key([mod], "l", lazy.layout.right()),
-    Key([mod], "e", lazy.to_screen(0)),
-    Key([mod], "r", lazy.to_screen(1)),
-    Key([mod, "shift"], "j", lazy.layout.shuffle_down()),
-    Key([mod, "shift"], "k", lazy.layout.shuffle_up()),
-    Key([mod, "shift"], "h", lazy.layout.swap_left()),
-    Key([mod, "shift"], "l", lazy.layout.swap_right()),
+    Key([WIN], "j", lazy.layout.down()),
+    Key([WIN], "k", lazy.layout.up()),
+    Key([WIN], "h", lazy.layout.left()),
+    Key([WIN], "l", lazy.layout.right()),
+    Key([WIN], "e", lazy.to_screen(0)),
+    Key([WIN], "r", lazy.to_screen(1)),
+    Key([WIN, "shift"], "j", lazy.layout.shuffle_down()),
+    Key([WIN, "shift"], "k", lazy.layout.shuffle_up()),
+    Key([WIN, "shift"], "h", lazy.layout.swap_left()),
+    Key([WIN, "shift"], "l", lazy.layout.swap_right()),
     Key(["mod1"], "Tab", lazy.layout.next()),
-    Key([mod, "shift"], "space", lazy.layout.flip()),
-    Key([mod, "control"], "h", lazy.layout.grow()),
-    Key([mod, "control"], "l", lazy.layout.shrink()),
-    Key([mod, "control"], "n", lazy.layout.normalize()),
-    Key([mod, "control"], "m", lazy.layout.maximize()),
+    Key([WIN, "shift"], "space", lazy.layout.flip()),
+    Key([WIN, "control"], "h", lazy.layout.grow()),
+    Key([WIN, "control"], "l", lazy.layout.shrink()),
+    Key([WIN, "control"], "n", lazy.layout.normalize()),
+    Key([WIN, "control"], "m", lazy.layout.maximize()),
     # Start applications
-    Key([mod], "Return", lazy.spawn("alacritty")),
+    Key([WIN], "Return", lazy.spawn("alacritty")),
     Key(["mod1"], "Return", lazy.spawn("alacritty")),
     Key(["mod1"], "space", lazy.spawn("dmenu_run -fn xtf:inconsolata:pixelsize=12 -p 'Run: '")),
-    Key([mod, "mod1"], "b", lazy.spawn("firefox")),
-    Key([mod, "mod1"], "p", lazy.spawn("pavucontrol")),
+    Key([WIN, "mod1"], "b", lazy.spawn("firefox")),
+    Key([WIN, "mod1"], "p", lazy.spawn("pavucontrol")),
     # Close applications
     Key(["mod1"], "F4", lazy.window.kill()),
-    Key([mod], "w", lazy.window.kill()),
+    Key([WIN], "w", lazy.window.kill()),
     # Layouts
-    Key([mod], "Tab", lazy.next_layout()),
+    Key([WIN], "Tab", lazy.next_layout()),
     # Lock screen
-    Key([mod, "mod1"], "l", lazy.spawn("xscreensaver-command -lock")),
+    Key([WIN, "mod1"], "l", lazy.spawn("xscreensaver-command -lock")),
     # Restart/quit Qtile
-    Key([mod, "control"], "r", lazy.restart()),
-    Key([mod, "control"], "q", lazy.shutdown()),
+    Key([WIN, "control"], "r", lazy.restart()),
+    Key([WIN, "control"], "q", lazy.shutdown()),
 ]
 
 
@@ -77,12 +77,12 @@ groups = [Group(i) for i in "asdfuiop"]
 for i in groups:
     keys.extend([
         Key(
-            [mod], i.name,
+            [WIN], i.name,
             lazy.group[i.name].toscreen(),
             desc="Switch focus to another group",
         ),
         Key(
-            [mod, "shift"], i.name,
+            [WIN, "shift"], i.name,
             lazy.window.togroup(i.name, switch_group=True),
             desc="Send window to another group",
         ),
@@ -151,11 +151,11 @@ screens = [
 
 # Drag floating layouts.
 mouse = [
-    Drag([mod], "Button1", lazy.window.set_position_floating(),
+    Drag([WIN], "Button1", lazy.window.set_position_floating(),
          start=lazy.window.get_position()),
-    Drag([mod], "Button3", lazy.window.set_size_floating(),
+    Drag([WIN], "Button3", lazy.window.set_size_floating(),
          start=lazy.window.get_size()),
-    Click([mod], "Button2", lazy.window.bring_to_front())
+    Click([WIN], "Button2", lazy.window.bring_to_front())
 ]
 
 dgroups_key_binder = None
