@@ -256,6 +256,7 @@ def init_screen():
 screens = [
     init_screen(),
     init_screen(),
+    init_screen(),
 ]
 
 # Drag floating layouts.
