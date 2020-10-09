@@ -58,6 +58,9 @@ keys = [
     Key([WIN], "m", lazy.layout.maximize()),
     Key([WIN], "n", lazy.layout.normalize()),
 
+    Key([WIN, CTRL, SHIFT], "m", lazy.window.toggle_fullscreen()),
+    Key([WIN, CTRL, SHIFT], "f", lazy.window.toggle_floating()),
+
     # Move window within a layout
     Key([WIN, CTRL], "h", lazy.layout.shuffle_left()),
     Key([WIN, CTRL], "j", lazy.layout.shuffle_down()),
