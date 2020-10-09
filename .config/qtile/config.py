@@ -101,8 +101,8 @@ keys = [
 
 group_configs = [
     ("mail", {"layout": "monadtall"}),
-    ("wapp", {"layout": "monadtall"}),
     ("web", {"layout": "monadtall"}),
+    ("wapp", {"layout": "monadtall"}),
     ("dev_1", {"layout": "monadtall"}),
     ("dev_2", {"layout": "monadtall"}),
     ("dev_3", {"layout": "monadtall"}),
