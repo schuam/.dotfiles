@@ -122,23 +122,24 @@ for i, (name, kwargs) in enumerate(group_configs, 1):
     ])
 
 colors = {
-    "background": {"normal": "#002b36", "bright": "#002b36"},
-    "foreground": {"normal": "#839496", "bright": "#839496"},
-    "black":      {"normal": "#083f4d", "bright": "#0c677e"},
-    "red":        {"normal": "#dc322f", "bright": "#df5017"},
-    "green":      {"normal": "#169921", "bright": "#1aba27"},
-    "yellow":     {"normal": "#b58900", "bright": "#daa400"},
-    "blue":       {"normal": "#268bd2", "bright": "#2a9dea"},
-    "magenta":    {"normal": "#da54da", "bright": "#fe61fe"},
-    "cyan":       {"normal": "#26958c", "bright": "#2db0a5"},
-    "white":      {"normal": "#839496", "bright": "#b9d2d3"},
-    "border":     {"normal": "#555555", "bright": "#0a0aff"},
+    "background":    {"normal": "#083f4d", "bright": "#0c677e"},
+    "foreground":    {"normal": "#839496", "bright": "#eeeeee"},
+    "black":         {"normal": "#000000", "bright": "#222222"},
+    "red":           {"normal": "#dc322f", "bright": "#df5017"},
+    "green":         {"normal": "#169921", "bright": "#1aba27"},
+    "yellow":        {"normal": "#b58900", "bright": "#daa400"},
+    "blue":          {"normal": "#268bd2", "bright": "#2a9dea"},
+    "magenta":       {"normal": "#da54da", "bright": "#fe61fe"},
+    "cyan":          {"normal": "#26958c", "bright": "#2db0a5"},
+    "white":         {"normal": "#888888", "bright": "#ffffff"},
+    "border_focus":  {"normal": "#268bd2", "bright": "#2a9dea"},
+    "border_normal": {"normal": "#555555", "bright": "#888888"},
 }
 
 
 layout_theme = {
-    "border_focus": colors["border"]["bright"],
-    "border_normal": colors["border"]["normal"],
+    "border_focus": colors["border_focus"]["bright"],
+    "border_normal": colors["border_normal"]["normal"],
     "border_width": 3,
     "margin": 10,
     "ratio": 0.5,
@@ -158,31 +159,104 @@ layouts = [
 
 def init_widgets(primary_monitor=False):
     widgets = []
-#      widgets.append(widget.CurrentLayout())
-    widgets.append(widget.GroupBox())
-#      widgets.append(widget.Prompt())
-    widgets.append(widget.WindowName())
-    widgets.append(widget.Systray())
-    widgets.append(widget.Battery())
-    widgets.append(widget.Clock(format='%Y-%m-%d %H:%M'))
-#      widgets.append(widget.QuickExit())
+    widgets.append(widget.Sep(
+        linewidth = 0,
+        padding = 8,
+    ))
+    widgets.append(widget.GroupBox(
+        active=colors["foreground"]["bright"],
+        inactive=colors["foreground"]["normal"],
+        this_screen_border=colors["border_normal"]["bright"],
+        this_current_screen_border=colors["border_focus"]["bright"],
+        other_screen_border=colors["border_normal"]["normal"],
+        other_current_screen_border=colors["border_normal"]["normal"],
+        margin=3,
+    ))
+    widgets.append(widget.Sep(
+        linewidth = 2,
+        padding = 8,
+        foreground = colors["foreground"]["normal"],
+    ))
+    widgets.append(widget.CurrentLayout(
+        foreground=colors["foreground"]["normal"],
+    ))
+    widgets.append(widget.Sep(
+        linewidth = 2,
+        padding = 8,
+        foreground = colors["foreground"]["normal"],
+    ))
+    widgets.append(widget.WindowName(
+        foreground = colors["foreground"]["bright"],
+    ))
+
+    if primary_monitor == True:
+        widgets.append(widget.Systray())
+        widgets.append(widget.Sep(
+            linewidth = 2,
+            padding = 8,
+            foreground = colors["foreground"]["normal"],
+        ))
+
+    widgets.append(widget.Battery(
+        foreground = colors["foreground"]["normal"],
+        low_foreground = colors["red"]["bright"],
+        low_percentage = 5.0,
+        update_interval = 60,
+        full_char = "",
+        charge_char = "+",
+        discharge_char = "-",
+        empty_char = "",
+        format = "{char} {percent:02.1%}",
+    ))
+    widgets.append(widget.Sep(
+        linewidth = 2,
+        padding = 8,
+        foreground = colors["foreground"]["normal"],
+    ))
+    widgets.append(widget.TextBox(
+        text="Vol:",
+        foreground=colors["foreground"]["normal"],
+    ))
+    widgets.append(widget.PulseVolume(
+        foreground=colors["foreground"]["normal"]
+    ))
+    widgets.append(widget.Sep(
+        linewidth = 2,
+        padding = 8,
+        foreground = colors["foreground"]["normal"],
+    ))
+    widgets.append(widget.Clock(
+        foreground=colors["foreground"]["normal"],
+        format='%Y-%m-%d %H:%M',
+    ))
+    widgets.append(widget.Sep(
+        linewidth = 0,
+        padding = 8,
+    ))
 
     return widgets
 
-def init_bar():
-    return bar.Bar(init_widgets(), 30, background=colors["black"]["normal"])
 
-
-def init_screen():
-    return Screen(
-        top=init_bar(),
+def init_bar(primary_monitor=False):
+    return bar.Bar(
+        init_widgets(primary_monitor),
+        30,
+        background=colors["background"]["normal"],
     )
 
+
+def init_screen(primary_monitor=False):
+    return Screen(
+        top=init_bar(primary_monitor),
+    )
+
+
 screens = [
-    init_screen(),
-    init_screen(),
-    init_screen(),
+    init_screen(primary_monitor=False),
+    init_screen(primary_monitor=True),
+    init_screen(primary_monitor=False),
 ]
+
 
 # Drag floating layouts.
 mouse = [
