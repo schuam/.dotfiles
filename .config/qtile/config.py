@@ -37,119 +37,38 @@ mod = "mod4"
 
 keys = [
     # Window management
-    Key(
-        [mod], "j",
-        lazy.layout.down(),
-    ),
-    Key(
-        [mod], "k",
-        lazy.layout.up(),
-    ),
-    Key(
-        [mod], "h",
-        lazy.layout.left(),
-    ),
-    Key(
-        [mod], "l",
-        lazy.layout.right(),
-    ),
-    Key(
-        [mod], "e",
-        lazy.to_screen(0),
-    ),
-    Key(
-        [mod], "r",
-        lazy.to_screen(1),
-    ),
-    Key(
-        [mod, "shift"], "j",
-        lazy.layout.shuffle_down(),
-    ),
-    Key(
-        [mod, "shift"], "k",
-        lazy.layout.shuffle_up(),
-    ),
-    Key(
-        [mod, "shift"], "h",
-        lazy.layout.swap_left(),
-    ),
-    Key(
-        [mod, "shift"], "l",
-        lazy.layout.swap_right(),
-    ),
-    Key(
-        ["mod1"], "Tab",
-        lazy.layout.next(),
-    ),
-    Key(
-        [mod, "shift"], "space",
-        lazy.layout.flip(),
-    ),
-    Key(
-        [mod, "control"], "h",
-        lazy.layout.grow(),
-    ),
-    Key(
-        [mod, "control"], "l",
-        lazy.layout.shrink(),
-    ),
-    Key(
-        [mod, "control"], "n",
-        lazy.layout.normalize(),
-    ),
-    Key(
-        [mod, "control"], "m",
-        lazy.layout.maximize(),
-    ),
+    Key([mod], "j", lazy.layout.down()),
+    Key([mod], "k", lazy.layout.up()),
+    Key([mod], "h", lazy.layout.left()),
+    Key([mod], "l", lazy.layout.right()),
+    Key([mod], "e", lazy.to_screen(0)),
+    Key([mod], "r", lazy.to_screen(1)),
+    Key([mod, "shift"], "j", lazy.layout.shuffle_down()),
+    Key([mod, "shift"], "k", lazy.layout.shuffle_up()),
+    Key([mod, "shift"], "h", lazy.layout.swap_left()),
+    Key([mod, "shift"], "l", lazy.layout.swap_right()),
+    Key(["mod1"], "Tab", lazy.layout.next()),
+    Key([mod, "shift"], "space", lazy.layout.flip()),
+    Key([mod, "control"], "h", lazy.layout.grow()),
+    Key([mod, "control"], "l", lazy.layout.shrink()),
+    Key([mod, "control"], "n", lazy.layout.normalize()),
+    Key([mod, "control"], "m", lazy.layout.maximize()),
     # Start applications
-    Key(
-        [mod], "Return",
-        lazy.spawn("alacritty"),
-    ),
-    Key(
-        ["mod1"], "Return",
-        lazy.spawn("alacritty"),
-    ),
-    Key(
-        ["mod1"], "space",
-        lazy.spawn("dmenu_run -fn xtf:inconsolata:pixelsize=12 -p 'Run: '"),
-    ),
-    Key(
-        [mod, "mod1"], "b",
-        lazy.spawn("firefox"),
-    ),
-    Key(
-        [mod, "mod1"], "p",
-        lazy.spawn("pavucontrol"),
-    ),
+    Key([mod], "Return", lazy.spawn("alacritty")),
+    Key(["mod1"], "Return", lazy.spawn("alacritty")),
+    Key(["mod1"], "space", lazy.spawn("dmenu_run -fn xtf:inconsolata:pixelsize=12 -p 'Run: '")),
+    Key([mod, "mod1"], "b", lazy.spawn("firefox")),
+    Key([mod, "mod1"], "p", lazy.spawn("pavucontrol")),
     # Close applications
-    Key(
-        ["mod1"], "F4",
-        lazy.window.kill(),
-    ),
-    Key(
-        [mod], "w",
-        lazy.window.kill(),
-    ),
+    Key(["mod1"], "F4", lazy.window.kill()),
+    Key([mod], "w", lazy.window.kill()),
     # Layouts
-    Key(
-        [mod], "Tab",
-        lazy.next_layout(),
-    ),
+    Key([mod], "Tab", lazy.next_layout()),
     # Lock screen
-    Key(
-        [mod, "mod1"], "l",
-        lazy.spawn("xscreensaver-command -lock"),
-    ),
+    Key([mod, "mod1"], "l", lazy.spawn("xscreensaver-command -lock")),
     # Restart/quit Qtile
-    Key(
-        [mod, "control"], "r",
-        lazy.restart(),
-    ),
-    Key(
-        [mod, "control"], "q",
-        lazy.shutdown(),
-    ),
+    Key([mod, "control"], "r", lazy.restart()),
+    Key([mod, "control"], "q", lazy.shutdown()),
 ]
 
 
