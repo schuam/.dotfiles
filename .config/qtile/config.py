@@ -249,8 +249,6 @@ def init_bar():
 def init_screen():
     return Screen(
         top=init_bar(),
-        wallpaper="~/Next/contents/images/1366x768.png",
-        wallpaper_mode="fill",
     )
 
 screens = [

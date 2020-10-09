@@ -1,3 +1,4 @@
 #!/bin/sh
 
-nm-applet &
+nitrogen --restore &
+
