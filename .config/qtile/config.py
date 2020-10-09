@@ -215,6 +215,5 @@ wmname = "LG3D"
 
 @hook.subscribe.startup_complete
 def autostart_complete():
-    home = os.path.expanduser('~')
-    subprocess.call([home + '/.config/qtile/autostart_complete.sh'])
+    subprocess.call([HOME + '/.config/qtile/autostart_complete.sh'])
 
