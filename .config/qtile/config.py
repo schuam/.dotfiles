@@ -155,28 +155,22 @@ layouts = [
     layout.Floating(**layout_theme),
 ]
 
-widget_defaults = dict(
-    font='sans',
-    fontsize=12,
-    padding=3,
-)
-extension_defaults = widget_defaults.copy()
 
-def init_widgets_list():
-    widgets_list = [
-        widget.CurrentLayout(),
-        widget.GroupBox(),
-        widget.Prompt(),
-        widget.WindowName(),
-        widget.Systray(),
-        widget.Battery(),
-        widget.Clock(format='%a %Y-%m-%d %H:%M'),
-        widget.QuickExit(),
-    ]
-    return widgets_list
+def init_widgets(primary_monitor=False):
+    widgets = []
+#      widgets.append(widget.CurrentLayout())
+    widgets.append(widget.GroupBox())
+#      widgets.append(widget.Prompt())
+    widgets.append(widget.WindowName())
+    widgets.append(widget.Systray())
+    widgets.append(widget.Battery())
+    widgets.append(widget.Clock(format='%Y-%m-%d %H:%M'))
+#      widgets.append(widget.QuickExit())
+
+    return widgets
 
 def init_bar():
-    return bar.Bar(init_widgets_list(), 30, background="333333")
+    return bar.Bar(init_widgets(), 30, background="333333")
 
 
 def init_screen():
