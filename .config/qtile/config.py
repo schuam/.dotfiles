@@ -34,6 +34,7 @@ import os
 import subprocess
 
 WIN = "mod4"
+ALT = "mod1"
 
 keys = [
     # Window management
@@ -47,7 +48,7 @@ keys = [
     Key([WIN, "shift"], "k", lazy.layout.shuffle_up()),
     Key([WIN, "shift"], "h", lazy.layout.swap_left()),
     Key([WIN, "shift"], "l", lazy.layout.swap_right()),
-    Key(["mod1"], "Tab", lazy.layout.next()),
+    Key([ALT], "Tab", lazy.layout.next()),
     Key([WIN, "shift"], "space", lazy.layout.flip()),
     Key([WIN, "control"], "h", lazy.layout.grow()),
     Key([WIN, "control"], "l", lazy.layout.shrink()),
@@ -55,17 +56,17 @@ keys = [
     Key([WIN, "control"], "m", lazy.layout.maximize()),
     # Start applications
     Key([WIN], "Return", lazy.spawn("alacritty")),
-    Key(["mod1"], "Return", lazy.spawn("alacritty")),
-    Key(["mod1"], "space", lazy.spawn("dmenu_run -fn xtf:inconsolata:pixelsize=12 -p 'Run: '")),
-    Key([WIN, "mod1"], "b", lazy.spawn("firefox")),
-    Key([WIN, "mod1"], "p", lazy.spawn("pavucontrol")),
+    Key([ALT], "Return", lazy.spawn("alacritty")),
+    Key([ALT], "space", lazy.spawn("dmenu_run -fn xtf:inconsolata:pixelsize=12 -p 'Run: '")),
+    Key([WIN, ALT], "b", lazy.spawn("firefox")),
+    Key([WIN, ALT], "p", lazy.spawn("pavucontrol")),
     # Close applications
-    Key(["mod1"], "F4", lazy.window.kill()),
+    Key([ALT], "F4", lazy.window.kill()),
     Key([WIN], "w", lazy.window.kill()),
     # Layouts
     Key([WIN], "Tab", lazy.next_layout()),
     # Lock screen
-    Key([WIN, "mod1"], "l", lazy.spawn("xscreensaver-command -lock")),
+    Key([WIN, ALT], "l", lazy.spawn("xscreensaver-command -lock")),
     # Restart/quit Qtile
     Key([WIN, "control"], "r", lazy.restart()),
     Key([WIN, "control"], "q", lazy.shutdown()),
