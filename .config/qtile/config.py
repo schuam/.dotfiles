@@ -137,8 +137,8 @@ colors = {
 
 
 layout_theme = {
-    "border_focus": "0a0aff",
-    "border_normal": "555555",
+    "border_focus": colors["border"]["bright"],
+    "border_normal": colors["border"]["normal"],
     "border_width": 3,
     "margin": 10,
     "ratio": 0.5,
@@ -170,7 +170,7 @@ def init_widgets(primary_monitor=False):
     return widgets
 
 def init_bar():
-    return bar.Bar(init_widgets(), 30, background="333333")
+    return bar.Bar(init_widgets(), 30, background=colors["black"]["normal"])
 
 
 def init_screen():
