@@ -38,6 +38,8 @@ ALT = "mod1"
 SHIFT = "shift"
 CTRL = "control"
 
+HOME = os.path.expanduser('~')
+
 my_terminal = "alacritty"
 
 
@@ -74,7 +76,8 @@ keys = [
     Key([WIN], "f", lazy.to_screen(2)),
 
     # Start applications
-    Key([ALT], "Return", lazy.spawn(my_terminal)),
+    Key([ALT], "Return", lazy.spawn(
+        my_terminal + " --working-directory " + HOME)),
     Key([ALT], "space", lazy.spawn("dmenu_run -p 'Run: '")),
     Key([ALT, CTRL], "b", lazy.spawn("firefox")),
     Key([ALT, CTRL], "m", lazy.spawn("thunderbird")),
