@@ -24,6 +24,10 @@
 # OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 # SOFTWARE.
 
+# -----------------------------------------------------------------------------
+# imports
+# -----------------------------------------------------------------------------
+
 from libqtile.config import Key, Screen, Group, Drag, Click
 from libqtile.lazy import lazy
 from libqtile import layout, bar, widget, hook
@@ -33,6 +37,12 @@ from typing import List  # noqa: F401
 import os
 import subprocess
 
+
+
+# -----------------------------------------------------------------------------
+# constants
+# -----------------------------------------------------------------------------
+
 WIN = "mod4"
 ALT = "mod1"
 SHIFT = "shift"
@@ -40,8 +50,57 @@ CTRL = "control"
 
 HOME = os.path.expanduser('~')
 
+
+# -----------------------------------------------------------------------------
+# global veriables
+# -----------------------------------------------------------------------------
+
 my_terminal = "alacritty"
 
+colors = {
+    "background":    {"normal": "#083f4d", "bright": "#0c677e"},
+    "foreground":    {"normal": "#839496", "bright": "#eeeeee"},
+    "black":         {"normal": "#000000", "bright": "#222222"},
+    "red":           {"normal": "#dc322f", "bright": "#df5017"},
+    "green":         {"normal": "#169921", "bright": "#1aba27"},
+    "yellow":        {"normal": "#b58900", "bright": "#daa400"},
+    "blue":          {"normal": "#268bd2", "bright": "#2a9dea"},
+    "magenta":       {"normal": "#da54da", "bright": "#fe61fe"},
+    "cyan":          {"normal": "#26958c", "bright": "#2db0a5"},
+    "white":         {"normal": "#888888", "bright": "#ffffff"},
+    "border_focus":  {"normal": "#268bd2", "bright": "#2a9dea"},
+    "border_normal": {"normal": "#555555", "bright": "#888888"},
+}
+
+
+# -----------------------------------------------------------------------------
+# configuration
+# -----------------------------------------------------------------------------
+
+# from default config file
+# -----------------------------------------------------------------------------
+
+auto_fullscreen = True
+focus_on_window_activation = "smart"
+
+mouse = [
+    Drag([WIN], "Button1", lazy.window.set_position_floating(),
+         start=lazy.window.get_position()),
+    Drag([WIN], "Button3", lazy.window.set_size_floating(),
+         start=lazy.window.get_size()),
+    Click([WIN], "Button2", lazy.window.bring_to_front())
+]
+
+dgroups_key_binder = None
+dgroups_app_rules = []  # type: List
+main = None
+follow_mouse_focus = False
+bring_front_click = False
+cursor_warp = False
+
+
+# keys
+# -----------------------------------------------------------------------------
 
 keys = [
     # Move window focus
@@ -99,6 +158,9 @@ keys = [
     Key([WIN, CTRL], "q", lazy.shutdown()),
 ]
 
+# groups
+# -----------------------------------------------------------------------------
+
 group_configs = [
     ("mail", {"layout": "monadtall"}),
     ("web", {"layout": "monadtall"}),
@@ -121,21 +183,9 @@ for i, (name, kwargs) in enumerate(group_configs, 1):
         Key([WIN, SHIFT], str(i), lazy.window.togroup(name, switch_group=False)),
     ])
 
-colors = {
-    "background":    {"normal": "#083f4d", "bright": "#0c677e"},
-    "foreground":    {"normal": "#839496", "bright": "#eeeeee"},
-    "black":         {"normal": "#000000", "bright": "#222222"},
-    "red":           {"normal": "#dc322f", "bright": "#df5017"},
-    "green":         {"normal": "#169921", "bright": "#1aba27"},
-    "yellow":        {"normal": "#b58900", "bright": "#daa400"},
-    "blue":          {"normal": "#268bd2", "bright": "#2a9dea"},
-    "magenta":       {"normal": "#da54da", "bright": "#fe61fe"},
-    "cyan":          {"normal": "#26958c", "bright": "#2db0a5"},
-    "white":         {"normal": "#888888", "bright": "#ffffff"},
-    "border_focus":  {"normal": "#268bd2", "bright": "#2a9dea"},
-    "border_normal": {"normal": "#555555", "bright": "#888888"},
-}
 
+# layouts
+# -----------------------------------------------------------------------------
 
 layout_theme = {
     "border_focus": colors["border_focus"]["bright"],
@@ -156,6 +206,27 @@ layouts = [
     layout.Floating(**layout_theme),
 ]
 
+floating_layout = layout.Floating(float_rules=[
+    # Run the utility of `xprop` to see the wm class and name of an X client.
+    {'wmclass': 'confirm'},
+    {'wmclass': 'dialog'},
+    {'wmclass': 'download'},
+    {'wmclass': 'error'},
+    {'wmclass': 'file_progress'},
+    {'wmclass': 'notification'},
+    {'wmclass': 'splash'},
+    {'wmclass': 'toolbar'},
+    {'wmclass': 'confirmreset'},  # gitk
+    {'wmclass': 'makebranch'},  # gitk
+    {'wmclass': 'maketag'},  # gitk
+    {'wname': 'branchdialog'},  # gitk
+    {'wname': 'pinentry'},  # GPG key password entry
+    {'wmclass': 'ssh-askpass'},  # ssh-askpass
+])
+
+
+# screens
+# -----------------------------------------------------------------------------
 
 def init_widgets(primary_monitor=False):
     widgets = []
@@ -258,40 +329,9 @@ screens = [
 ]
 
 
-# Drag floating layouts.
-mouse = [
-    Drag([WIN], "Button1", lazy.window.set_position_floating(),
-         start=lazy.window.get_position()),
-    Drag([WIN], "Button3", lazy.window.set_size_floating(),
-         start=lazy.window.get_size()),
-    Click([WIN], "Button2", lazy.window.bring_to_front())
-]
-
-dgroups_key_binder = None
-dgroups_app_rules = []  # type: List
-main = None
-follow_mouse_focus = False
-bring_front_click = False
-cursor_warp = False
-floating_layout = layout.Floating(float_rules=[
-    # Run the utility of `xprop` to see the wm class and name of an X client.
-    {'wmclass': 'confirm'},
-    {'wmclass': 'dialog'},
-    {'wmclass': 'download'},
-    {'wmclass': 'error'},
-    {'wmclass': 'file_progress'},
-    {'wmclass': 'notification'},
-    {'wmclass': 'splash'},
-    {'wmclass': 'toolbar'},
-    {'wmclass': 'confirmreset'},  # gitk
-    {'wmclass': 'makebranch'},  # gitk
-    {'wmclass': 'maketag'},  # gitk
-    {'wname': 'branchdialog'},  # gitk
-    {'wname': 'pinentry'},  # GPG key password entry
-    {'wmclass': 'ssh-askpass'},  # ssh-askpass
-])
-auto_fullscreen = True
-focus_on_window_activation = "smart"
+# -----------------------------------------------------------------------------
+# other stuff
+# -----------------------------------------------------------------------------
 
 # XXX: Gasp! We're lying here. In fact, nobody really uses or cares about this
 # string besides java UI toolkits; you can see several discussions on the
@@ -302,6 +342,11 @@ focus_on_window_activation = "smart"
 # We choose LG3D to maximize irony: it is a 3D non-reparenting WM written in
 # java that happens to be on java's whitelist.
 wmname = "LG3D"
+
+
+# -----------------------------------------------------------------------------
+# hooks
+# -----------------------------------------------------------------------------
 
 @hook.subscribe.startup_complete
 def autostart_complete():
