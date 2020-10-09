@@ -216,10 +216,7 @@ floating_layout = layout.Floating(float_rules=[
     {'wmclass': 'notification'},
     {'wmclass': 'splash'},
     {'wmclass': 'toolbar'},
-    {'wmclass': 'confirmreset'},  # gitk
-    {'wmclass': 'makebranch'},  # gitk
-    {'wmclass': 'maketag'},  # gitk
-    {'wname': 'branchdialog'},  # gitk
+    {'wmclass': 'gitk' },
     {'wname': 'pinentry'},  # GPG key password entry
     {'wmclass': 'ssh-askpass'},  # ssh-askpass
 ])
