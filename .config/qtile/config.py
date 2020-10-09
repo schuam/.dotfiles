@@ -35,6 +35,8 @@ import subprocess
 
 WIN = "mod4"
 ALT = "mod1"
+SHIFT = "shift"
+CTRL = "control"
 
 keys = [
     # Window management
@@ -44,16 +46,16 @@ keys = [
     Key([WIN], "l", lazy.layout.right()),
     Key([WIN], "e", lazy.to_screen(0)),
     Key([WIN], "r", lazy.to_screen(1)),
-    Key([WIN, "shift"], "j", lazy.layout.shuffle_down()),
-    Key([WIN, "shift"], "k", lazy.layout.shuffle_up()),
-    Key([WIN, "shift"], "h", lazy.layout.swap_left()),
-    Key([WIN, "shift"], "l", lazy.layout.swap_right()),
+    Key([WIN, SHIFT], "j", lazy.layout.shuffle_down()),
+    Key([WIN, SHIFT], "k", lazy.layout.shuffle_up()),
+    Key([WIN, SHIFT], "h", lazy.layout.swap_left()),
+    Key([WIN, SHIFT], "l", lazy.layout.swap_right()),
     Key([ALT], "Tab", lazy.layout.next()),
-    Key([WIN, "shift"], "space", lazy.layout.flip()),
-    Key([WIN, "control"], "h", lazy.layout.grow()),
-    Key([WIN, "control"], "l", lazy.layout.shrink()),
-    Key([WIN, "control"], "n", lazy.layout.normalize()),
-    Key([WIN, "control"], "m", lazy.layout.maximize()),
+    Key([WIN, SHIFT], "space", lazy.layout.flip()),
+    Key([WIN, CTRL], "h", lazy.layout.grow()),
+    Key([WIN, CTRL], "l", lazy.layout.shrink()),
+    Key([WIN, CTRL], "n", lazy.layout.normalize()),
+    Key([WIN, CTRL], "m", lazy.layout.maximize()),
     # Start applications
     Key([WIN], "Return", lazy.spawn("alacritty")),
     Key([ALT], "Return", lazy.spawn("alacritty")),
@@ -68,8 +70,8 @@ keys = [
     # Lock screen
     Key([WIN, ALT], "l", lazy.spawn("xscreensaver-command -lock")),
     # Restart/quit Qtile
-    Key([WIN, "control"], "r", lazy.restart()),
-    Key([WIN, "control"], "q", lazy.shutdown()),
+    Key([WIN, CTRL], "r", lazy.restart()),
+    Key([WIN, CTRL], "q", lazy.shutdown()),
 ]
 
 
@@ -83,7 +85,7 @@ for i in groups:
             desc="Switch focus to another group",
         ),
         Key(
-            [WIN, "shift"], i.name,
+            [WIN, SHIFT], i.name,
             lazy.window.togroup(i.name, switch_group=True),
             desc="Send window to another group",
         ),
