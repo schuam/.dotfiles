@@ -40,142 +40,115 @@ keys = [
     Key(
         [mod], "j",
         lazy.layout.down(),
-        desc="Move window focus down the current stack",
     ),
     Key(
         [mod], "k",
         lazy.layout.up(),
-        desc="Move window focus up the current stack",
     ),
     Key(
         [mod], "h",
         lazy.layout.left(),
-        desc="Move window focus to the left",
     ),
     Key(
         [mod], "l",
         lazy.layout.right(),
-        desc="Move window focus to the right",
     ),
     Key(
         [mod], "e",
         lazy.to_screen(0),
-        desc='Keyboard focus to monitor 1',
     ),
     Key(
         [mod], "r",
         lazy.to_screen(1),
-        desc='Keyboard focus to monitor 2',
     ),
     Key(
         [mod, "shift"], "j",
         lazy.layout.shuffle_down(),
-        desc="Move window down in the currentn stack",
     ),
     Key(
         [mod, "shift"], "k",
         lazy.layout.shuffle_up(),
-        desc="Move window up in the current stack",
     ),
     Key(
         [mod, "shift"], "h",
         lazy.layout.swap_left(),
-        desc="Move window focus ot the left",
     ),
     Key(
         [mod, "shift"], "l",
         lazy.layout.swap_right(),
-        desc="Move window focus ot the right",
     ),
     Key(
         ["mod1"], "Tab",
         lazy.layout.next(),
-        desc="Switch focus to next window",
     ),
     Key(
         [mod, "shift"], "space",
         lazy.layout.flip(),
-        desc="Flip layout",
     ),
     Key(
         [mod, "control"], "h",
         lazy.layout.grow(),
-        desc="Expand window (MonadTall)",
     ),
     Key(
         [mod, "control"], "l",
         lazy.layout.shrink(),
-        desc="Shrink window (MonadTall)",
     ),
     Key(
         [mod, "control"], "n",
         lazy.layout.normalize(),
-        desc="normalize window size ratios",
     ),
     Key(
         [mod, "control"], "m",
         lazy.layout.maximize(),
-        desc="toggle window between minimum and maximum sizes",
     ),
     # Start applications
     Key(
         [mod], "Return",
         lazy.spawn("alacritty"),
-        desc="Open terminal emulator",
     ),
     Key(
         ["mod1"], "Return",
         lazy.spawn("alacritty"),
-        desc="Open terminal emulator",
     ),
     Key(
         ["mod1"], "space",
         lazy.spawn("dmenu_run -fn xtf:inconsolata:pixelsize=12 -p 'Run: '"),
-        desc="Open dmenu",
     ),
     Key(
         [mod, "mod1"], "b",
         lazy.spawn("firefox"),
-        desc="Open browser",
     ),
     Key(
         [mod, "mod1"], "p",
         lazy.spawn("pavucontrol"),
-        desc="Open audio control",
     ),
     # Close applications
     Key(
         ["mod1"], "F4",
         lazy.window.kill(),
-        desc="Close window with focus",
     ),
     Key(
         [mod], "w",
         lazy.window.kill(),
-        desc="Close window with focus",
     ),
     # Layouts
     Key(
         [mod], "Tab",
         lazy.next_layout(),
-        desc="Toggle between layouts",
     ),
     # Lock screen
     Key(
         [mod, "mod1"], "l",
         lazy.spawn("xscreensaver-command -lock"),
-        desc="Lock screen",
     ),
     # Restart/quit Qtile
     Key(
         [mod, "control"], "r",
         lazy.restart(),
-        desc="Restart Qtile",
     ),
     Key(
         [mod, "control"], "q",
         lazy.shutdown(),
-        desc="Shutdown Qtile",
     ),
 ]
 
