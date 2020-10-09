@@ -303,7 +303,7 @@ focus_on_window_activation = "smart"
 wmname = "LG3D"
 
 @hook.subscribe.startup_complete
-def autostart():
+def autostart_complete():
     home = os.path.expanduser('~')
-    subprocess.call([home + '/.config/qtile/autostart.sh'])
+    subprocess.call([home + '/.config/qtile/autostart_complete.sh'])
 
