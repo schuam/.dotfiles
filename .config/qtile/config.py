@@ -123,17 +123,9 @@ layout_theme = {
 layouts = [
     layout.MonadTall(**layout_theme),
     layout.Max(**layout_theme),
-    layout.Matrix(columns=2, **layout_theme),
-    layout.TreeTab(**layout_theme),
     layout.MonadWide(**layout_theme),
+    layout.Matrix(columns=2, **layout_theme),
     layout.Floating(**layout_theme),
-    # Try more layouts by unleashing below layouts.
-    # layout.Bsp(),
-    # layout.Columns(),
-    # layout.RatioTile(),
-    # layout.Tile(),
-    # layout.VerticalTile(),
-    # layout.Zoomy(),
 ]
 
 widget_defaults = dict(
