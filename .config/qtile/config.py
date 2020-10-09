@@ -38,57 +38,70 @@ ALT = "mod1"
 SHIFT = "shift"
 CTRL = "control"
 
+my_terminal = "alacritty"
+
+
 keys = [
-    # Window management
+    # Move window focus
+    Key([WIN], "h", lazy.layout.left()),
     Key([WIN], "j", lazy.layout.down()),
     Key([WIN], "k", lazy.layout.up()),
-    Key([WIN], "h", lazy.layout.left()),
     Key([WIN], "l", lazy.layout.right()),
-    Key([WIN], "e", lazy.to_screen(0)),
-    Key([WIN], "r", lazy.to_screen(1)),
-    Key([WIN, SHIFT], "j", lazy.layout.shuffle_down()),
-    Key([WIN, SHIFT], "k", lazy.layout.shuffle_up()),
-    Key([WIN, SHIFT], "h", lazy.layout.swap_left()),
-    Key([WIN, SHIFT], "l", lazy.layout.swap_right()),
-    Key([ALT], "Tab", lazy.layout.next()),
-    Key([WIN, SHIFT], "space", lazy.layout.flip()),
-    Key([WIN, CTRL], "h", lazy.layout.grow()),
-    Key([WIN, CTRL], "l", lazy.layout.shrink()),
-    Key([WIN, CTRL], "n", lazy.layout.normalize()),
-    Key([WIN, CTRL], "m", lazy.layout.maximize()),
+
+    Key([ALT], "Tab", lazy.layout.up()),
+
+    # Change window size
+    Key([WIN], "i", lazy.layout.grow()),
+    Key([WIN], "o", lazy.layout.shrink()),
+    Key([WIN], "m", lazy.layout.maximize()),
+    Key([WIN], "n", lazy.layout.normalize()),
+
+    # Move window within a layout
+    Key([WIN, CTRL], "h", lazy.layout.shuffle_left()),
+    Key([WIN, CTRL], "j", lazy.layout.shuffle_down()),
+    Key([WIN, CTRL], "k", lazy.layout.shuffle_up()),
+    Key([WIN, CTRL], "l", lazy.layout.shuffle_right()),
+
+    # Flip layout (monadtall and monadwide)
+    Key([WIN, CTRL], "space", lazy.layout.flip()),
+
+    # Switch layouts
+    Key([WIN], "Tab", lazy.next_layout()),
+
+    # Move monitor focus
+    Key([WIN], "s", lazy.to_screen(0)),
+    Key([WIN], "d", lazy.to_screen(1)),
+    Key([WIN], "f", lazy.to_screen(2)),
+
     # Start applications
-    Key([WIN], "Return", lazy.spawn("alacritty")),
-    Key([ALT], "Return", lazy.spawn("alacritty")),
-    Key([ALT], "space", lazy.spawn("dmenu_run -fn xtf:inconsolata:pixelsize=12 -p 'Run: '")),
-    Key([WIN, ALT], "b", lazy.spawn("firefox")),
-    Key([WIN, ALT], "p", lazy.spawn("pavucontrol")),
+    Key([ALT], "Return", lazy.spawn(my_terminal)),
+    Key([ALT], "space", lazy.spawn("dmenu_run -p 'Run: '")),
+    Key([ALT, CTRL], "b", lazy.spawn("firefox")),
+    Key([ALT, CTRL], "m", lazy.spawn("thunderbird")),
+    Key([ALT, CTRL], "f", lazy.spawn(my_terminal + " -e vifm")),
+    Key([ALT, CTRL], "p", lazy.spawn("pavucontrol")),
+
     # Close applications
     Key([ALT], "F4", lazy.window.kill()),
     Key([WIN], "w", lazy.window.kill()),
-    # Layouts
-    Key([WIN], "Tab", lazy.next_layout()),
+
     # Lock screen
     Key([WIN, ALT], "l", lazy.spawn("xscreensaver-command -lock")),
+
     # Restart/quit Qtile
     Key([WIN, CTRL], "r", lazy.restart()),
     Key([WIN, CTRL], "q", lazy.shutdown()),
 ]
 
 
-groups = [Group(i) for i in "asdfuiop"]
+groups = [Group(i) for i in "12345678"]
 
 for i in groups:
     keys.extend([
-        Key(
-            [WIN], i.name,
-            lazy.group[i.name].toscreen(),
-            desc="Switch focus to another group",
-        ),
-        Key(
-            [WIN, SHIFT], i.name,
-            lazy.window.togroup(i.name, switch_group=True),
-            desc="Send window to another group",
-        ),
+        # Go to workspace x
+        Key([WIN], i.name, lazy.group[i.name].toscreen()),
+        # Send window to workspace x
+        Key([WIN, SHIFT], i.name, lazy.window.togroup(i.name, switch_group=False)),
     ])
 
 layout_theme = {
