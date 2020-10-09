@@ -111,13 +111,14 @@ for i in groups:
     ])
 
 layout_theme = {
+    "border_focus": "0a0aff",
+    "border_normal": "555555",
     "border_width": 3,
     "margin": 10,
-    "border_focus": "e1acff",
-    "border_normal": "333333",
+    "ratio": 0.5,
     "max_ratio": 0.85,
     "min_raton": 0.25,
-    "ratio": 0.5,
+    "new_at_current": False,
 }
 
 layouts = [
