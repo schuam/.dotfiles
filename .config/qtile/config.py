@@ -121,6 +121,21 @@ for i, (name, kwargs) in enumerate(group_configs, 1):
         Key([WIN, SHIFT], str(i), lazy.window.togroup(name, switch_group=False)),
     ])
 
+colors = {
+    "background": {"normal": "#002b36", "bright": "#002b36"},
+    "foreground": {"normal": "#839496", "bright": "#839496"},
+    "black":      {"normal": "#083f4d", "bright": "#0c677e"},
+    "red":        {"normal": "#dc322f", "bright": "#df5017"},
+    "green":      {"normal": "#169921", "bright": "#1aba27"},
+    "yellow":     {"normal": "#b58900", "bright": "#daa400"},
+    "blue":       {"normal": "#268bd2", "bright": "#2a9dea"},
+    "magenta":    {"normal": "#da54da", "bright": "#fe61fe"},
+    "cyan":       {"normal": "#26958c", "bright": "#2db0a5"},
+    "white":      {"normal": "#839496", "bright": "#b9d2d3"},
+    "border":     {"normal": "#555555", "bright": "#0a0aff"},
+}
+
+
 layout_theme = {
     "border_focus": "0a0aff",
     "border_normal": "555555",
