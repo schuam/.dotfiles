@@ -99,15 +99,26 @@ keys = [
     Key([WIN, CTRL], "q", lazy.shutdown()),
 ]
 
+group_configs = [
+    ("mail", {"layout": "monadtall"}),
+    ("wapp", {"layout": "monadtall"}),
+    ("web", {"layout": "monadtall"}),
+    ("dev_1", {"layout": "monadtall"}),
+    ("dev_2", {"layout": "monadtall"}),
+    ("dev_3", {"layout": "monadtall"}),
+    ("free_1", {"layout": "monadtall"}),
+    ("free_2", {"layout": "monadtall"}),
+    ("free_3", {"layout": "monadtall"}),
+]
 
-groups = [Group(i) for i in "12345678"]
+groups = [Group(name, **kwargs) for name, kwargs in group_configs]
 
-for i in groups:
+for i, (name, kwargs) in enumerate(group_configs, 1):
     keys.extend([
         # Go to workspace x
-        Key([WIN], i.name, lazy.group[i.name].toscreen()),
+        Key([WIN], str(i), lazy.group[name].toscreen()),
         # Send window to workspace x
-        Key([WIN, SHIFT], i.name, lazy.window.togroup(i.name, switch_group=False)),
+        Key([WIN, SHIFT], str(i), lazy.window.togroup(name, switch_group=False)),
     ])
 
 layout_theme = {
