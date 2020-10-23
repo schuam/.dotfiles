@@ -183,6 +183,32 @@ for i, (name, kwargs) in enumerate(group_configs, 1):
         Key([WIN, SHIFT], str(i), lazy.window.togroup(name, switch_group=False)),
     ])
 
+# Show certain set of workspaces on the three monitors
+keys.append(
+    Key([WIN], "x",
+        lazy.to_screen(0), lazy.group[group_configs[0][0]].toscreen(),
+        lazy.to_screen(1), lazy.group[group_configs[1][0]].toscreen(),
+        lazy.to_screen(2), lazy.group[group_configs[2][0]].toscreen(),
+        lazy.to_screen(1),
+    )
+)
+keys.append(
+    Key([WIN], "c",
+        lazy.to_screen(0), lazy.group[group_configs[3][0]].toscreen(),
+        lazy.to_screen(1), lazy.group[group_configs[4][0]].toscreen(),
+        lazy.to_screen(2), lazy.group[group_configs[5][0]].toscreen(),
+        lazy.to_screen(1),
+    )
+)
+keys.append(
+    Key([WIN], "v",
+        lazy.to_screen(0), lazy.group[group_configs[6][0]].toscreen(),
+        lazy.to_screen(1), lazy.group[group_configs[7][0]].toscreen(),
+        lazy.to_screen(2), lazy.group[group_configs[8][0]].toscreen(),
+        lazy.to_screen(1),
+    )
+)
+
 
 # layouts
 # -----------------------------------------------------------------------------
