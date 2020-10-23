@@ -10,6 +10,9 @@ export GEM_PATH=$HOME/workspaces/ruby/gems
 export PATH="$PATH:$HOME/workspaces/tools/bin"
 export PATH="$PATH:$HOME/workspaces/ruby/gems/bin"
 
+# Workaround for a bug in libreoffice: needed to show menu icons correctly.
+export SAL_USE_VCLPLUGIN=gen
+
 setleds -D +num
 
 source ~/.bashrc
