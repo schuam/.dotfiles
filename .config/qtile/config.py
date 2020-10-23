@@ -24,6 +24,10 @@
 # OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 # SOFTWARE.
 
+# -----------------------------------------------------------------------------
+# imports
+# -----------------------------------------------------------------------------
+
 from libqtile.config import Key, Screen, Group, Drag, Click
 from libqtile.lazy import lazy
 from libqtile import layout, bar, widget, hook
@@ -33,238 +37,58 @@ from typing import List  # noqa: F401
 import os
 import subprocess
 
-mod = "mod4"
-
-keys = [
-    # Window management
-    Key(
-        [mod], "j",
-        lazy.layout.down(),
-        desc="Move window focus down the current stack",
-    ),
-    Key(
-        [mod], "k",
-        lazy.layout.up(),
-        desc="Move window focus up the current stack",
-    ),
-    Key(
-        [mod], "h",
-        lazy.layout.left(),
-        desc="Move window focus to the left",
-    ),
-    Key(
-        [mod], "l",
-        lazy.layout.right(),
-        desc="Move window focus to the right",
-    ),
-    Key(
-        [mod], "e",
-        lazy.to_screen(0),
-        desc='Keyboard focus to monitor 1',
-    ),
-    Key(
-        [mod], "r",
-        lazy.to_screen(1),
-        desc='Keyboard focus to monitor 2',
-    ),
-    Key(
-        [mod, "shift"], "j",
-        lazy.layout.shuffle_down(),
-        desc="Move window down in the currentn stack",
-    ),
-    Key(
-        [mod, "shift"], "k",
-        lazy.layout.shuffle_up(),
-        desc="Move window up in the current stack",
-    ),
-    Key(
-        [mod, "shift"], "h",
-        lazy.layout.swap_left(),
-        desc="Move window focus ot the left",
-    ),
-    Key(
-        [mod, "shift"], "l",
-        lazy.layout.swap_right(),
-        desc="Move window focus ot the right",
-    ),
-    Key(
-        ["mod1"], "Tab",
-        lazy.layout.next(),
-        desc="Switch focus to next window",
-    ),
-    Key(
-        [mod, "shift"], "space",
-        lazy.layout.flip(),
-        desc="Flip layout",
-    ),
-    Key(
-        [mod, "control"], "h",
-        lazy.layout.grow(),
-        desc="Expand window (MonadTall)",
-    ),
-    Key(
-        [mod, "control"], "l",
-        lazy.layout.shrink(),
-        desc="Shrink window (MonadTall)",
-    ),
-    Key(
-        [mod, "control"], "n",
-        lazy.layout.normalize(),
-        desc="normalize window size ratios",
-    ),
-    Key(
-        [mod, "control"], "m",
-        lazy.layout.maximize(),
-        desc="toggle window between minimum and maximum sizes",
-    ),
-    # Start applications
-    Key(
-        [mod], "Return",
-        lazy.spawn("alacritty"),
-        desc="Open terminal emulator",
-    ),
-    Key(
-        ["mod1"], "Return",
-        lazy.spawn("alacritty"),
-        desc="Open terminal emulator",
-    ),
-    Key(
-        ["mod1"], "space",
-        lazy.spawn("dmenu_run -fn xtf:inconsolata:pixelsize=12 -p 'Run: '"),
-        desc="Open dmenu",
-    ),
-    Key(
-        [mod, "mod1"], "b",
-        lazy.spawn("firefox"),
-        desc="Open browser",
-    ),
-    Key(
-        [mod, "mod1"], "p",
-        lazy.spawn("pavucontrol"),
-        desc="Open audio control",
-    ),
-    # Close applications
-    Key(
-        ["mod1"], "F4",
-        lazy.window.kill(),
-        desc="Close window with focus",
-    ),
-    Key(
-        [mod], "w",
-        lazy.window.kill(),
-        desc="Close window with focus",
-    ),
-    # Layouts
-    Key(
-        [mod], "Tab",
-        lazy.next_layout(),
-        desc="Toggle between layouts",
-    ),
-    # Lock screen
-    Key(
-        [mod, "mod1"], "l",
-        lazy.spawn("xscreensaver-command -lock"),
-        desc="Lock screen",
-    ),
-    # Restart/quit Qtile
-    Key(
-        [mod, "control"], "r",
-        lazy.restart(),
-        desc="Restart Qtile",
-    ),
-    Key(
-        [mod, "control"], "q",
-        lazy.shutdown(),
-        desc="Shutdown Qtile",
-    ),
-]
 
 
-groups = [Group(i) for i in "asdfuiop"]
+# -----------------------------------------------------------------------------
+# constants
+# -----------------------------------------------------------------------------
 
-for i in groups:
-    keys.extend([
-        Key(
-            [mod], i.name,
-            lazy.group[i.name].toscreen(),
-            desc="Switch focus to another group",
-        ),
-        Key(
-            [mod, "shift"], i.name,
-            lazy.window.togroup(i.name, switch_group=True),
-            desc="Send window to another group",
-        ),
-    ])
+WIN = "mod4"
+ALT = "mod1"
+SHIFT = "shift"
+CTRL = "control"
 
-layout_theme = {
-    "border_width": 3,
-    "margin": 10,
-    "border_focus": "e1acff",
-    "border_normal": "333333",
-    "max_ratio": 0.85,
-    "min_raton": 0.25,
-    "ratio": 0.5,
+HOME = os.path.expanduser('~')
+
+
+# -----------------------------------------------------------------------------
+# global veriables
+# -----------------------------------------------------------------------------
+
+my_terminal = "alacritty"
+
+colors = {
+    "background":    {"normal": "#083f4d", "bright": "#0c677e"},
+    "foreground":    {"normal": "#839496", "bright": "#eeeeee"},
+    "black":         {"normal": "#000000", "bright": "#222222"},
+    "red":           {"normal": "#dc322f", "bright": "#df5017"},
+    "green":         {"normal": "#169921", "bright": "#1aba27"},
+    "yellow":        {"normal": "#b58900", "bright": "#daa400"},
+    "blue":          {"normal": "#268bd2", "bright": "#2a9dea"},
+    "magenta":       {"normal": "#da54da", "bright": "#fe61fe"},
+    "cyan":          {"normal": "#26958c", "bright": "#2db0a5"},
+    "white":         {"normal": "#888888", "bright": "#ffffff"},
+    "border_focus":  {"normal": "#268bd2", "bright": "#2a9dea"},
+    "border_normal": {"normal": "#555555", "bright": "#888888"},
 }
 
-layouts = [
-    layout.MonadTall(**layout_theme),
-    layout.Max(**layout_theme),
-    layout.Matrix(columns=2, **layout_theme),
-    layout.TreeTab(**layout_theme),
-    layout.MonadWide(**layout_theme),
-    layout.Floating(**layout_theme),
-    # Try more layouts by unleashing below layouts.
-    # layout.Bsp(),
-    # layout.Columns(),
-    # layout.RatioTile(),
-    # layout.Tile(),
-    # layout.VerticalTile(),
-    # layout.Zoomy(),
-]
 
-widget_defaults = dict(
-    font='sans',
-    fontsize=12,
-    padding=3,
-)
-extension_defaults = widget_defaults.copy()
+# -----------------------------------------------------------------------------
+# configuration
+# -----------------------------------------------------------------------------
 
-def init_widgets_list():
-    widgets_list = [
-        widget.CurrentLayout(),
-        widget.GroupBox(),
-        widget.Prompt(),
-        widget.WindowName(),
-        widget.Systray(),
-        widget.Battery(),
-        widget.Clock(format='%a %Y-%m-%d %H:%M'),
-        widget.QuickExit(),
-    ]
-    return widgets_list
+# from default config file
+# -----------------------------------------------------------------------------
 
-def init_bar():
-    return bar.Bar(init_widgets_list(), 30, background="333333")
+auto_fullscreen = True
+focus_on_window_activation = "smart"
 
-
-def init_screen():
-    return Screen(
-        top=init_bar(),
-        wallpaper="~/Next/contents/images/1366x768.png",
-        wallpaper_mode="fill",
-    )
-
-screens = [
-    init_screen(),
-    init_screen(),
-]
-
-# Drag floating layouts.
 mouse = [
-    Drag([mod], "Button1", lazy.window.set_position_floating(),
+    Drag([WIN], "Button1", lazy.window.set_position_floating(),
          start=lazy.window.get_position()),
-    Drag([mod], "Button3", lazy.window.set_size_floating(),
+    Drag([WIN], "Button3", lazy.window.set_size_floating(),
          start=lazy.window.get_size()),
-    Click([mod], "Button2", lazy.window.bring_to_front())
+    Click([WIN], "Button2", lazy.window.bring_to_front())
 ]
 
 dgroups_key_binder = None
@@ -273,6 +97,115 @@ main = None
 follow_mouse_focus = False
 bring_front_click = False
 cursor_warp = False
+
+
+# keys
+# -----------------------------------------------------------------------------
+
+keys = [
+    # Move window focus
+    Key([WIN], "h", lazy.layout.left()),
+    Key([WIN], "j", lazy.layout.down()),
+    Key([WIN], "k", lazy.layout.up()),
+    Key([WIN], "l", lazy.layout.right()),
+
+    Key([ALT], "Tab", lazy.layout.up()),
+
+    # Change window size
+    Key([WIN], "i", lazy.layout.grow()),
+    Key([WIN], "o", lazy.layout.shrink()),
+    Key([WIN], "m", lazy.layout.maximize()),
+    Key([WIN], "n", lazy.layout.normalize()),
+
+    Key([WIN, CTRL, SHIFT], "m", lazy.window.toggle_fullscreen()),
+    Key([WIN, CTRL, SHIFT], "f", lazy.window.toggle_floating()),
+
+    # Move window within a layout
+    Key([WIN, CTRL], "h", lazy.layout.shuffle_left()),
+    Key([WIN, CTRL], "j", lazy.layout.shuffle_down()),
+    Key([WIN, CTRL], "k", lazy.layout.shuffle_up()),
+    Key([WIN, CTRL], "l", lazy.layout.shuffle_right()),
+
+    # Flip layout (monadtall and monadwide)
+    Key([WIN, CTRL], "space", lazy.layout.flip()),
+
+    # Switch layouts
+    Key([WIN], "Tab", lazy.next_layout()),
+
+    # Move monitor focus
+    Key([WIN], "s", lazy.to_screen(0)),
+    Key([WIN], "d", lazy.to_screen(1)),
+    Key([WIN], "f", lazy.to_screen(2)),
+
+    # Start applications
+    Key([ALT], "Return", lazy.spawn(
+        my_terminal + " --working-directory " + HOME)),
+    Key([ALT], "space", lazy.spawn("dmenu_run -p 'Run: '")),
+    Key([ALT, CTRL], "b", lazy.spawn("firefox")),
+    Key([ALT, CTRL], "m", lazy.spawn("thunderbird")),
+    Key([ALT, CTRL], "f", lazy.spawn(my_terminal + " -e vifm")),
+    Key([ALT, CTRL], "p", lazy.spawn("pavucontrol")),
+
+    # Close applications
+    Key([ALT], "F4", lazy.window.kill()),
+    Key([WIN], "w", lazy.window.kill()),
+
+    # Lock screen
+    Key([WIN, ALT], "l", lazy.spawn("xscreensaver-command -lock")),
+
+    # Restart/quit Qtile
+    Key([WIN, CTRL], "r", lazy.restart()),
+    Key([WIN, CTRL], "q", lazy.shutdown()),
+]
+
+# groups
+# -----------------------------------------------------------------------------
+
+group_configs = [
+    ("mail", {"layout": "monadtall"}),
+    ("web", {"layout": "monadtall"}),
+    ("wapp", {"layout": "monadtall"}),
+    ("dev_1", {"layout": "monadtall"}),
+    ("dev_2", {"layout": "monadtall"}),
+    ("dev_3", {"layout": "monadtall"}),
+    ("free_1", {"layout": "monadtall"}),
+    ("free_2", {"layout": "monadtall"}),
+    ("free_3", {"layout": "monadtall"}),
+]
+
+groups = [Group(name, **kwargs) for name, kwargs in group_configs]
+
+for i, (name, kwargs) in enumerate(group_configs, 1):
+    keys.extend([
+        # Go to workspace x
+        Key([WIN], str(i), lazy.group[name].toscreen()),
+        # Send window to workspace x
+        Key([WIN, SHIFT], str(i), lazy.window.togroup(name, switch_group=False)),
+    ])
+
+
+# layouts
+# -----------------------------------------------------------------------------
+
+layout_theme = {
+    "border_focus": colors["border_focus"]["bright"],
+    "border_normal": colors["border_normal"]["normal"],
+    "border_width": 3,
+    "margin": 10,
+    "ratio": 0.5,
+    "max_ratio": 0.85,
+    "min_raton": 0.25,
+    "new_at_current": False,
+}
+
+layouts = [
+    layout.MonadTall(**layout_theme),
+    layout.Max(**layout_theme),
+    layout.MonadWide(**layout_theme),
+    layout.Matrix(columns=2, **layout_theme),
+    layout.Floating(**layout_theme),
+]
+
 floating_layout = layout.Floating(float_rules=[
     # Run the utility of `xprop` to see the wm class and name of an X client.
     {'wmclass': 'confirm'},
@@ -283,15 +216,119 @@ floating_layout = layout.Floating(float_rules=[
     {'wmclass': 'notification'},
     {'wmclass': 'splash'},
     {'wmclass': 'toolbar'},
-    {'wmclass': 'confirmreset'},  # gitk
-    {'wmclass': 'makebranch'},  # gitk
-    {'wmclass': 'maketag'},  # gitk
-    {'wname': 'branchdialog'},  # gitk
+    {'wmclass': 'gitk' },
     {'wname': 'pinentry'},  # GPG key password entry
     {'wmclass': 'ssh-askpass'},  # ssh-askpass
 ])
-auto_fullscreen = True
-focus_on_window_activation = "smart"
+
+
+# screens
+# -----------------------------------------------------------------------------
+
+def init_widgets(primary_monitor=False):
+    widgets = []
+    widgets.append(widget.Sep(
+        linewidth = 0,
+        padding = 8,
+    ))
+    widgets.append(widget.GroupBox(
+        active=colors["foreground"]["bright"],
+        inactive=colors["foreground"]["normal"],
+        this_screen_border=colors["border_normal"]["bright"],
+        this_current_screen_border=colors["border_focus"]["bright"],
+        other_screen_border=colors["border_normal"]["normal"],
+        other_current_screen_border=colors["border_normal"]["normal"],
+        margin=3,
+    ))
+    widgets.append(widget.Sep(
+        linewidth = 2,
+        padding = 8,
+        foreground = colors["foreground"]["normal"],
+    ))
+    widgets.append(widget.CurrentLayout(
+        foreground=colors["foreground"]["normal"],
+    ))
+    widgets.append(widget.Sep(
+        linewidth = 2,
+        padding = 8,
+        foreground = colors["foreground"]["normal"],
+    ))
+    widgets.append(widget.WindowName(
+        foreground = colors["foreground"]["bright"],
+    ))
+
+    if primary_monitor == True:
+        widgets.append(widget.Systray())
+        widgets.append(widget.Sep(
+            linewidth = 2,
+            padding = 8,
+            foreground = colors["foreground"]["normal"],
+        ))
+
+    widgets.append(widget.Battery(
+        foreground = colors["foreground"]["normal"],
+        low_foreground = colors["red"]["bright"],
+        low_percentage = 5.0,
+        update_interval = 60,
+        full_char = "",
+        charge_char = "+",
+        discharge_char = "-",
+        empty_char = "",
+        format = "{char} {percent:02.1%}",
+    ))
+    widgets.append(widget.Sep(
+        linewidth = 2,
+        padding = 8,
+        foreground = colors["foreground"]["normal"],
+    ))
+    widgets.append(widget.TextBox(
+        text="Vol:",
+        foreground=colors["foreground"]["normal"],
+    ))
+    widgets.append(widget.PulseVolume(
+        foreground=colors["foreground"]["normal"]
+    ))
+    widgets.append(widget.Sep(
+        linewidth = 2,
+        padding = 8,
+        foreground = colors["foreground"]["normal"],
+    ))
+    widgets.append(widget.Clock(
+        foreground=colors["foreground"]["normal"],
+        format='%Y-%m-%d %H:%M',
+    ))
+    widgets.append(widget.Sep(
+        linewidth = 0,
+        padding = 8,
+    ))
+
+    return widgets
+
+
+def init_bar(primary_monitor=False):
+    return bar.Bar(
+        init_widgets(primary_monitor),
+        30,
+        background=colors["background"]["normal"],
+    )
+
+
+def init_screen(primary_monitor=False):
+    return Screen(
+        top=init_bar(primary_monitor),
+    )
+
+
+screens = [
+    init_screen(primary_monitor=False),
+    init_screen(primary_monitor=True),
+    init_screen(primary_monitor=False),
+]
+
+
+# -----------------------------------------------------------------------------
+# other stuff
+# -----------------------------------------------------------------------------
 
 # XXX: Gasp! We're lying here. In fact, nobody really uses or cares about this
 # string besides java UI toolkits; you can see several discussions on the
@@ -303,8 +340,17 @@ focus_on_window_activation = "smart"
 # java that happens to be on java's whitelist.
 wmname = "LG3D"
 
+
+# -----------------------------------------------------------------------------
+# hooks
+# -----------------------------------------------------------------------------
+
+@hook.subscribe.startup_once
+def autostart_complete():
+    subprocess.call([HOME + '/.config/qtile/autostart_once.sh'])
+
+
 @hook.subscribe.startup_complete
-def autostart():
-    home = os.path.expanduser('~/.config/qtile/autostart.sh')
-    subprocess.call([home])
+def autostart_complete():
+    subprocess.call([HOME + '/.config/qtile/autostart_complete.sh'])
 
