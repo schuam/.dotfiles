@@ -25,6 +25,7 @@ fi
 
 # set the keyboard layout and options
 setxkbmap -model pc105 -layout de -variant nodeadkeys -option caps:escape,compose:paus,lv3:ralt_switch,eurosign:e
+numlockx on
 
 # start some nice programs
 
