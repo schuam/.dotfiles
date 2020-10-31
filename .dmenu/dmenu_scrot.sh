@@ -8,12 +8,10 @@ IMG_PATH=/home/andreas/multimedia/screenshots
 TIME=3000 #Miliseconds notification should remain visible
 
 
-prog="
----Local screenshots (saved at IMG_PATH)---
+prog="---Local screenshots (saved at $IMG_PATH)---
 1.quick_fullscreen
 2.delayed_fullscreen
-3.section
-"
+3.section"
 
 cmd=$(dmenu  -l 20  -nf '#999' -nb '#292d3e' -sf '#eee' -sb '#0077bb' -p 'Choose Screenshot Type'   <<< "$prog")
 
