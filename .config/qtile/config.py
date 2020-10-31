@@ -143,7 +143,9 @@ keys = [
     Key([ALT], "space", lazy.spawn("dmenu_run -l 10 -p 'Run: '")),
     Key([ALT, CTRL], "b", lazy.spawn("firefox")),
     Key([ALT, CTRL], "m", lazy.spawn("thunderbird")),
-    Key([ALT, CTRL], "f", lazy.spawn(my_terminal + " -e vifm")),
+    Key([ALT, CTRL], "f", lazy.spawn(
+        my_terminal + " -e " + HOME + "/.dotfiles/.config/vifm/scripts/vifmrun")
+    ),
     Key([ALT, CTRL], "p", lazy.spawn("pavucontrol")),
 
     # Dmenu scripts
