@@ -140,7 +140,7 @@ keys = [
     # Start applications
     Key([ALT], "Return", lazy.spawn(
         my_terminal + " --working-directory " + HOME)),
-    Key([ALT], "space", lazy.spawn("dmenu_run -p 'Run: '")),
+    Key([ALT], "space", lazy.spawn("dmenu_run -l 10 -p 'Run: '")),
     Key([ALT, CTRL], "b", lazy.spawn("firefox")),
     Key([ALT, CTRL], "m", lazy.spawn("thunderbird")),
     Key([ALT, CTRL], "f", lazy.spawn(my_terminal + " -e vifm")),
