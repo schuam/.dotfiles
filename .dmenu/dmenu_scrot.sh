@@ -19,9 +19,15 @@ cmd=$(dmenu  -l 20  -nf '#999' -nb '#292d3e' -sf '#eee' -sb '#0077bb' -p 'Choose
 
 cd $IMG_PATH
 case ${cmd%% *} in
-
-    1.quick_fullscreen)    scrot -z -d 1 'scrot_%Y-%m-%d_%H-%M-%S.png'  && notify-send -u low -t $TIME 'Scrot' 'Fullscreen taken and saved'  ;;
-    2.delayed_fullscreen)    scrot -z -d 4 'scrot_%Y-%m-%d_%H-%M-%S.png'  && notify-send -u low -t $TIME 'Scrot' 'Fullscreen Screenshot saved'    ;;
-    3.section)    scrot -z -s 'scrot_%Y-%m-%d_%H-%M-%S.png' && notify-send -u low -t $TIME 'Scrot' 'Screenshot of section saved'    ;;
-    *)        exec "'${cmd}'"  ;;
+    1.quick_fullscreen)
+        scrot -z -d 1 'scrot_%Y-%m-%d_%H-%M-%S.png' \
+        && notify-send -u low -t $TIME 'Scrot' 'Fullscreen taken and saved';;
+    2.delayed_fullscreen)
+        scrot -z -d 4 'scrot_%Y-%m-%d_%H-%M-%S.png'  \
+        && notify-send -u low -t $TIME 'Scrot' 'Fullscreen Screenshot saved';;
+    3.section)
+        scrot -z -s 'scrot_%Y-%m-%d_%H-%M-%S.png' \
+        && notify-send -u low -t $TIME 'Scrot' 'Screenshot of section saved';;
+    *)
+        exec "'${cmd}'";;
 esac
