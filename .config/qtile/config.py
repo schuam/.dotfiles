@@ -146,6 +146,9 @@ keys = [
     Key([ALT, CTRL], "f", lazy.spawn(my_terminal + " -e vifm")),
     Key([ALT, CTRL], "p", lazy.spawn("pavucontrol")),
 
+    # Dmenu scripts
+    Key([WIN], "Print", lazy.spawn(HOME + "/.dotfiles/.dmenu/dmenu_scrot.sh")),
+
     # Close applications
     Key([ALT], "F4", lazy.window.kill()),
     Key([WIN], "w", lazy.window.kill()),
