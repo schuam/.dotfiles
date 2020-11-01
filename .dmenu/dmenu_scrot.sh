@@ -13,7 +13,7 @@ prog="---Local screenshots (saved at $IMG_PATH)---
 2.delayed_fullscreen
 3.section"
 
-cmd=$(dmenu  -l 20  -nf '#999' -nb '#292d3e' -sf '#eee' -sb '#0077bb' -p 'Choose Screenshot Type'   <<< "$prog")
+cmd=$(dmenu -l 20 -p 'Choose Screenshot Type' <<< "$prog")
 
 cd $IMG_PATH
 case ${cmd%% *} in
