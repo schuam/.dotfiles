@@ -39,7 +39,6 @@ fi
 if [[ $2 == "qtile" ]]
 then
     xbindkeys
-    xscreensaver -no-splash &
     exec qtile
 else
     exec /usr/bin/startplasma-x11
