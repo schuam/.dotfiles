@@ -156,7 +156,7 @@ keys = [
     Key([WIN], "w", lazy.window.kill()),
 
     # Lock screen
-    Key([WIN, ALT], "l", lazy.spawn("xscreensaver-command -lock")),
+    Key([WIN, ALT], "l", lazy.spawn("slock")),
 
     # Restart/quit Qtile
     Key([WIN, CTRL], "r", lazy.restart()),
