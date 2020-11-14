@@ -2,4 +2,7 @@
 
 # --user-install is used to install to $HOME/.gem/ by default since we want to separate
 #                pacman installed gems and gem installed gems
-gem: --user-install
+
+# I don't want user installed gems to ent up in .gem. I set up a different
+# location for that.
+# gem: --user-install
