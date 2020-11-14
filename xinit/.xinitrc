@@ -36,11 +36,11 @@ if [ -d /etc/X11/xinit/xinitrc.d ] ; then
  unset f
 fi
 
-if [[ $2 == "qtile" ]]
+if [[ $2 == "kde" ]]
 then
+    exec /usr/bin/startplasma-x11
+else
     xbindkeys
     exec qtile
-else
-    exec /usr/bin/startplasma-x11
 fi
 
