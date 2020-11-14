@@ -40,7 +40,7 @@ if [[ $2 == "kde" ]]
 then
     exec /usr/bin/startplasma-x11
 else
-    xbindkeys
+    xbindkeys -f "$XDG_CONFIG_HOME"/xbindkeys/xbindkeysrc
     exec qtile
 fi
 
