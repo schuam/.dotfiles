@@ -1,18 +1,18 @@
 [submodule "vim/.vim/pack/vendor/start/vim-surround"]
-	path = vim/.vim/pack/vendor/start/vim-surround
+	path = .config/vim/.vim/pack/vendor/start/vim-surround
 	url = https://github.com/tpope/vim-surround.git
 [submodule "vim/.vim/pack/vendor/start/vim-snippets"]
-	path = vim/.vim/pack/vendor/start/vim-snippets
+	path = .config/vim/.vim/pack/vendor/start/vim-snippets
 	url = https://github.com/honza/vim-snippets.git
 [submodule "vim/.vim/pack/vendor/start/ultisnips"]
-	path = vim/.vim/pack/vendor/start/ultisnips
+	path = .config/vim/.vim/pack/vendor/start/ultisnips
 	url = https://github.com/SirVer/ultisnips.git
 [submodule "vim/.vim/pack/vendor/start/nerdcommenter"]
-	path = vim/.vim/pack/vendor/start/nerdcommenter
+	path = .config/vim/.vim/pack/vendor/start/nerdcommenter
 	url = https://github.com/preservim/nerdcommenter.git
 [submodule "vim/.vim/pack/vendor/start/tabular"]
-	path = vim/.vim/pack/vendor/start/tabular
+	path = .config/vim/.vim/pack/vendor/start/tabular
 	url = git://github.com/godlygeek/tabular.git
 [submodule "vim/.vim/pack/vendor/start/nerdtree"]
-	path = vim/.vim/pack/vendor/start/nerdtree
+	path = .config/vim/.vim/pack/vendor/start/nerdtree
 	url = https://github.com/preservim/nerdtree.git
