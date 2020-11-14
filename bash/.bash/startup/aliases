@@ -2,40 +2,40 @@
 alias tolower="perl-rename 'y/A-Z/a-z/' *"
 
 # aliases to list all files and to change to higher dictonaries.
-alias ls="ls --color"
-alias l="ls -lh"
-alias la="ls -lah"
-alias ..="cd .."
-alias ...="cd ../.."
-alias ....="cd ../../.."
+alias ls='ls --color'
+alias l='ls -lh'
+alias la='ls -lah'
+alias ..='cd ..'
+alias ...='cd ../..'
+alias ....='cd ../../..'
 
 # aliases for the use of tmux
-alias tmux="tmux -2"    # Forces tmux to use 256 colors.
+alias tmux='tmux -2'    # Forces tmux to use 256 colors.
 
 # git aliases
-alias gk="gitk --all &"
+alias gk='gitk --all &'
 
 # vifm aliases
 alias vifm="~/.dotfiles/.config/vifm/scripts/vifmrun"
 
 # alias to make it possilbe to use sudo with other aliases
-alias sudo="sudo "
+alias sudo='sudo '
 
 # confirm before overwriting something when copying or moving stuff
-alias cp="cp -i"
-alias mv="mv -i"
+alias cp='cp -i'
+alias mv='mv -i'
 
 # Enable/start bluetooth
-alias blue="sudo systemctl start bluetooth"
-alias reblue="sudo systemctl restart bluetooth"
+alias blue='sudo systemctl start bluetooth'
+alias reblue='sudo systemctl restart bluetooth'
 
 # Neomutt
-alias mutt="cd ~/Desktop && neomutt"
+alias mutt='cd ~/Desktop && neomutt'
 
-alias sliedshow="feh -F -f"
+alias sliedshow='feh -F -f'
 
 # X
-alias startx="startx '$XDG_CONFIG_HOME/X11/xinitrc'"
+alias startx='startx "$XDG_CONFIG_HOME"/X11/xinitrc'
 
 # mbsync
 alias mbsync='mbsync -c "$XDG_CONFIG_HOME"/mbsync/mbsyncrc'
