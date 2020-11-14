@@ -1,4 +1,4 @@
-" Automatic reloading of .vimrc
+﻿" Automatic reloading of .vimrc
 augroup relaod_vimrc " {
     autocmd!
     autocmd BufWritePost $MYVIMRC source $MYVIMRC
@@ -8,7 +8,13 @@ augroup END " }
 "  Load my custom settings
 " *****************************************************************************
 
-source ~/.vim/startup/settings.vim
-source ~/.vim/startup/functions.vim
-source ~/.vim/startup/mappings.vim
+set undodir=$XDG_DATA_HOME/vim/undo
+set directory=$XDG_DATA_HOME/vim/swap
+set backupdir=$XDG_DATA_HOME/vim/backup
+set viewdir=$XDG_DATA_HOME/vim/view
+set viminfo+='1000,n$XDG_DATA_HOME/vim/viminfo
+set runtimepath=$XDG_CONFIG_HOME/vim,$VIMRUNTIME,$XDG_CONFIG_HOME/vim/after
+source "$XDG_CONFIG_HOME"/vim/.vim/startup/settings.vim
+source "$XDG_CONFIG_HOME"/vim/.vim/startup/functions.vim
+source "$XDG_CONFIG_HOME"/vim/.vim/startup/mappings.vim
 
