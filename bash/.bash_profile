@@ -2,13 +2,32 @@ export LANG=en_US.utf8
 
 export EDITOR="vim"
 
-export PASSWORD_STORE_DIR="$HOME/workspaces/pass"
-
-export GEM_HOME=$HOME/workspaces/ruby/gems
-export GEM_PATH=$HOME/workspaces/ruby/gems
-
 export PATH="$PATH:$HOME/workspaces/tools/bin"
 export PATH="$PATH:$HOME/workspaces/ruby/gems/bin"
+
+# Clean Up (XDG)
+export XDG_CONFIG_HOME="$HOME/.config"
+export XDG_DATA_HOME="$HOME/.local/share"
+export XDG_CACHE_HOME="$HOME/.cache"
+
+export BUNDLE_USER_CONFIG="$XDG_CONFIG_HOME"/bundle
+export BUNDLE_USER_CACHE="$XDG_CACHE_HOME"/bundle
+export BUNDLE_USER_PLUGIN="$XDG_DATA_HOME"/bundle
+export GEM_HOME=$HOME/workspaces/ruby/gems
+export GEM_PATH=$HOME/workspaces/ruby/gems
+export GEM_SPEC_CACHE="$XDG_CONFIG_HOME"/gem
+export PASSWORD_STORE_DIR="$HOME/workspaces/pass"
+export LESSHISTFILE="-"
+export _JAVA_OPTIONS=-Djava.util.prefs.userRoot="$XDG_CONFIG_HOME"/java
+export KDEHOME="$XDG_CONFIG_HOME"/kde
+export GTK2_RC_FILES="$XDG_CONFIG_HOME"/gtk-2.0/gtkrc
+export NOTMUCH_CONFIG="$XDG_CONFIG_HOME"/notmuch/notmuch-config
+export WGETRC="$XDG_CONFIG_HOME"/wget/wgetrc
+export XINITRC="$XDG_CONFIG_HOME"/X11/xinitrc
+export XAUTHORITY="$XDG_RUNTIME_DIR"/Xauthority
+export SQLITE_HISTORY="$XDG_DATA_HOME"/sqlite_history
+export VIMINIT="source $XDG_CONFIG_HOME/vim/vimrc"
+export HISTFILE="$XDG_DATA_HOME"/bash/history
 
 # Workaround for a bug in libreoffice: needed to show menu icons correctly.
 export SAL_USE_VCLPLUGIN=gen

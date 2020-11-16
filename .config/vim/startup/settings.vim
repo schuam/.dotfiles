@@ -1,4 +1,16 @@
 " *****************************************************************************
+"  XDG settings
+" *****************************************************************************
+
+set undodir=$XDG_DATA_HOME/vim/undo
+set directory=$XDG_DATA_HOME/vim/swap
+set backupdir=$XDG_DATA_HOME/vim/backup
+set viewdir=$XDG_DATA_HOME/vim/view
+set viminfo+='1000,n$XDG_DATA_HOME/vim/viminfo
+set runtimepath=$XDG_CONFIG_HOME/vim,$VIMRUNTIME,$XDG_CONFIG_HOME/vim/.vim
+
+
+" *****************************************************************************
 "  General settings
 " *****************************************************************************
 
@@ -133,11 +145,11 @@ let g:UltiSnipsExpandTrigger="<tab>"
 let g:UltiSnipsJumpForwardTrigger="<c-j>"
 let g:UltiSnipsJumpBackwardTrigger="<c-k>"
 let g:UltiSnipsEnableSnipMate=0
-let g:UltiSnipsSnippetsDir="~/.vim/startup/schuam_snippets"
+let g:UltiSnipsSnippetsDir="~/.dotfiles/.config/vim/.vim/startup/schuam_snippets"
 " On my system in my home directory there is a link '.vim' that points to
 " '~/.dotfiles/vim/.vim'. I tried to use that in the path to my own snippets
 " diretory, but that didn't work. I had to write the path as seen below.
-let g:UltiSnipsSnippetDirectories=[$HOME.'/.dotfiles/vim/.vim/startup/schuam_snippets', 'UltiSnips']
+let g:UltiSnipsSnippetDirectories=[$HOME.'/.dotfiles/.config/vim/.vim/startup/schuam_snippets', 'UltiSnips']
 
 " If you want :UltiSnipsEdit to split your window.
 let g:UltiSnipsEditSplit="horizontal"

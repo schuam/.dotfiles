@@ -1,5 +1,5 @@
 **/__pycache__/
 vifminfo
 vifminfo.json
-vim/.vim/.netrwhist
+.config/vim/.vim/.netrwhist
 konsole/bookmarks*
