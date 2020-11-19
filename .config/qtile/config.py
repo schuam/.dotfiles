@@ -387,3 +387,28 @@ def autostart_complete():
 def autostart_complete():
     subprocess.call([HOME + '/.config/qtile/autostart_complete.sh'])
 
+
+@hook.subscribe.client_new
+def float_firefox(window):
+    wm_class = window.window.get_wm_class()
+    w_name = window.window.get_name()
+    if wm_class == ("Places", "firefox") and w_name == "Library":
+        window.floating = True
+
+
+@hook.subscribe.client_new
+def float_pycharm(window):
+    wm_class = window.window.get_wm_class()
+    w_name = window.window.get_name()
+    if (
+        (
+            wm_class == ("jetbrains-pycharm-ce", "jetbrains-pycharm-ce")
+            and w_name == " "
+        )
+        or (
+            wm_class == ("java-lang-Thread", "java-lang-Thread")
+            and w_name == "win0"
+        )
+    ):
+        window.floating = True
+
