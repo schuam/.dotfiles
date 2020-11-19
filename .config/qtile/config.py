@@ -250,6 +250,8 @@ floating_layout = layout.Floating(float_rules=[
     {'wmclass': 'gitk' },
     {'wname': 'pinentry'},  # GPG key password entry
     {'wmclass': 'ssh-askpass'},  # ssh-askpass
+    {'wmclass': 'clementine' },
+    {'wmclass': 'pavucontrol' },
 ])
 
 
