@@ -28,9 +28,16 @@
 # imports
 # -----------------------------------------------------------------------------
 
-from libqtile.config import Key, Screen, Group, Drag, Click
+from libqtile.config import Key
+from libqtile.config import Screen
+from libqtile.config import Group
+from libqtile.config import Drag
+from libqtile.config import Click
 from libqtile.lazy import lazy
-from libqtile import layout, bar, widget, hook
+from libqtile import layout
+from libqtile import bar
+from libqtile import widget
+from libqtile import hook
 
 from typing import List  # noqa: F401
 
