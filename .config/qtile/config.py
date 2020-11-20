@@ -419,3 +419,11 @@ def float_pycharm(window):
     ):
         window.floating = True
 
+
+@hook.subscribe.client_new
+def float_digikam(window):
+    wm_class = window.window.get_wm_class()
+    w_name = window.window.get_name()
+    if (wm_class == ("digikam", "digikam") and "Rename" in w_name):
+        window.floating = True
+
