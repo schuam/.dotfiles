@@ -35,15 +35,11 @@ alias mutt='cd ~/Desktop && neomutt'
 alias sliedshow='feh -F -f'
 
 # X
-alias startx='startx "$XDG_CONFIG_HOME"/X11/xinitrc'
+alias startx='startx "$XDG_CONFIG_HOME"/X11/xinitrc -- -keeptty &> ~/.xorg.log'
 
 # mbsync
 alias mbsync='mbsync -c "$XDG_CONFIG_HOME"/mbsync/mbsyncrc'
 
 # grep
 alias grep='grep --color'
-
-
-# startx
-alias startx='startx -- -keeptty &> ~/.xorg.log
 
