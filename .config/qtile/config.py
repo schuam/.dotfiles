@@ -173,6 +173,10 @@ keys = [
 
     # Dmenu scripts
     Key([WIN], "Print", lazy.spawn(HOME + "/.dotfiles/.dmenu/dmenu_scrot.sh")),
+    Key([], "XF86Display", lazy.spawn(HOME + "/.dotfiles/.dmenu/dmenu_monitors.sh")),
+    # For some reason the previous key binding does not work on my external
+    # keyboard, therefore I added a second key binding to run dmenu_monitors.sh
+    Key([WIN], "q", lazy.spawn(HOME + "/.dotfiles/.dmenu/dmenu_monitors.sh")),
 
     # Close applications
     Key([ALT], "F4", lazy.window.kill()),
