@@ -45,7 +45,6 @@ import os
 import subprocess
 
 
-
 # -----------------------------------------------------------------------------
 # constants
 # -----------------------------------------------------------------------------
@@ -56,6 +55,22 @@ SHIFT = "shift"
 CTRL = "control"
 
 HOME = os.path.expanduser('~')
+
+
+# -----------------------------------------------------------------------------
+# helper functions
+# -----------------------------------------------------------------------------
+
+def get_number_of_active_monitors():
+    num_monitors = 0
+    xrandr_output = subprocess.check_output("xrandr").splitlines()
+
+    for line in xrandr_output:
+        str_line = str(line)
+        if "*" in str_line:
+            num_monitors += 1
+
+    return num_monitors
 
 
 # -----------------------------------------------------------------------------
@@ -356,12 +371,16 @@ def init_screen(primary_monitor=False):
         top=init_bar(primary_monitor),
     )
 
-
-screens = [
-    init_screen(primary_monitor=False),
-    init_screen(primary_monitor=True),
-    init_screen(primary_monitor=False),
-]
+number_of_monitors = get_number_of_active_monitors()
+screens = []
+if number_of_monitors == 1:
+    screens.append(init_screen(primary_monitor=True))
+else:
+    for monitor_number in range(1, number_of_monitors + 1):
+        primary_monitor = False
+        if monitor_number == 2:
+            primary_monitor = True
+        screens.append(init_screen(primary_monitor=primary_monitor))
 
 
 # -----------------------------------------------------------------------------
