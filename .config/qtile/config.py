@@ -154,6 +154,7 @@ keys = [
         my_terminal + " -e " + HOME + "/.dotfiles/.config/vifm/scripts/vifmrun")
     ),
     Key([ALT, CTRL], "p", lazy.spawn("pavucontrol")),
+    Key([ALT, CTRL], "l", lazy.spawn("slock")),    # lock screen
 
     # Dmenu scripts
     Key([WIN], "Print", lazy.spawn(HOME + "/.dotfiles/.dmenu/dmenu_scrot.sh")),
@@ -161,9 +162,6 @@ keys = [
     # Close applications
     Key([ALT], "F4", lazy.window.kill()),
     Key([WIN], "w", lazy.window.kill()),
-
-    # Lock screen
-    Key([WIN, ALT], "l", lazy.spawn("slock")),
 
     # Restart/quit Qtile
     Key([WIN, CTRL], "r", lazy.restart()),
