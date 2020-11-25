@@ -9,6 +9,13 @@ export PATH="$PATH:$HOME/workspaces/ruby/gems/bin"
 export XDG_CONFIG_HOME="$HOME/.config"
 export XDG_DATA_HOME="$HOME/.local/share"
 export XDG_CACHE_HOME="$HOME/.cache"
+export XDG_DESKTOP_DIR="$HOME/desktop"
+export XDG_DOCUMENTS_DIR="$HOME"
+export XDG_DOWNLOAD_DIR="$HOME/downloads"
+export XDG_MUSIC_DIR="$HOME/multimedia/music"
+export XDG_PICTURES_DIR="$HOME/multimedia/pictures_and_videos"
+export XDG_TEMPLATES_DIR="$HOME"
+export XDG_VIDEOS_DIR="$HOME/multimedia/pictures_and_videos"
 
 export BUNDLE_USER_CONFIG="$XDG_CONFIG_HOME"/bundle
 export BUNDLE_USER_CACHE="$XDG_CACHE_HOME"/bundle
