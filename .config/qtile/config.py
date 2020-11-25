@@ -172,11 +172,11 @@ keys = [
     Key([ALT, CTRL], "l", lazy.spawn("slock")),    # lock screen
 
     # Dmenu scripts
-    Key([WIN], "Print", lazy.spawn(HOME + "/.dotfiles/.dmenu/dmenu_scrot.sh")),
-    Key([], "XF86Display", lazy.spawn(HOME + "/.dotfiles/.dmenu/dmenu_monitors.sh")),
+    Key([WIN], "Print", lazy.spawn("dmenu_scrot.py")),
+    Key([], "XF86Display", lazy.spawn("dmenu_monitors.py")),
     # For some reason the previous key binding does not work on my external
     # keyboard, therefore I added a second key binding to run dmenu_monitors.sh
-    Key([WIN], "q", lazy.spawn(HOME + "/.dotfiles/.dmenu/dmenu_monitors.sh")),
+    Key([WIN], "q", lazy.spawn("dmenu_monitors.py")),
 
     # Close applications
     Key([ALT], "F4", lazy.window.kill()),
