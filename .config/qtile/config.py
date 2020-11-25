@@ -276,6 +276,7 @@ floating_layout = layout.Floating(float_rules=[
     {'wmclass': 'ssh-askpass'},  # ssh-askpass
     {'wmclass': 'clementine' },
     {'wmclass': 'pavucontrol' },
+    {'wmclass': 'qalculate-gtk' },
 ])
 
 
