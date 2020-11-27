@@ -72,6 +72,8 @@ def get_number_of_active_monitors():
 
     return num_monitors
 
+number_of_monitors = get_number_of_active_monitors()
+
 
 # -----------------------------------------------------------------------------
 # global veriables
@@ -177,6 +179,7 @@ keys = [
     # For some reason the previous key binding does not work on my external
     # keyboard, therefore I added a second key binding to run dmenu_monitors.sh
     Key([WIN], "q", lazy.spawn("dmenu_monitors.py")),
+    Key([ALT, CTRL], "Delete", lazy.spawn("dmenu_break.py")),
 
     # Close applications
     Key([ALT], "F4", lazy.window.kill()),
@@ -213,30 +216,55 @@ for i, (name, kwargs) in enumerate(group_configs, 1):
     ])
 
 # Show certain set of workspaces on the three monitors
-keys.append(
-    Key([WIN], "x",
-        lazy.to_screen(0), lazy.group[group_configs[0][0]].toscreen(toggle=False),
-        lazy.to_screen(1), lazy.group[group_configs[1][0]].toscreen(toggle=False),
-        lazy.to_screen(2), lazy.group[group_configs[2][0]].toscreen(toggle=False),
-        lazy.to_screen(1),
+if number_of_monitors == 3:
+    keys.append(
+        Key([WIN], "x",
+            lazy.to_screen(0), lazy.group[group_configs[0][0]].toscreen(toggle=False),
+            lazy.to_screen(1), lazy.group[group_configs[1][0]].toscreen(toggle=False),
+            lazy.to_screen(2), lazy.group[group_configs[2][0]].toscreen(toggle=False),
+            lazy.to_screen(1),
+        )
     )
-)
-keys.append(
-    Key([WIN], "c",
-        lazy.to_screen(0), lazy.group[group_configs[3][0]].toscreen(toggle=False),
-        lazy.to_screen(1), lazy.group[group_configs[4][0]].toscreen(toggle=False),
-        lazy.to_screen(2), lazy.group[group_configs[5][0]].toscreen(toggle=False),
-        lazy.to_screen(1),
+    keys.append(
+        Key([WIN], "c",
+            lazy.to_screen(0), lazy.group[group_configs[3][0]].toscreen(toggle=False),
+            lazy.to_screen(1), lazy.group[group_configs[4][0]].toscreen(toggle=False),
+            lazy.to_screen(2), lazy.group[group_configs[5][0]].toscreen(toggle=False),
+            lazy.to_screen(1),
+        )
     )
-)
-keys.append(
-    Key([WIN], "v",
-        lazy.to_screen(0), lazy.group[group_configs[6][0]].toscreen(toggle=False),
-        lazy.to_screen(1), lazy.group[group_configs[7][0]].toscreen(toggle=False),
-        lazy.to_screen(2), lazy.group[group_configs[8][0]].toscreen(toggle=False),
-        lazy.to_screen(1),
+    keys.append(
+        Key([WIN], "v",
+            lazy.to_screen(0), lazy.group[group_configs[6][0]].toscreen(toggle=False),
+            lazy.to_screen(1), lazy.group[group_configs[7][0]].toscreen(toggle=False),
+            lazy.to_screen(2), lazy.group[group_configs[8][0]].toscreen(toggle=False),
+            lazy.to_screen(1),
+        )
     )
-)
+elif number_of_monitors == 2:
+    keys.append(
+        Key([WIN], "x",
+            lazy.to_screen(0), lazy.group[group_configs[1][0]].toscreen(toggle=False),
+            lazy.to_screen(1), lazy.group[group_configs[2][0]].toscreen(toggle=False),
+            lazy.to_screen(0),
+        )
+    )
+    keys.append(
+        Key([WIN], "c",
+            lazy.to_screen(0), lazy.group[group_configs[4][0]].toscreen(toggle=False),
+            lazy.to_screen(1), lazy.group[group_configs[5][0]].toscreen(toggle=False),
+            lazy.to_screen(0),
+        )
+    )
+    keys.append(
+        Key([WIN], "v",
+            lazy.to_screen(0), lazy.group[group_configs[7][0]].toscreen(toggle=False),
+            lazy.to_screen(1), lazy.group[group_configs[8][0]].toscreen(toggle=False),
+            lazy.to_screen(0),
+        )
+    )
+else:
+    pass
 
 
 # layouts
@@ -376,7 +404,6 @@ def init_screen(primary_monitor=False):
         top=init_bar(primary_monitor),
     )
 
-number_of_monitors = get_number_of_active_monitors()
 screens = []
 if number_of_monitors == 1:
     screens.append(init_screen(primary_monitor=True))
