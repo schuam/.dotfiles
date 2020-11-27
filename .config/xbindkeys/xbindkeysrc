@@ -10,3 +10,13 @@
 "for SINK in `pactl list sinks short | cut -b1`; do pactl set-sink-mute $SINK toggle; done"
     XF86AudioMute
 
+# Increase/decrease laptop screen brightness
+# This requires the package 'light' and for some reason you have to run light
+# with sudo. Scince I don't want to enter my password before changing the
+# brightness, I added a line in /etc/sudoers that allows me to run light
+# without a password.
+"sudo light -A 5"
+    Mod2 + F6
+"sudo light -U 5"
+    Mod2 + F5
+
