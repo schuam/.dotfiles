@@ -149,7 +149,7 @@ let g:UltiSnipsEnableSnipMate=0
 
 " If you want :UltiSnipsEdit to split your window.
 let g:UltiSnipsEditSplit="horizontal"
-
+let g:UltiSnipsSnippetDirectories=[$HOME.'/.dotfiles/.config/vim/startup/schuam_snippets', 'UltiSnips']
 
 " Vimwiki
 " -----------------------------------------------------------------------------
