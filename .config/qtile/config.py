@@ -33,6 +33,8 @@ from libqtile.config import Screen
 from libqtile.config import Group
 from libqtile.config import Drag
 from libqtile.config import Click
+from libqtile.config import ScratchPad
+from libqtile.config import DropDown
 from libqtile.lazy import lazy
 from libqtile import layout
 from libqtile import bar
@@ -164,6 +166,8 @@ keys = [
     # Start applications
     Key([ALT], "Return", lazy.spawn(
         my_terminal + " --working-directory " + HOME)),
+    Key([ALT, CTRL], "Return",
+        lazy.group["scratchpad"].dropdown_toggle("term")),
     Key([ALT], "space", lazy.spawn("dmenu_run -l 10 -p 'Run: '")),
     Key([ALT, CTRL], "b", lazy.spawn("firefox")),
     Key([ALT, CTRL], "m", lazy.spawn("thunderbird")),
@@ -214,6 +218,23 @@ for i, (name, kwargs) in enumerate(group_configs, 1):
         # Send window to workspace x
         Key([WIN, SHIFT], str(i), lazy.window.togroup(name, switch_group=False)),
     ])
+
+scratchpad = ScratchPad(
+    "scratchpad",
+    [
+        DropDown(
+            "term",
+            my_terminal + " --working-directory " + HOME,
+            width=0.8,
+            height=0.8,
+            opacity=0.9,
+            y=0.1,
+        ),
+    ],
+)
+
+groups.append(scratchpad)
+
 
 # Show certain set of workspaces on the three monitors
 if number_of_monitors == 3:
