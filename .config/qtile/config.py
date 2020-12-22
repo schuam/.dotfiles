@@ -392,7 +392,7 @@ def init_widgets(primary_monitor=False):
         text="Vol:",
         foreground=colors["foreground"]["normal"],
     ))
-    widgets.append(widget.PulseVolume(
+    widgets.append(widget.Volume(
         foreground=colors["foreground"]["normal"]
     ))
     widgets.append(widget.Sep(
