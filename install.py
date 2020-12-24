@@ -40,7 +40,7 @@ def make_log_file():
 def run_command(cmd):
     with open(LOG_FILE_PATH, "a") as log:
         log.write("[cmd] {}\n".format(cmd))
-    print(cmd)
+    run(cmd)
 
 
 def backup(path):
