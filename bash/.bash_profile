@@ -22,7 +22,7 @@ export BUNDLE_USER_CACHE="$XDG_CACHE_HOME"/bundle
 export BUNDLE_USER_PLUGIN="$XDG_DATA_HOME"/bundle
 export GEM_HOME=$HOME/workspaces/ruby/gems
 export GEM_PATH=$HOME/workspaces/ruby/gems
-export GEM_SPEC_CACHE="$XDG_CONFIG_HOME"/gem
+export GEM_SPEC_CACHE="$XDG_CACHE_HOME"/gem
 export PASSWORD_STORE_DIR="$HOME/workspaces/pass"
 export LESSHISTFILE="-"
 export _JAVA_OPTIONS=-Djava.util.prefs.userRoot="$XDG_CONFIG_HOME"/java
