@@ -26,8 +26,8 @@ alias cp='cp -i'
 alias mv='mv -i'
 
 # Enable/start bluetooth
-alias blue='sudo systemctl start bluetooth'
-alias reblue='sudo systemctl restart bluetooth'
+# alias blue='sudo systemctl start bluetooth'
+# alias reblue='sudo systemctl restart bluetooth'
 
 # Neomutt
 alias mutt='cd ~/Desktop && neomutt'
