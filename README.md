@@ -13,4 +13,5 @@ don't use it, without checking the code before you run it.
 
 - Update installation script, it is not quite up to date.
 - Test the python installation script.
+- Find an overall better solution to install my dotfiles.
 
