@@ -24,6 +24,7 @@ do
     mv $HOME/$i $backup_dir
     ln -svn $PWD/bash/$i $HOME/$i
 done;
+source $HOME/.bash_profile
 
 
 # -----------------------------------------------------------------------------
@@ -36,7 +37,7 @@ for configuration in `find * -maxdepth 0 ! -iname xdg-user-dirs ! -iname plasma-
 do
     echo "    $configuration"
     mv $HOME/.config/$configuration $backup_configuration
-    ln -svn $PWD/$configuration $HOME/.config/$configuration
+    ln -svn $PWD/$configuration $XDG_CONFIG_HOME/$configuration
 done
 cd ..
 echo "WARNING: xdg-user-dirs was ignored!"
