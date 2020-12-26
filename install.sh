@@ -10,7 +10,7 @@ date=`date +%Y-%m-%d`
 
 # Create backup directory
 backup_dir="$PWD/dotfiles_backup_$date"
-mkdir $backup_dir
+mkdir -p $backup_dir
 
 
 # -----------------------------------------------------------------------------
