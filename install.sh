@@ -33,7 +33,7 @@ source $HOME/.bash_profile
 # -----------------------------------------------------------------------------
 
 echo
-echo ".config"
+echo ".config:"
 
 # Make sure the XDG_CONFIG_HOME dir exists
 mkdir -p $XDG_CONFIG_HOME
@@ -42,13 +42,13 @@ cd .config
 
 for configuration in `find * -maxdepth 0 ! -iname xdg-user-dirs ! -iname plasma-localerc`
 do
-    echo "    $configuration"
     mv $HOME/.config/$configuration $backup_dir
     ln -svn $PWD/$configuration $XDG_CONFIG_HOME/$configuration
 done
 
 cd ..
 
+echo
 echo "WARNING: xdg-user-dirs was ignored!"
 echo "WARNING: plasma-localerc was ignored!"
 
