@@ -31,6 +31,7 @@ source $HOME/.bash_profile
 # .config
 # -----------------------------------------------------------------------------
 
+echo
 echo ".config"
 mkdir -p $XDG_CONFIG_HOME
 cd .config
@@ -54,6 +55,7 @@ mkdir -p $XDG_DATA_HOME/vim/backup
 # etc
 # -----------------------------------------------------------------------------
 
+echo
 echo "WARNING: files in 'etc' are not linked or copied!"
 echo "         Do that manually if needed!"
 
@@ -62,6 +64,7 @@ echo "         Do that manually if needed!"
 # kde
 # -----------------------------------------------------------------------------
 
+echo
 echo "WARNING: files in 'kde' are not linked or copied!"
 echo "         Do that manually if needed!"
 
