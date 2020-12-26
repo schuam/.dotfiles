@@ -1,63 +1,60 @@
 #! /bin/bash
 
+
+# -----------------------------------------------------------------------------
+# make a backup directory
+# -----------------------------------------------------------------------------
+
 # Todays date as part of the backup directory name
 date=`date +%Y-%m-%d`
 
 # Create backup directory
 backup_dir="$PWD/dotfiles_backup_$date"
- mkdir $backup_dir
+mkdir $backup_dir
 
+
+# -----------------------------------------------------------------------------
+# bash
+# -----------------------------------------------------------------------------
 
 echo
 echo "bash:"
-for i in .bash_logout .bashrc .bash_profile
+for i in .bash_logout .bashrc .bash_profile .bash
 do
     mv $HOME/$i $backup_dir
     ln -svn $PWD/bash/$i $HOME/$i
 done;
-ln -svn $PWD/bash/.bash $HOME/.bash
 
-echo
-echo "vim:"
-for i in .vim .viminfo .vimrc
-do
-    mv $HOME/$i $backup_dir
-    ln -svn $PWD/vim/$i $HOME/$i
-done;
 
-echo
-echo "konsole"
-mv $HOME/.kde/share/apps/konsole $backup_dir
-ln -svn $PWD/konsole/ $HOME/.local/share/konsole
-
-echo
-echo "xinit:"
-for i in .Xresources .xinitrc
-do
-    mv $HOME/$i $backup_dir
-    ln -svn $PWD/xinit/$i $HOME/$i
-done;
-
-echo
-echo "xbindkeys:"
-for i in .xbindkeysrc
-do
-    mv $HOME/$i $backup_dir
-    ln -svn $PWD/xbindkeys/$i $HOME/$i
-done;
+# -----------------------------------------------------------------------------
+# .config
+# -----------------------------------------------------------------------------
 
 echo ".config"
 cd .config
-for dir in `find * -maxdepth 0 -type d`
+for configuration in `find * -maxdepth 0 ! -iname xdg-user-dirs ! -iname plasma-localerc`
 do
-    echo $dir
-    mv $HOME/.config/$dir $backup_dir
-    ln -svn $PWD/$dir $HOME/.config/$dir
+    echo "    $configuration"
+    mv $HOME/.config/$configuration $backup_configuration
+    ln -svn $PWD/$configuration $HOME/.config/$configuration
 done
+cd ..
+echo "WARNING: xdg-user-dirs was ignored!"
+echo "WARNING: plasma-localerc was ignored!"
 
-echo "plasma"
-ln -svn $PWD/plasma/plasma-localerc $HOME/.config/plasma-localerc
 
-echo "gem"
-mv $HOME/.gemrc $backup_dir
-ln -svn $PWD/gem/gemrc $HOME/.gemrc
+# -----------------------------------------------------------------------------
+# etc
+# -----------------------------------------------------------------------------
+
+echo "WARNING: files in 'etc' are not linked or copied!"
+echo "         Do that manually if needed!"
+
+
+# -----------------------------------------------------------------------------
+# kde
+# -----------------------------------------------------------------------------
+
+echo "WARNING: files in 'kde' are not linked or copied!"
+echo "         Do that manually if needed!"
+
