@@ -8,7 +8,6 @@
 # Todays date as part of the backup directory name
 date=`date +%Y-%m-%d`
 
-# Create backup directory
 backup_dir="$PWD/dotfiles_backup_$date"
 mkdir -p $backup_dir
 
@@ -19,11 +18,13 @@ mkdir -p $backup_dir
 
 echo
 echo "bash:"
+
 for i in .bash_logout .bashrc .bash_profile .bash
 do
     mv $HOME/$i $backup_dir
     ln -svn $PWD/bash/$i $HOME/$i
 done;
+
 source $HOME/.bash_profile
 
 
@@ -33,15 +34,21 @@ source $HOME/.bash_profile
 
 echo
 echo ".config"
+
+# Make sure the XDG_CONFIG_HOME dir exists
 mkdir -p $XDG_CONFIG_HOME
+
 cd .config
+
 for configuration in `find * -maxdepth 0 ! -iname xdg-user-dirs ! -iname plasma-localerc`
 do
     echo "    $configuration"
     mv $HOME/.config/$configuration $backup_configuration
     ln -svn $PWD/$configuration $XDG_CONFIG_HOME/$configuration
 done
+
 cd ..
+
 echo "WARNING: xdg-user-dirs was ignored!"
 echo "WARNING: plasma-localerc was ignored!"
 
