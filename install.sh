@@ -44,6 +44,11 @@ cd ..
 echo "WARNING: xdg-user-dirs was ignored!"
 echo "WARNING: plasma-localerc was ignored!"
 
+# Create some special directories needed by vim
+mkdir -p $XDG_DATA_HOME/vim/undo
+mkdir -p $XDG_DATA_HOME/vim/swap
+mkdir -p $XDG_DATA_HOME/vim/backup
+
 
 # -----------------------------------------------------------------------------
 # etc
