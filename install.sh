@@ -32,6 +32,7 @@ source $HOME/.bash_profile
 # -----------------------------------------------------------------------------
 
 echo ".config"
+mkdir -p $XDG_CONFIG_HOME
 cd .config
 for configuration in `find * -maxdepth 0 ! -iname xdg-user-dirs ! -iname plasma-localerc`
 do
