@@ -33,7 +33,7 @@ export WGETRC="$XDG_CONFIG_HOME"/wget/wgetrc
 export XINITRC="$XDG_CONFIG_HOME"/X11/xinitrc
 export XAUTHORITY="$XDG_RUNTIME_DIR"/Xauthority
 export SQLITE_HISTORY="$XDG_DATA_HOME"/sqlite_history
-export VIMINIT="source $XDG_CONFIG_HOME/vim/vimrc"
+export VIMINIT='if !has("nvim") | let $MYVIMRC="$XDG_CONFIG_HOME/vim/vimrc" | else | let $MYVIMRC="$XDG_CONFIG_HOME/nvim/init.vim" | endif | source $MYVIMRC'
 export HISTFILE="$XDG_DATA_HOME"/bash/history
 
 # Workaround for a bug in libreoffice: needed to show menu icons correctly.
