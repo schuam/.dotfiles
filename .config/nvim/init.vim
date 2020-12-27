@@ -8,7 +8,7 @@ augroup END " }
 "  Load my custom settings
 " *****************************************************************************
 
-source $XDG_CONFIG_HOME/vim/startup/settings.vim
-source $XDG_CONFIG_HOME/vim/startup/functions.vim
-source $XDG_CONFIG_HOME/vim/startup/mappings.vim
+source $XDG_CONFIG_HOME/nvim/startup/settings.vim
+source $XDG_CONFIG_HOME/nvim/startup/functions.vim
+source $XDG_CONFIG_HOME/nvim/startup/mappings.vim
 
