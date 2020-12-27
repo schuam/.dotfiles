@@ -1,10 +1,4 @@
-﻿" Automatic reloading of .vimrc
-augroup relaod_vimrc " {
-    autocmd!
-    autocmd BufWritePost $MYVIMRC source $MYVIMRC
-augroup END " }
-
-" *****************************************************************************
+﻿" *****************************************************************************
 "  Load my custom settings
 " *****************************************************************************
 
