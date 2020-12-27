@@ -5,10 +5,10 @@ let mapleader="-"
 map <Leader>n <esc>:tabprevious<CR>
 map <Leader>m <esc>:tabnext<CR>
 
-nnoremap <silent> <Esc>h <C-w>h
-nnoremap <silent> <Esc>j <C-w>j
-nnoremap <silent> <Esc>k <C-w>k
-nnoremap <silent> <Esc>l <C-w>l
+nnoremap <A-h> <C-w>h
+nnoremap <A-j> <C-w>j
+nnoremap <A-k> <C-w>k
+nnoremap <A-l> <C-w>l
 
 "map sort function to a key
 vnoremap <Leader>s :sort<CR>
