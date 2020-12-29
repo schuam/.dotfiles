@@ -33,7 +33,7 @@ set clipboard=unnamedplus  " When text is yanked, put it in the unnamed
 set laststatus=2           " allways show statusline
 set nrformats=             " Otherwise numbers with a leading zero will be
                            " treaded as if in octal notation.
-set wildmode=longest,list  " When <tab> is pressed in Ex mode, the longest
+set wildmode=list:longest,full  " When <tab> is pressed in Ex mode, the longest
                            " matching part of a possible command and a list
                            " with possible commands is displayed.
 set spelllang=de_de        " set German default language for spell checking
