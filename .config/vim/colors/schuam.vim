@@ -198,7 +198,6 @@ exe "hi! VertSplit"      .s:fg_intense_light_bg .s:bg_fg               .s:fmt_no
 exe "hi! VisualNOS"      .s:fg_none             .s:bg_intense_light_bg .s:fmt_none
 exe "hi! Visual"         .s:fg_none             .s:bg_intense_light_bg .s:fmt_none
 exe "hi! WarningMsg"     .s:fg_none             .s:bg_none             .s:fmt_none
-exe "hi! WildMenu"       .s:fg_none             .s:bg_none             .s:fmt_none
 
 
 " -----------------------------------------------------------------------------
