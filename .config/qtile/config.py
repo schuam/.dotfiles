@@ -163,6 +163,10 @@ keys = [
     Key([WIN], "d", lazy.to_screen(1)),
     Key([WIN], "f", lazy.to_screen(2)),
 
+    # Cycle through workspaces
+    Key([WIN], "Left", lazy.screen.prev_group()),
+    Key([WIN], "Right", lazy.screen.next_group()),
+
     # Start applications
     Key([ALT], "Return", lazy.spawn(
         my_terminal + " --working-directory " + HOME)),
