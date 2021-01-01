@@ -39,7 +39,7 @@ export HISTFILE="$XDG_DATA_HOME"/bash/history
 # Workaround for a bug in libreoffice: needed to show menu icons correctly.
 export SAL_USE_VCLPLUGIN=gen
 
-setleds -D +num
+pgrep Xorg > /dev/null || setleds -D +num
 
 source ~/.bashrc
 
