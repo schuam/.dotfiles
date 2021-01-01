@@ -25,6 +25,8 @@ do
     ln -svn $PWD/bash/$i $HOME/$i
 done;
 
+mkdir -p $XDG_DATA_HOME/bash
+
 source $HOME/.bash_profile
 
 
