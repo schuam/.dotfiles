@@ -7,7 +7,7 @@ three different files:
 - functions.vim
 - mappings.vim
 
-They are located in '.vim/startup' and sourced by .vimrc in that order.
+They are located in the startup directory and sourced by .vimrc in that order.
 
 
 # Plugins
