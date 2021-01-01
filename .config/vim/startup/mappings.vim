@@ -5,10 +5,18 @@ let mapleader="-"
 map <Leader>n <esc>:tabprevious<CR>
 map <Leader>m <esc>:tabnext<CR>
 
-nnoremap <silent> <Esc>h <C-w>h
-nnoremap <silent> <Esc>j <C-w>j
-nnoremap <silent> <Esc>k <C-w>k
-nnoremap <silent> <Esc>l <C-w>l
+if exists('$TMUX')
+    let g:tmux_navigator_no_mappings = 1
+    nnoremap <silent> <Esc>h :TmuxNavigateLeft<cr>
+    nnoremap <silent> <Esc>j :TmuxNavigateDown<cr>
+    nnoremap <silent> <Esc>k :TmuxNavigateUp<cr>
+    nnoremap <silent> <Esc>l :TmuxNavigateRight<cr>
+else
+    nnoremap <silent> <Esc>h <C-w>h
+    nnoremap <silent> <Esc>j <C-w>j
+    nnoremap <silent> <Esc>k <C-w>k
+    nnoremap <silent> <Esc>l <C-w>l
+endif
 
 "map sort function to a key
 vnoremap <Leader>s :sort<CR>
