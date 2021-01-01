@@ -160,6 +160,9 @@ let g:vimwiki_list = [{'path': '~/referenzmaterial/vimwiki/',
                      \ 'ext': '.md'}]
 
 
+" Denite
+" -----------------------------------------------------------------------------
+
 " Wrap in try/catch to avoid errors on initial install before plugin is available
 try
 " === Denite setup ==="
@@ -191,24 +194,22 @@ call denite#custom#var('grep', 'final_opts', [])
 call denite#custom#var('buffer', 'date_format', '')
 
 " Custom options for Denite
-"   auto_resize             - Auto resize the Denite window height automatically.
+"   auto_resize             - Auto resize the Denite window height
+"                             automatically.
 "   prompt                  - Customize denite prompt
-"   direction               - Specify Denite window direction as directly below current pane
+"   direction               - Specify Denite window direction as directly below
+"                             current pane
 "   winminheight            - Specify min height for Denite window
 "   highlight_mode_insert   - Specify h1-CursorLine in insert mode
 "   prompt_highlight        - Specify color of prompt
 "   highlight_matched_char  - Matched characters highlight
 "   highlight_matched_range - matched range highlight
 let s:denite_options = {'default' : {
-\ 'split': 'floating',
+\ 'split': 'horizontal',
 \ 'start_filter': 1,
 \ 'auto_resize': 1,
 \ 'source_names': 'short',
 \ 'prompt': 'λ ',
-\ 'highlight_matched_char': 'QuickFixLine',
-\ 'highlight_matched_range': 'Visual',
-\ 'highlight_window_background': 'Visual',
-\ 'highlight_filter_background': 'DiffAdd',
 \ 'winrow': 1,
 \ 'vertical_preview': 1
 \ }}
