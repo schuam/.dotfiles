@@ -16,3 +16,6 @@
 [submodule "vim/.vim/pack/vendor/start/nerdtree"]
 	path = .config/vim/pack/vendor/start/nerdtree
 	url = https://github.com/preservim/nerdtree.git
+[submodule ".config/vim/pack/vendor/start/vim-tmux-navigator"]
+	path = .config/vim/pack/vendor/start/vim-tmux-navigator
+	url = https://github.com/christoomey/vim-tmux-navigator.git
