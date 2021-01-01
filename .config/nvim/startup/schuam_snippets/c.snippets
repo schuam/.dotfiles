@@ -1,0 +1,171 @@
+# Preprocessor
+# -----------------------------------------------------------------------------
+
+snippet #ifndef "#ifndef ... #define ... #endif"
+#ifndef ${1/([A-Za-z0-9_]+).*/$1/}
+#define ${1:SYMBOL} ${2:value}
+#endif // ifndef $1
+endsnippet
+
+snippet once "Include header once only guard"
+#ifndef ${1:`!p
+if not snip.c:
+	import string
+	name = re.sub(r'[^A-Za-z0-9]+','_', snip.fn).upper()
+	snip.rv = ('__%s__' % (name)).upper()
+else:
+	snip.rv = snip.c`}
+#define $1
+
+${VISUAL}$0
+
+#endif // $1
+endsnippet
+
+snippet Inc "#include <*.h>"
+#include <${1:stdio}.h>
+endsnippet
+
+snippet inc "#include 'filename.h'"
+#include "${1:file}.h"
+endsnippet
+
+
+# Loops
+# -----------------------------------------------------------------------------
+
+snippet for "for loop (for)"
+for (${2:i} = 0; $2 < ${1:count}; ${3:++$2})
+{
+	${VISUAL}$0
+}
+endsnippet
+
+snippet fori "for int loop (fori)"
+for (${4:uint8} ${2:i} = 0; $2 < ${1:count}; ${3:++$2})
+{
+	${VISUAL}$0
+}
+endsnippet
+
+snippet while "while loop"
+while (${1:/* condition */})
+{
+	${0:${VISUAL}}
+}
+endsnippet
+
+snippet do
+do
+{
+	${0:${VISUAL}}
+} while (${1:/* condition */});
+endsnippet
+
+
+# Conditionals
+# -----------------------------------------------------------------------------
+
+snippet if "if"
+if (${1:true})
+{
+	${VISUAL}$0
+}
+endsnippet
+
+snippet ife "if ... else"
+if (${1:true})
+{
+	${VISUAL}$0
+}
+else
+{
+	${0}
+}
+endsnippet
+
+snippet el "else"
+else
+{
+	${VISUAL}$0
+}
+endsnippet
+
+snippet elif "else if"
+else if (${1:true})
+{
+	${VISUAL}$0
+}
+endsnippet
+
+snippet if? "condition ? ... : ..."
+${1:/* condition */} ? ${2:a} : ${3:b};
+endsnippet
+
+snippet switch "switch with default"
+switch (${1:/* variable */})
+{
+	case ${2:/* variable case */}:
+		${3}
+		${4:break;}${5}
+	default:
+		${6}
+}
+endsnippet
+
+snippet switchndef "switch without defualt"
+switch (${1:/* variable */})
+{
+	case ${2:/* variable case */}:
+		${3}
+		${4:break;}${5}
+}
+endsnippet
+
+snippet case "case"
+case ${1:/* variable case */}:
+	${2}
+	${3:break;}
+endsnippet
+
+
+# Functions
+# -----------------------------------------------------------------------------
+
+snippet main "int8 main(void)"
+${1:int8} main(void)
+{
+	${VISUAL}$0
+	return 0;
+}
+endsnippet
+
+snippet mainarg "int main(void)"
+int main(int argc, char *argv[])
+{
+	${VISUAL}$0
+endsnippet
+
+snippet ret "return 0;"
+return ${0:0};
+endsnippet
+
+
+# Miscellaneous
+# -----------------------------------------------------------------------------
+
+snippet todo "//TODO: "
+// TODO: ${0:${VISUAL}}
+endsnippet
+
+
+# TODO:
+# snippets for
+# - struct
+# - typedef
+# - typedef struct
+# - enum
+# - typedef enum
+# 
+# extend todo snippet with user name and timestamp
+

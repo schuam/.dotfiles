@@ -172,7 +172,6 @@ exe "hi! Question"       .s:fg_none             .s:bg_none             .s:fmt_no
 exe "hi! Repeat"         .s:fg_dark_yellow      .s:bg_none             .s:fmt_none
 exe "hi! Search"         .s:fg_none             .s:bg_none             .s:fmt_revbbu
 
-
 " !marks column
 exe "hi! SignColumn"     .s:fg_none             .s:bg_none             .s:fmt_none
 exe "hi! SpecialChar"    .s:fg_none             .s:bg_none             .s:fmt_none
