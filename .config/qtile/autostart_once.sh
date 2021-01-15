@@ -4,4 +4,5 @@
 nm-applet &
 blueman-applet &
 udiskie --no-automount --no-notify --tray &
+xss-lock -- slock &
 
