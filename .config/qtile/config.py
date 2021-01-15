@@ -323,6 +323,7 @@ layouts = [
     layout.MonadWide(**layout_theme),
     layout.Matrix(columns=2, **layout_theme),
     layout.Floating(**layout_theme),
+    layout.TreeTab(sections=["Tabs"], **layout_theme),
 ]
 
 floating_layout = layout.Floating(float_rules=[
