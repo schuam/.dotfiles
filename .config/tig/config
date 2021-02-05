@@ -1,4 +1,4 @@
-# Tig default configuration
+# Slightly modified Tig default configuration
 #
 # Please see 'man tigrc' for a complete reference.
 
@@ -378,7 +378,7 @@ color "    Acked-by"		yellow	default
 color "    Tested-by"		yellow	default
 color "    Reviewed-by"		yellow	default
 color default			default	default	normal
-color cursor			white	green	bold
+color cursor			black	green	bold
 color status			green	default
 color delimiter			magenta	default
 color date			blue	default
@@ -392,8 +392,8 @@ color file			default	default
 color grep.file			blue	default
 color file-size			default	default
 color line-number		cyan	default
-color title-blur		white	blue
-color title-focus		white	blue	bold
+color title-blur		black	blue
+color title-focus		black	blue	bold
 color main-commit		default	default
 color main-annotated		default	default	bold
 color main-tag			magenta	default	bold
