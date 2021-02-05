@@ -2,8 +2,7 @@
 let mapleader="-"
 
 " Easier moving between tabs
-map <Leader>n <esc>:tabprevious<CR>
-map <Leader>m <esc>:tabnext<CR>
+nnoremap <C-t> :bn<CR>
 
 nnoremap <A-h> <C-w>h
 nnoremap <A-j> <C-w>j
