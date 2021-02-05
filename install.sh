@@ -59,6 +59,13 @@ mkdir -p $XDG_DATA_HOME/vim/undo
 mkdir -p $XDG_DATA_HOME/vim/swap
 mkdir -p $XDG_DATA_HOME/vim/backup
 
+# Some special steps for Neovim
+curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
+    https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+mkdir -p $XDG_DATA_HOME/nvim/plugged/vim-ariline/autoload/airline/themes
+cp .config/nvim/colors/airline_schuam.vim \
+    $XDG_DATA_HOME/nvim/plugged/vim-airline/autoload/themes/schuam.vim
+
 
 # -----------------------------------------------------------------------------
 # etc
