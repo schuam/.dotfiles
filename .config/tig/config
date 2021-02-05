@@ -317,6 +317,10 @@ bind generic	<C-L>	screen-redraw		# Redraw the screen
 bind generic	z	stop-loading		# Stop all loading views
 bind generic	v	show-version		# Show Tig version
 
+# User-defined
+bind generic	w	!@sh -c "echo -n %(commit) | xclip -selection c"
+
+
 # Colors
 # ------
 
