@@ -227,3 +227,11 @@ call s:profile(s:denite_options)
 catch
   echo 'Denite not installed. It should work after running :PlugInstall'
 endtry
+
+
+"  powerline
+" -----------------------------------------------------------------------------
+
+let g:airline#extensions#tabline#enabled = 1
+let g:airline_powerline_fonts = 1
+
