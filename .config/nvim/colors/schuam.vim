@@ -134,10 +134,10 @@ exe "hi! Debug"          .s:fg_none             .s:bg_none             .s:fmt_no
 exe "hi! Define"         .s:fg_dark_magenta     .s:bg_none             .s:fmt_none
 exe "hi! Delimiter"      .s:fg_none             .s:bg_none             .s:fmt_none
 
-exe "hi! DiffAdd"        .s:fg_none             .s:bg_none             .s:fmt_none
-exe "hi! DiffChange"     .s:fg_none             .s:bg_none             .s:fmt_none
-exe "hi! DiffDelete"     .s:fg_none             .s:bg_none             .s:fmt_none
-exe "hi! DiffText"       .s:fg_none             .s:bg_none             .s:fmt_none
+exe "hi! DiffAdd"        .s:fg_dark_green       .s:bg_light_bg         .s:fmt_none
+exe "hi! DiffChange"     .s:fg_none             .s:bg_light_bg         .s:fmt_none
+exe "hi! DiffDelete"     .s:fg_dark_red         .s:bg_light_bg         .s:fmt_none
+exe "hi! DiffText"       .s:fg_dark_magenta     .s:bg_intense_light_bg .s:fmt_none
 
 exe "hi! Directory"      .s:fg_none             .s:bg_none             .s:fmt_none
 exe "hi! Error"          .s:fg_none             .s:bg_none             .s:fmt_none
