@@ -79,8 +79,8 @@ let s:intense_fg       = "015"
 
 " The dark.vim theme:
 let s:airline_a_normal   = [ '' , '' , s:intense_fg  , s:dark_green ]
-let s:airline_b_normal   = [ '' , '' , s:intense_fg  , s:intense_light_bg ]
-let s:airline_c_normal   = [ '' , '' , s:intense_fg  , s:light_bg]
+let s:airline_b_normal   = [ '' , '' , s:intense_fg  , s:light_blue ]
+let s:airline_c_normal   = [ '' , '' , s:intense_fg  , s:intense_light_bg]
 let g:airline#themes#schuam#palette.normal = airline#themes#generate_color_map(s:airline_a_normal, s:airline_b_normal, s:airline_c_normal)
 
 " It should be noted the above is equivalent to:
@@ -110,16 +110,16 @@ let g:airline#themes#schuam#palette.normal = airline#themes#generate_color_map(s
 " applied after g:airline#themes#dark#palette.normal, hence why only certain keys are
 " declared.
 let g:airline#themes#schuam#palette.normal_modified = {
-      \ 'airline_c': [ '' , '' , s:intense_fg , s:dark_magenta , '' ] ,
+      \ 'airline_c': [ '' , '' , s:intense_fg , s:intense_light_bg , '' ] ,
       \ }
 
 
 let s:airline_a_insert   = [ '' , '' , s:intense_fg  , s:dark_red ]
-let s:airline_b_insert   = [ '' , '' , s:intense_fg  , s:intense_light_bg ]
-let s:airline_c_insert   = [ '' , '' , s:intense_fg  , s:light_bg]
+let s:airline_b_insert   = [ '' , '' , s:intense_fg  , s:light_blue ]
+let s:airline_c_insert   = [ '' , '' , s:intense_fg  , s:intense_light_bg]
 let g:airline#themes#schuam#palette.insert = airline#themes#generate_color_map(s:airline_a_insert, s:airline_b_insert, s:airline_c_insert)
 let g:airline#themes#schuam#palette.insert_modified = {
-      \ 'airline_c': [ '' , '' , s:intense_fg , s:dark_magenta , '' ] ,
+      \ 'airline_c': [ '' , '' , s:intense_fg , s:intense_light_bg , '' ] ,
       \ }
 let g:airline#themes#schuam#palette.insert_paste = {
       \ 'airline_a': [ s:airline_a_insert[0]   , '#d78700' , s:airline_a_insert[2] , 172     , ''     ] ,
@@ -133,27 +133,27 @@ let g:airline#themes#schuam#palette.replace_modified = g:airline#themes#schuam#p
 
 
 let s:airline_a_visual   = [ '' , '' , s:intense_fg  , s:dark_yellow ]
-let s:airline_b_visual   = [ '' , '' , s:intense_fg  , s:intense_light_bg ]
-let s:airline_c_visual   = [ '' , '' , s:intense_fg  , s:light_bg]
+let s:airline_b_visual   = [ '' , '' , s:intense_fg  , s:light_blue ]
+let s:airline_c_visual   = [ '' , '' , s:intense_fg  , s:intense_light_bg]
 let g:airline#themes#schuam#palette.visual = airline#themes#generate_color_map(s:airline_a_visual, s:airline_b_visual, s:airline_c_visual)
 let g:airline#themes#schuam#palette.visual_modified = {
-      \ 'airline_c': [ '' , '' , s:intense_fg , s:dark_magenta , '' ] ,
+      \ 'airline_c': [ '' , '' , s:intense_fg , s:intense_light_bg , '' ] ,
       \ }
 
 
 let s:airline_a_inactive = [ '' , '' , s:fg , s:dark_green , '' ]
-let s:airline_b_inactive = [ '' , '' , s:fg , s:intense_light_bg , '' ]
-let s:airline_c_inactive = [ '' , '' , s:fg , 'NONE' , '' ]
+let s:airline_b_inactive = [ '' , '' , s:fg , s:dark_blue , '' ]
+let s:airline_c_inactive = [ '' , '' , s:fg , s:light_bg , '' ]
 let g:airline#themes#schuam#palette.inactive = airline#themes#generate_color_map(s:airline_a_inactive, s:airline_b_inactive, s:airline_c_inactive)
 let g:airline#themes#schuam#palette.inactive_modified = {
-      \ 'airline_c': [ '' , '' , s:dark_magenta, '' , '' ] ,
+      \ 'airline_c': [ '' , '' , s:intense_light_bg, '' , '' ] ,
       \ }
 
 " For commandline mode, we use the colors from normal mode, except the mode
 " indicator should be colored differently, e.g. light green
 let s:airline_a_commandline   = [ '' , '' , s:intense_fg  , s:dark_cyan ]
-let s:airline_b_commandline   = [ '' , '' , s:intense_fg  , s:intense_light_bg ]
-let s:airline_c_commandline   = [ '' , '' , s:intense_fg  , s:light_bg]
+let s:airline_b_commandline   = [ '' , '' , s:intense_fg  , s:light_blue ]
+let s:airline_c_commandline   = [ '' , '' , s:intense_fg  , s:intense_light_bg]
 let g:airline#themes#schuam#palette.commandline = airline#themes#generate_color_map(s:airline_a_commandline, s:airline_b_commandline, s:airline_c_commandline)
 
 " Accents are used to give parts within a section a slightly different look or
