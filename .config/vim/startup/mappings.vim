@@ -2,8 +2,9 @@
 let mapleader="-"
 
 " Easier moving between tabs
-map <Leader>n <esc>:tabprevious<CR>
-map <Leader>m <esc>:tabnext<CR>
+nnoremap <C-t> :bn<CR>
+
+" Moving between splits (and tmux)
 
 if exists('$TMUX')
     let g:tmux_navigator_no_mappings = 1
