@@ -9,5 +9,6 @@ Plug 'tpope/vim-surround'
 Plug 'tpope/vim-fugitive'
 Plug 'vim-airline/vim-airline'
 Plug 'Vimjas/vim-python-pep8-indent'
+Plug 'christoomey/vim-tmux-navigator'
 call plug#end()
 

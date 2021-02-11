@@ -4,10 +4,19 @@ let mapleader="-"
 " Easier moving between tabs
 nnoremap <C-t> :bn<CR>
 
-nnoremap <A-h> <C-w>h
-nnoremap <A-j> <C-w>j
-nnoremap <A-k> <C-w>k
-nnoremap <A-l> <C-w>l
+" Moving between splits (and tmux)
+if exists('$TMUX')
+    let g:tmux_navigator_no_mappings = 1
+    nnoremap <A-h> :TmuxNavigateLeft<cr>
+    nnoremap <A-j> :TmuxNavigateDown<cr>
+    nnoremap <A-k> :TmuxNavigateUp<cr>
+    nnoremap <A-l> :TmuxNavigateRight<cr>
+else
+    nnoremap <A-h> <C-w>h
+    nnoremap <A-j> <C-w>j
+    nnoremap <A-k> <C-w>k
+    nnoremap <A-l> <C-w>l
+endif
 
 "map sort function to a key
 vnoremap <Leader>s :sort<CR>
