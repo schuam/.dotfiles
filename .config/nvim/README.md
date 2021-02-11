@@ -18,7 +18,7 @@ For now I decided to use vim-plug to install plugins into Neovim. In order to
 do so I had to install vim-plug first. This was done using the command:
 
 ```bash
-curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
+curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs \
     https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 ```
 
