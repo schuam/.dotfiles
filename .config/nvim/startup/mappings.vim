@@ -67,9 +67,10 @@ inoremap <Leader>tt <C-R>=strftime("%T")<CR>
 inoremap <Leader>tdt <C-R>=strftime("%FT%T%z")<CR>
 
 " Since I want to use <C-d> to quit, I need to remap the scrolling
-" functionality. While at it move <C-u> to <C-k>.
-nnoremap <C-j> <C-d>
-nnoremap <C-k> <C-u>
+" functionality. I tried <C-j> and <C-k> but for some reason you can't easily
+" map these key combinations, therefore I will use <C-m> to go up and leave
+" <C-u> to go up.
+nnoremap <C-m> <C-d>
 
 " Quit vim like a terminal window
 nnoremap <C-d> :q<CR>
