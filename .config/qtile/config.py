@@ -35,6 +35,7 @@ from libqtile.config import Drag
 from libqtile.config import Click
 from libqtile.config import ScratchPad
 from libqtile.config import DropDown
+from libqtile.config import Match
 from libqtile.lazy import lazy
 from libqtile import layout
 from libqtile import bar
@@ -328,20 +329,21 @@ layouts = [
 
 floating_layout = layout.Floating(float_rules=[
     # Run the utility of `xprop` to see the wm class and name of an X client.
-    {'wmclass': 'confirm'},
-    {'wmclass': 'dialog'},
-    {'wmclass': 'download'},
-    {'wmclass': 'error'},
-    {'wmclass': 'file_progress'},
-    {'wmclass': 'notification'},
-    {'wmclass': 'splash'},
-    {'wmclass': 'toolbar'},
-    {'wmclass': 'gitk' },
-    {'wname': 'pinentry'},  # GPG key password entry
-    {'wmclass': 'ssh-askpass'},  # ssh-askpass
-    {'wmclass': 'clementine' },
-    {'wmclass': 'pavucontrol' },
-    {'wmclass': 'qalculate-gtk' },
+    *layout.Floating.default_float_rules,
+    Match(wm_class='confirm'),
+    Match(wm_class='dialog'),
+    Match(wm_class='download'),
+    Match(wm_class='error'),
+    Match(wm_class='file_progress'),
+    Match(wm_class='notification'),
+    Match(wm_class='splash'),
+    Match(wm_class='toolbar'),
+    Match(wm_class='gitk' ),
+    Match(title='pinentry'),  # GPG key password entry
+    Match(wm_class='ssh-askpass'),  # ssh-askpass
+    Match(wm_class='clementine' ),
+    Match(wm_class='pavucontrol' ),
+    Match(wm_class='qalculate-gtk' ),
 ])
 
 
