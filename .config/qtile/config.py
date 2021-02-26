@@ -186,6 +186,7 @@ keys = [
 
     # Dmenu scripts
     Key([WIN], "Print", lazy.spawn("dmenu_scrot.py")),
+    Key([WIN], "p", lazy.spawn("dmenu_scrot.py")),
     Key([], "XF86Display", lazy.spawn("dmenu_monitors.py")),
     # For some reason the previous key binding does not work on my external
     # keyboard, therefore I added a second key binding to run dmenu_monitors.sh
