@@ -14,6 +14,7 @@ alias tmux='tmux -2'    # Forces tmux to use 256 colors.
 
 # git aliases
 alias gk='gitk --all &'
+alias tig='tig --all'
 
 # vifm aliases
 alias vifm="~/.dotfiles/.config/vifm/scripts/vifmrun"
