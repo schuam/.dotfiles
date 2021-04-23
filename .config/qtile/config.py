@@ -181,8 +181,9 @@ keys = [
     Key([ALT, CTRL], "f", lazy.spawn(
         my_terminal + " -e " + HOME + "/.dotfiles/.config/vifm/scripts/vifmrun")
     ),
-    Key([ALT, CTRL], "p", lazy.spawn("pavucontrol")),
+    Key([ALT, CTRL], "v", lazy.spawn("pavucontrol")),
     Key([ALT, CTRL], "l", lazy.spawn("slock")),    # lock screen
+    Key([ALT, CTRL], "p", lazy.spawn("dmenu_pdf.sh")),
 
     # Dmenu scripts
     Key([WIN], "Print", lazy.spawn("dmenu_scrot.py")),
