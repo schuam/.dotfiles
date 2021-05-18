@@ -127,6 +127,11 @@ cursor_warp = False
 
 
 # keys
+#
+# ToDo: Think about using key cords for certain short cuts. Maybe I can use it
+#       to group all dmenu key bindings into one group for example.
+#       See PR #1777 (https://github.com/qtile/qtile/pull/1777/commits) for
+#       reference.
 # -----------------------------------------------------------------------------
 
 keys = [
