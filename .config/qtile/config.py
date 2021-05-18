@@ -346,7 +346,7 @@ floating_layout = layout.Floating(float_rules=[
     Match(wm_class='splash'),
     Match(wm_class='toolbar'),
     Match(wm_class='gitk' ),
-    Match(title='pinentry'),  # GPG key password entry
+    Match(wm_class='pinentry-gtk-2'),  # GPG key password entry
     Match(wm_class='ssh-askpass'),  # ssh-askpass
     Match(wm_class='clementine' ),
     Match(wm_class='pavucontrol' ),
