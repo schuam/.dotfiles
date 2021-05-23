@@ -2,7 +2,7 @@
 alias tolower="perl-rename 'y/A-Z/a-z/' *"
 
 # aliases to list all files and to change to higher dictonaries.
-alias ls='ls --color'
+alias ls='ls --color --group-directories-first'
 alias l='ls -lh'
 alias la='ls -lah'
 alias ..='cd ..'
