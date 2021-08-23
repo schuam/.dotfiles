@@ -30,6 +30,6 @@ then
     exec /usr/bin/startplasma-x11
 else
     xbindkeys -f "$XDG_CONFIG_HOME"/xbindkeys/xbindkeysrc
-    exec qtile
+    exec qtile start
 fi
 
