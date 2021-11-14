@@ -10,5 +10,7 @@ Plug 'tpope/vim-fugitive'
 Plug 'vim-airline/vim-airline'
 Plug 'Vimjas/vim-python-pep8-indent'
 Plug 'christoomey/vim-tmux-navigator'
+Plug 'nvim-treesitter/nvim-treesitter'
+Plug 'kristijanhusak/orgmode.nvim'
 call plug#end()
 
