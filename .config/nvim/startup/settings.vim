@@ -271,7 +271,8 @@ require'nvim-treesitter.configs'.setup {
 }
 
 require('orgmode').setup({
-  org_agenda_files = {'~/projects/gtd/*'},
+  org_agenda_files = {'~/projects/gtd/todo.org', '~/projects/gtd/regular.org'},
+  org_archive_location = '~/projects/gtd/archive.org',
   org_default_notes_file = '~/projects/gtd/inbox.org',
   org_todo_keywords = {'TODO(t)', 'NEXT(n)', 'WAITING(w)', 'SUSPENDED(s)', 'PROJ(p)', '|', 'DONE(d)', 'CANCELED(c)'},
   org_deadline_warning_days = 14,
