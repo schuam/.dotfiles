@@ -245,3 +245,40 @@ let g:airline_right_alt_sep=''
 
 let g:python3_host_prog='/usr/bin/python'
 
+
+" orgmode
+" -----------------------------------------------------------------------------
+
+lua << EOF
+local parser_config = require "nvim-treesitter.parsers".get_parser_configs()
+parser_config.org = {
+  install_info = {
+    url = 'https://github.com/milisims/tree-sitter-org',
+    revision = 'main',
+    files = {'src/parser.c', 'src/scanner.cc'},
+  },
+  filetype = 'org',
+}
+
+require'nvim-treesitter.configs'.setup {
+  -- If TS highlights are not enabled at all, or disabled via `disable` prop, highlighting will fallback to default Vim syntax highlighting
+  highlight = {
+    enable = true,
+    disable = {'org'}, -- Remove this to use TS highlighter for some of the highlights (Experimental)
+    additional_vim_regex_highlighting = {'org'}, -- Required since TS highlighter doesn't support all syntax features (conceal)
+  },
+  ensure_installed = {'org'}, -- Or run :TSUpdate org
+}
+
+require('orgmode').setup({
+  org_agenda_files = {'~/workspaces/gtd/todo.org', '~/workspaces/gtd/regular.org'},
+  org_archive_location = '~/workspaces/gtd/archive.org',
+  org_default_notes_file = '~/workspaces/gtd/inbox.org',
+  org_todo_keywords = {'TODO(t)', 'NEXT(n)', 'WAITING(w)', 'SUSPENDED(s)', 'PROJ(p)', '|', 'DONE(d)', 'CANCELED(c)'},
+  org_deadline_warning_days = 14,
+  org_agenda_start_on_weekday = false,    -- start agenda view from today
+  org_agenda_start_day = '-2d',           -- offset of start day in agenda view
+  org_agenda_templates = {t = {description = 'TASK', template = '* TODO %?\n  %u'}, p = {description = 'PROJECT', template = '* PROJ %?\n  %u'}, n = {description = 'NOTE', template = '* NOTE %?\n  %u'}},
+})
+EOF
+

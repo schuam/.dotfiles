@@ -5,6 +5,8 @@ alias tolower="perl-rename 'y/A-Z/a-z/' *"
 alias ls='ls --color --group-directories-first'
 alias l='ls -lh'
 alias la='ls -lah'
+alias tree='tree --dirsfirst'
+alias desk='cd ~/Desktop && l'
 alias ..='cd ..'
 alias ...='cd ../..'
 alias ....='cd ../../..'
@@ -33,6 +35,7 @@ alias mv='mv -i'
 # Neomutt
 alias mutt='cd ~/Desktop && neomutt'
 
+# Slideshows
 alias sliedshow='feh -F -f'
 
 # X
@@ -47,4 +50,13 @@ alias grep='grep --color'
 
 # use neovim instead of vim
 alias vim='nvim'
+
+# aliases for nvim-org-mode and gtd (getting things done)
+alias gtd='cd ~/workspaces/gtd'
+alias gtd_todo='vim ~/workspaces/gtd/todo.org'
+alias gtd_inbox='vim ~/workspaces/gtd/inbox.org'
+alias gtd_someday='vim ~/workspaces/gtd/someday.org'
+alias gtd_regular='vim ~/workspaces/gtd/regular.org'
+alias gtd_archive='vim ~/workspaces/gtd/archive.org'
+alias todo='gtd_todo'
 
