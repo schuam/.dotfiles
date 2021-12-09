@@ -41,8 +41,6 @@ export HISTFILE="$XDG_DATA_HOME"/bash/history
 # Workaround for a bug in libreoffice: needed to show menu icons correctly.
 export SAL_USE_VCLPLUGIN=gen
 
-pgrep Xorg > /dev/null || setleds -D +num
-
 source ~/.bashrc
 
 # Automatically start the x server when in tty1
