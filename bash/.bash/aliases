@@ -5,6 +5,8 @@ alias tolower="perl-rename 'y/A-Z/a-z/' *"
 alias ls='ls --color --group-directories-first'
 alias l='ls -lh'
 alias la='ls -lah'
+alias tree='tree --dirsfirst'
+alias desk='cd ~/Desktop && l'
 alias ..='cd ..'
 alias ...='cd ../..'
 alias ....='cd ../../..'
@@ -33,6 +35,7 @@ alias mv='mv -i'
 # Neomutt
 alias mutt='cd ~/Desktop && neomutt'
 
+# Slideshows
 alias sliedshow='feh -F -f'
 
 # X
