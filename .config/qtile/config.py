@@ -172,6 +172,8 @@ keys = [
     # Cycle through workspaces
     Key([WIN], "Left", lazy.screen.prev_group()),
     Key([WIN], "Right", lazy.screen.next_group()),
+    Key([WIN, SHIFT], "h", lazy.screen.prev_group()),
+    Key([WIN, SHIFT], "l", lazy.screen.next_group()),
 
     # Start applications
     Key([ALT], "Return", lazy.spawn(
@@ -308,7 +310,24 @@ elif number_of_monitors == 2:
         )
     )
 else:
-    pass
+    keys.append(
+        Key([WIN], "x",
+            lazy.to_screen(0), lazy.group[group_configs[0][0]].toscreen(toggle=False),
+            lazy.to_screen(0),
+        )
+    )
+    keys.append(
+        Key([WIN], "c",
+            lazy.to_screen(0), lazy.group[group_configs[3][0]].toscreen(toggle=False),
+            lazy.to_screen(0),
+        )
+    )
+    keys.append(
+        Key([WIN], "v",
+            lazy.to_screen(0), lazy.group[group_configs[6][0]].toscreen(toggle=False),
+            lazy.to_screen(0),
+        )
+    )
 
 
 # layouts
