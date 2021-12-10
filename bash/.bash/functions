@@ -1,7 +1,8 @@
 # function to create a folder and directely switch into it. Source:
 # lifehacker.com/5535495/create-and-change-to-a-new-direcotry-in-one-command.
 
-mkcd () {
+mkcd ()
+{
     mkdir -p "$*"
     cd "$*"
 }
