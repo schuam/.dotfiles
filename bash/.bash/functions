@@ -31,3 +31,14 @@ ex ()
     echo "'$1' is not a valid file"
   fi
 }
+
+
+# function to start a sliedshow. Pass a file with a list of images that you
+# want to have in the slideshow. The function uses **sxiv** to display the
+# images.
+
+slideshow ()
+{
+    cat "$1" | sxiv -f -i
+}
+

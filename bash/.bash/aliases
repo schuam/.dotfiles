@@ -35,9 +35,6 @@ alias mv='mv -i'
 # Neomutt
 alias mutt='cd ~/Desktop && neomutt'
 
-# Slideshows
-alias sliedshow='feh -F -f'
-
 # X
 # alias startx='startx "$XDG_CONFIG_HOME"/X11/xinitrc -- -keeptty &> ~/.xorg.log'
 alias startx='startx "$XDG_CONFIG_HOME"/X11/xinitrc'
