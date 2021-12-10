@@ -183,7 +183,7 @@ keys = [
     Key([ALT, CTRL], "c",
         lazy.group["scratchpad"].dropdown_toggle("cal")),
     Key([ALT], "space", lazy.spawn("dmenu_run -l 10 -p 'Run: '")),
-    Key([ALT, CTRL], "b", lazy.spawn("firefox")),
+    Key([ALT, CTRL], "b", lazy.spawn("qutebrowser")),
     Key([ALT, CTRL], "m", lazy.spawn("thunderbird")),
     Key([ALT, CTRL], "f", lazy.spawn(
         my_terminal + " -e " + HOME + "/.dotfiles/.config/vifm/scripts/vifmrun")
