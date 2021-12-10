@@ -217,3 +217,6 @@ c.bindings.key_mappings = {'<Ctrl+6>': '<Ctrl+^>', '<Ctrl+Enter>': '<Ctrl+Return
 config.bind(',v', 'hint links spawn mpv {hint-url}')
 config.bind('<Ctrl+l>', 'set-cmd-text -s :open', mode='normal')
 
+# Start page
+config.set('url.start_pages', ['https://google.com'])
+
