@@ -215,3 +215,5 @@ c.bindings.key_mappings = {'<Ctrl+6>': '<Ctrl+^>', '<Ctrl+Enter>': '<Ctrl+Return
 
 # Bindings for normal mode
 config.bind(',v', 'hint links spawn mpv {hint-url}')
+config.bind('<Ctrl+l>', 'set-cmd-text -s :open', mode='normal')
+
