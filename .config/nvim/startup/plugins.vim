@@ -12,5 +12,7 @@ Plug 'Vimjas/vim-python-pep8-indent'
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'nvim-treesitter/nvim-treesitter'
 Plug 'schuam/orgmode'
+Plug 'junegunn/fzf'
+Plug 'junegunn/fzf.vim'
 call plug#end()
 

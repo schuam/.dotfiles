@@ -170,3 +170,18 @@ function! s:denite_my_settings() abort
   \ denite#do_map('do_action', 'split')
 endfunction
 
+
+" junegunn/fzf.vim
+nnoremap <leader>ff :Files<CR>
+nnoremap <leader>fg :GFiles<CR>
+nnoremap <leader>fr :Rg<CR>
+nnoremap <leader>fb :Buffers<CR>
+nnoremap <leader>fh :History:<CR>
+inoremap <expr> <leader>ff fzf#vim#complete#path(
+    \ "find . -path '*/\.*' -prune -o -print \| sed '1d;s:^..::'",
+    \ fzf#wrap({'dir': expand('%:p:h')}))
+if has('nvim')
+    au! TermOpen * tnoremap <buffer> <Esc> <c-\><c-n>
+    au! FileType fzf tunmap <buffer> <Esc>
+endif
+
