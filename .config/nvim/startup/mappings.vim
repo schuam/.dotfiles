@@ -185,3 +185,6 @@ if has('nvim')
     au! FileType fzf tunmap <buffer> <Esc>
 endif
 
+" majutsushi/tagbar
+nnoremap <leader>tb :TagbarToggle<CR>
+

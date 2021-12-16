@@ -14,5 +14,6 @@ Plug 'nvim-treesitter/nvim-treesitter'
 Plug 'schuam/orgmode'
 Plug 'junegunn/fzf'
 Plug 'junegunn/fzf.vim'
+Plug 'majutsushi/tagbar'
 call plug#end()
 
