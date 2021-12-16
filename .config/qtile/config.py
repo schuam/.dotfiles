@@ -183,7 +183,7 @@ keys = [
     Key([ALT, CTRL], "c",
         lazy.group["scratchpad"].dropdown_toggle("cal")),
     Key([ALT], "space", lazy.spawn("dmenu_run -l 10 -p 'Run: '")),
-    Key([ALT, CTRL], "b", lazy.spawn("firefox")),
+    Key([ALT, CTRL], "b", lazy.spawn("qutebrowser")),
     Key([ALT, CTRL], "m", lazy.spawn("thunderbird")),
     Key([ALT, CTRL], "f", lazy.spawn(
         my_terminal + " -e " + HOME + "/.dotfiles/.config/vifm/scripts/vifmrun")
@@ -191,6 +191,7 @@ keys = [
     Key([ALT, CTRL], "v", lazy.spawn("pavucontrol")),
     Key([ALT, CTRL], "l", lazy.spawn("slock")),    # lock screen
     Key([ALT, CTRL], "p", lazy.spawn("dmenu_pdf.sh")),
+    Key([ALT, CTRL], "w", lazy.spawn("firefox --new-window https://web.whatsapp.com")),
 
     # Dmenu scripts
     Key([WIN], "Print", lazy.spawn("dmenu_scrot.py")),
