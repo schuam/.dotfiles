@@ -18,6 +18,9 @@ else
     nnoremap <A-l> <C-w>l
 endif
 
+" Go to tags (e.g. function definitions)
+nnoremap gt <C-]>
+
 " Disable arrow movement, resize splits instead.
 nnoremap <Up>    :resize +2<CR>
 nnoremap <Down>  :resize -2<CR>
