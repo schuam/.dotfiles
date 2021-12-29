@@ -234,6 +234,8 @@ for i, (name, kwargs) in enumerate(group_configs, 1):
         Key([WIN], str(i), lazy.group[name].toscreen(toggle=False)),
         # Send window to workspace x
         Key([WIN, SHIFT], str(i), lazy.window.togroup(name, switch_group=False)),
+        # Send window to workspace x and switch to that workspace
+        Key([WIN, CTRL], str(i), lazy.window.togroup(name, switch_group=True)),
     ])
 
 scratchpad = ScratchPad(
