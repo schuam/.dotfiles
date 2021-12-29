@@ -75,14 +75,10 @@ inoremap <Leader>td <C-R>=strftime("%F")<CR>
 inoremap <Leader>tt <C-R>=strftime("%T")<CR>
 inoremap <Leader>tdt <C-R>=strftime("%FT%T%z")<CR>
 
-" Since I want to use <C-d> to quit, I need to remap the scrolling
-" functionality. I tried <C-j> and <C-k> but for some reason you can't easily
-" map these key combinations, therefore I will use <C-m> to go up and leave
-" <C-u> to go up.
-nnoremap <C-m> <C-d>
 
-" Quit vim like a terminal window
-nnoremap <C-d> :q<CR>
+" Quit vim or close a buffer
+nnoremap <C-c> :q<CR>
+nnoremap <C-b> :bd<CR>
 
 
 " Insert empty line without going into inser mode.
