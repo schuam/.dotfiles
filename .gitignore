@@ -3,3 +3,4 @@ vifminfo
 vifminfo.json
 .config/vim/.vim/.netrwhist
 konsole/bookmarks*
+.config/qutebrowser/autoconfig.yml
