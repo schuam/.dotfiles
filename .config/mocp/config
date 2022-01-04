@@ -69,7 +69,7 @@
 #
 # Example:    MusicDir = "/home/joe/music"
 #
-#MusicDir =
+MusicDir = ${XDG_MUSIC_DIR}
 
 # Start in the music directory by default?  If set to 'no', start
 # in the current directory by default.  A single directory on
@@ -103,6 +103,7 @@
 #                     documentation for more information.)
 #
 #FormatString = "%(n:%n :)%(a:%a - :)%(t:%t:)%(A: \(%A\):)"
+FormatString = "%(a:%a - :)%(t:%t:)%(A: \(%A\):)"
 
 # Input and output buffer sizes (in kilobytes).
 #InputBuffer = 512                  # Minimum value is 32KB
@@ -219,7 +220,7 @@
 #
 # Example:    Theme = laras_theme
 #
-#Theme =
+Theme = ${XDG_CONFIG_HOME}/mocp/themes/darkdot_theme
 
 # The theme used when running on an xterm.
 #
@@ -234,7 +235,7 @@
 
 # MOC directory (where pid file, socket and state files are stored).
 # You can use ~ at the beginning.
-#MOCDir = ~/.moc
+MOCDir = ~/workspaces/mocp
 
 # Use mmap() to read files.  mmap() is much slower on NFS.
 #UseMMap = no
