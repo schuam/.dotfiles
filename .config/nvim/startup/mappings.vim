@@ -2,7 +2,8 @@
 let mapleader="-"
 
 " Easier moving between tabs
-nnoremap <C-t> :bn<CR>
+nnoremap <C-n> :bn<CR>
+nnoremap <C-p> :bp<CR>
 
 " Moving between splits (and tmux)
 if exists('$TMUX')
@@ -56,7 +57,7 @@ noremap ]s ]szz
 noremap [s [szz
 
 " Toggles the relative line numbering
-nnoremap <C-n> :call ToggleRelativenumber()<cr>
+nnoremap <Leader>n :call ToggleRelativenumber()<cr>
 
 " Toggle NERDTree window
 noremap <Leader>l :NERDTreeToggle<CR>
