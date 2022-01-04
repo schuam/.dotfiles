@@ -60,3 +60,7 @@ alias todo='gtd_todo'
 
 # alias for abook to start with a different config and data file
 alias abook='abook --config $XDG_CONFIG_HOME/abook/abookrc --datafile ~/workspaces/abook/addressbook'
+
+# alias for mocp (music player)
+alias mocp='mocp -C "$XDG_CONFIG_HOME"/mocp/config -m'
+
