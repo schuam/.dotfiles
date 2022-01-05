@@ -64,7 +64,7 @@ noremap <Leader>l :NERDTreeToggle<CR>
 
 
 " Shows the syntax highlight gourp
-nnoremap <C-q> :call CheckSyntaxHighlightGroup()<cr>
+nnoremap <C-i> :call CheckSyntaxHighlightGroup()<cr>
 
 
 " Inserts timestamps
@@ -77,9 +77,11 @@ inoremap <Leader>tt <C-R>=strftime("%T")<CR>
 inoremap <Leader>tdt <C-R>=strftime("%FT%T%z")<CR>
 
 
-" Quit vim or close a buffer
+" Quit vim or close a buffer (without closing the window (tab), that's why the
+" second binding looks a little complicated.
 nnoremap <C-c> :q<CR>
-nnoremap <C-b> :bd<CR>
+nnoremap <C-b> :bn<bar>sp<bar>bp<bar>bd<CR>
+nnoremap <C-q> <C-w>c
 
 
 " Insert empty line without going into inser mode.
