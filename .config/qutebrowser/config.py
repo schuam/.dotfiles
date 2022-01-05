@@ -178,7 +178,14 @@ c.downloads.location.directory = '~/Downloads'
 # the search engine name to the search term, e.g. `:open google
 # qutebrowser`.
 # Type: Dict
-c.url.searchengines = {'/a': 'https://wiki.archlinux.org/?search={}', '/d': 'https://duckduckgo.com/?q={}', '/g': 'https://google.com/search?q={}', '/y': 'https://youtube.com/results?search_query={}', 'DEFAULT': 'https://google.com/search?q={}'}
+c.url.searchengines = {
+    '/a': 'https://wiki.archlinux.org/?search={}',
+    '/d': 'https://duckduckgo.com/?q={}',
+    '/g': 'https://google.com/search?q={}',
+    '/y': 'https://youtube.com/results?search_query={}',
+    '/t': 'https://www.dict.cc/?s={}',
+    'DEFAULT': 'https://google.com/search?q={}',
+}
 
 # Render all web contents using a dark theme. Example configurations
 # from Chromium's `chrome://flags`:  - "With simple HSL/CIELAB/RGB-based
