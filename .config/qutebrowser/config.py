@@ -221,7 +221,7 @@ c.colors.webpage.darkmode.grayscale.all = False
 c.bindings.key_mappings = {'<Ctrl+6>': '<Ctrl+^>', '<Ctrl+Enter>': '<Ctrl+Return>', '<Ctrl+i>': '<Tab>', '<Ctrl+j>': '<Return>', '<Ctrl+m>': '<Return>', '<Ctrl+[>': '<Escape>', '<Enter>': '<Return>', '<Shift+Enter>': '<Return>', '<Shift+Return>': '<Return>'}
 
 # Bindings for normal mode
-config.bind(',v', 'hint links spawn mpv {hint-url}')
+config.bind('<Ctrl+v>', 'hint links spawn mpv {hint-url}')
 config.bind('<Ctrl+l>', 'set-cmd-text -s :open', mode='normal')
 
 # Start page
