@@ -170,8 +170,8 @@ keys = [
     Key([WIN], "f", lazy.to_screen(2)),
 
     # Cycle through workspaces
-    Key([WIN], "Left", lazy.screen.prev_group()),
-    Key([WIN], "Right", lazy.screen.next_group()),
+    Key([WIN, SHIFT], "Left", lazy.screen.prev_group()),
+    Key([WIN, SHIFT], "Right", lazy.screen.next_group()),
     Key([WIN, SHIFT], "h", lazy.screen.prev_group()),
     Key([WIN, SHIFT], "l", lazy.screen.next_group()),
 
