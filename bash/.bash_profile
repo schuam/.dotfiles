@@ -37,6 +37,7 @@ export XAUTHORITY="$XDG_RUNTIME_DIR"/Xauthority
 export SQLITE_HISTORY="$XDG_DATA_HOME"/sqlite_history
 export VIMINIT='if !has("nvim") | let $MYVIMRC="$XDG_CONFIG_HOME/vim/vimrc" | else | let $MYVIMRC="$XDG_CONFIG_HOME/nvim/init.vim" | endif | source $MYVIMRC'
 export HISTFILE="$XDG_DATA_HOME"/bash/history
+export PYTHONSTARTUP="$XDG_CONFIG_HOME"/python/startup.py
 
 # Workaround for a bug in libreoffice: needed to show menu icons correctly.
 export SAL_USE_VCLPLUGIN=gen
