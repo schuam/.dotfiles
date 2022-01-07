@@ -78,6 +78,16 @@ def get_number_of_active_monitors():
 number_of_monitors = get_number_of_active_monitors()
 
 
+@lazy.function
+def float_to_front(qtile):
+    """
+    Bring all floating windows of the group to front
+    """
+    for window in qtile.current_group.windows:
+        if window.floating:
+            window.cmd_bring_to_front()
+
+
 # -----------------------------------------------------------------------------
 # global veriables
 # -----------------------------------------------------------------------------
@@ -157,6 +167,8 @@ keys = [
     Key([WIN, CTRL], "j", lazy.layout.shuffle_down()),
     Key([WIN, CTRL], "k", lazy.layout.shuffle_up()),
     Key([WIN, CTRL], "l", lazy.layout.shuffle_right()),
+
+    Key([WIN, CTRL], "f", float_to_front),
 
     # Flip layout (monadtall and monadwide)
     Key([WIN, CTRL], "space", lazy.layout.flip()),
