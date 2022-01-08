@@ -86,6 +86,7 @@ def float_to_front(qtile):
     for window in qtile.current_group.windows:
         if window.floating:
             window.cmd_bring_to_front()
+            window.cmd_focus()
 
 
 # -----------------------------------------------------------------------------
