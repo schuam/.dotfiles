@@ -279,6 +279,9 @@ require('orgmode').setup({
   org_agenda_start_on_weekday = false,    -- start agenda view from today
   org_agenda_start_day = '-2d',           -- offset of start day in agenda view
   org_agenda_templates = {t = {description = 'TASK', template = '* TODO %?\n  %u'}, p = {description = 'PROJECT', template = '* PROJ %?\n  %u'}, n = {description = 'NOTE', template = '* NOTE %?\n  %u'}},
+  org_todo_keyword_faces = {
+    SUSPENDED = ':foreground yellow :weight bold',
+  }
 })
 EOF
 
