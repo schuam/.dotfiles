@@ -278,15 +278,15 @@ require('orgmode').setup({
     org_archive_location = '~/workspaces/gtd/archive.org',
     org_default_notes_file = '~/workspaces/gtd/inbox.org',
     org_todo_keywords = {
-        'TODO(t)', 'NEXT(n)', 'WAITING(w)', 'SUSPENDED(s)', 'PROJ(p)',
+        'TODO(t)', 'NEXT(n)', 'WAIT(w)', 'SUSP(s)', 'PROJ(p)',
         '|',
-        'DONE(d)', 'CANCELED(c)'
+        'DONE(d)', 'CANC(c)'
     },
     org_deadline_warning_days = 14,
     org_agenda_start_on_weekday = false,  -- start agenda view from today
     org_agenda_start_day = '-2d',         -- offset of start day in agenda view
     org_agenda_templates = {
-        t = {description = 'TASK', template = '* TODO %?\n  %u'},
+        t = {description = 'TODO', template = '* TODO %?\n  %u'},
         p = {description = 'PROJECT', template = '* PROJ %?\n  %u'},
         n = {description = 'NOTE', template = '* NOTE %?\n  %u'}
     },
