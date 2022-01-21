@@ -291,7 +291,7 @@ require('orgmode').setup({
         n = {description = 'NOTE', template = '* NOTE %?\n  %u'}
     },
     org_todo_keyword_faces = {
-      SUSPENDED = ':foreground cyan :weight bold',
+        SUSP = ':foreground cyan :weight bold',
     }
 })
 EOF
