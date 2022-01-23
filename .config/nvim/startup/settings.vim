@@ -278,9 +278,9 @@ require('orgmode').setup({
     org_archive_location = '~/workspaces/gtd/archive.org',
     org_default_notes_file = '~/workspaces/gtd/inbox.org',
     org_todo_keywords = {
-        'TODO(t)', 'NEXT(n)', 'WAIT(w)', 'SUSP(s)', 'PROJ(p)',
+        'TODO(t)', 'NEXT(n)', 'WAIT(w)', 'PROJ(p)',
         '|',
-        'DONE(d)', 'CANC(c)'
+        'DONE(d)', 'CANC(c)', 'SUSP(s)'
     },
     org_deadline_warning_days = 14,
     org_agenda_start_on_weekday = false,  -- start agenda view from today
