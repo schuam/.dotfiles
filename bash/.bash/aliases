@@ -65,3 +65,5 @@ alias abook='abook --config $XDG_CONFIG_HOME/abook/abookrc --datafile $XDG_DATA_
 # alias for mocp (music player)
 alias mocp='mocp -C "$XDG_CONFIG_HOME"/mocp/config -m'
 
+# zettelkasten
+alias zettelkasten='java -jar /opt/zettelkasten/zettelkasten.jar'
