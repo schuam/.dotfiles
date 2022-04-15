@@ -14,7 +14,7 @@ export XDG_DESKTOP_DIR="$HOME/Desktop"
 export XDG_DOCUMENTS_DIR="$HOME"
 export XDG_DOWNLOAD_DIR="$HOME/Downloads"
 export XDG_MUSIC_DIR="$HOME/multimedia/music"
-export XDG_PICTURES_DIR="$HOME/multimedia/pictures_and_videos"
+export XDG_PICTURES_DIR="$HOME/multimedia/photos_and_videos"
 export XDG_TEMPLATES_DIR="$HOME/workspaces/templates"
 export XDG_VIDEOS_DIR="$HOME/multimedia/pictures_and_videos"
 
