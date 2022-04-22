@@ -203,18 +203,18 @@ keys = [
     ),
     Key([ALT, CTRL], "v", lazy.spawn("pavucontrol")),
     Key([ALT, CTRL], "l", lazy.spawn("slock")),    # lock screen
-    Key([ALT, CTRL], "p", lazy.spawn("dmenu_pdf.sh")),
+    Key([ALT, CTRL], "p", lazy.spawn("dmenu_pdf")),
     Key([ALT, CTRL], "w", lazy.spawn("firefox --new-window https://web.whatsapp.com")),
-    Key([ALT, CTRL], "y", lazy.spawn("dmenu_youtube.sh")),
+    Key([ALT, CTRL], "y", lazy.spawn("dmenu_youtube")),
 
     # Dmenu scripts
-    Key([WIN], "Print", lazy.spawn("dmenu_scrot.py")),
-    Key([WIN], "p", lazy.spawn("dmenu_scrot.py")),
-    Key([], "XF86Display", lazy.spawn("dmenu_monitors.py")),
+    Key([WIN], "Print", lazy.spawn("dmenu_scrot")),
+    Key([WIN], "p", lazy.spawn("dmenu_scrot")),
+    Key([], "XF86Display", lazy.spawn("dmenu_monitors")),
     # For some reason the previous key binding does not work on my external
-    # keyboard, therefore I added a second key binding to run dmenu_monitors.sh
-    Key([WIN], "q", lazy.spawn("dmenu_monitors.py")),
-    Key([ALT, CTRL], "Delete", lazy.spawn("dmenu_break.py")),
+    # keyboard, therefore I added a second key binding to run dmenu_monitors
+    Key([WIN], "q", lazy.spawn("dmenu_monitors")),
+    Key([ALT, CTRL], "Delete", lazy.spawn("dmenu_break")),
 
     # Close applications
     Key([ALT], "F4", lazy.window.kill()),
