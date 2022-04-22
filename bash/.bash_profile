@@ -2,9 +2,8 @@ export LANG=en_US.utf8
 
 export EDITOR="vim"
 
-export PATH="$PATH:$HOME/workspaces/tools/bin"
-export PATH="$PATH:$HOME/workspaces/ruby/gems/bin"
-export PATH="$PATH:$HOME/workspaces/go/bin"
+export PATH="$PATH:/opt/ruby/gems/bin"
+export PATH="$PATH:/opt/go/bin"
 
 # Clean Up (XDG)
 export XDG_CONFIG_HOME="$HOME/.config"
@@ -15,16 +14,16 @@ export XDG_DOCUMENTS_DIR="$HOME"
 export XDG_DOWNLOAD_DIR="$HOME/Downloads"
 export XDG_MUSIC_DIR="$HOME/multimedia/music"
 export XDG_PICTURES_DIR="$HOME/multimedia/photos_and_videos"
-export XDG_TEMPLATES_DIR="$HOME/workspaces/templates"
+export XDG_TEMPLATES_DIR="$HOME/resources/templates"
 export XDG_VIDEOS_DIR="$HOME/multimedia/pictures_and_videos"
 
 export BUNDLE_USER_CONFIG="$XDG_CONFIG_HOME"/bundle
 export BUNDLE_USER_CACHE="$XDG_CACHE_HOME"/bundle
 export BUNDLE_USER_PLUGIN="$XDG_DATA_HOME"/bundle
-export GEM_HOME=$HOME/workspaces/ruby/gems
-export GEM_PATH=$HOME/workspaces/ruby/gems
+export GEM_HOME=/opt/ruby/gems
+export GEM_PATH=/opt/ruby/gems
 export GEM_SPEC_CACHE="$XDG_CACHE_HOME"/gem
-export GOPATH=$HOME/workspaces/go
+export GOPATH=/opt/go
 export PASSWORD_STORE_DIR="$XDG_DATA_HOME/pass"
 export LESSHISTFILE="-"
 export _JAVA_OPTIONS=-Djava.util.prefs.userRoot="$XDG_CONFIG_HOME"/java
