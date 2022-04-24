@@ -58,8 +58,23 @@ myKeys =
     , ("M-C-r", spawn "xmonad --restart")
     , ("M-C-q", io exitSuccess)
 
+    -- Window navigation
+    , ("M-m", windows W.focusMaster)
+    , ("M-j", windows W.focusDown)
+    , ("M-k", windows W.focusUp)
+    , ("M-C-m", windows W.swapMaster)
+    , ("M-C-j", windows W.swapDown)
+    , ("M-C-k", windows W.swapUp)
+
+    -- Window resizing
+    , ("M-M1-h", sendMessage Shrink)
+    , ("M-M1-l", sendMessage Expand)
+    , ("M-M1-j", sendMessage MirrorShrink)
+    , ("M-M1-k", sendMessage MirrorExpand)
+
     -- Layouts
     , ("M-<Tab>", sendMessage NextLayout)
+
     -- Run Prompt
     , ("M1-<Space>", spawn "dmenu_run -l 10 -p 'Run: '")
 
