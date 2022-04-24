@@ -44,6 +44,10 @@ myBrowser = "qutebrowser"
 myEmailClient :: String
 myEmailClient = "thunderbird"
 
+myFocusFollowsMouse :: Bool
+myFocusFollowsMouse = False
+
+
 -- ----------------------------------------------------------------------------
 -- key bindings
 -- ----------------------------------------------------------------------------
@@ -133,5 +137,6 @@ myLayoutHook =  avoidStruts
 main :: IO ()
 main = xmonad $ def
     { modMask = myModMask
+    , focusFollowsMouse = myFocusFollowsMouse
     , layoutHook = myLayoutHook
     } `additionalKeysP` myKeys
