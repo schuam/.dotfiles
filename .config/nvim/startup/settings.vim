@@ -273,10 +273,10 @@ require'nvim-treesitter.configs'.setup {
 
 require('orgmode').setup({
     org_agenda_files = {
-        '~/workspaces/gtd/todo.org', '~/workspaces/gtd/regular.org'
+        '~/.local/share/gtd/todo.org', '~/.local/share/gtd/regular.org'
     },
-    org_archive_location = '~/workspaces/gtd/archive.org',
-    org_default_notes_file = '~/workspaces/gtd/inbox.org',
+    org_archive_location = '~/.local/share/gtd/archive.org',
+    org_default_notes_file = '~/.local/share/gtd/inbox.org',
     org_todo_keywords = {
         'TODO(t)', 'NEXT(n)', 'WAIT(w)', 'PROJ(p)',
         '|',

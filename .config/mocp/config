@@ -235,7 +235,7 @@ Theme = ${XDG_CONFIG_HOME}/mocp/themes/darkdot_theme
 
 # MOC directory (where pid file, socket and state files are stored).
 # You can use ~ at the beginning.
-MOCDir = ~/workspaces/mocp
+MOCDir = ${XDG_CACHE_HOME}/mocp
 
 # Use mmap() to read files.  mmap() is much slower on NFS.
 #UseMMap = no
