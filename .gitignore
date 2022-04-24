@@ -5,3 +5,7 @@ vifminfo.json
 konsole/bookmarks*
 .config/qutebrowser/autoconfig.yml
 .config/qutebrowser/qsettings/
+.config/xmonad/xmonad.hi
+.config/xmonad/xmonad.o
+.config/xmonad/.stack-work/
+.config/xmonad/stack.yaml.lock
