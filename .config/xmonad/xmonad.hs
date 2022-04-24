@@ -3,13 +3,26 @@
 -- ----------------------------------------------------------------------------
 
 import XMonad
+import qualified XMonad.StackSet as W
 
 -- System
 import System.Exit (exitSuccess)
 
 -- Actions
 import XMonad.Actions.CopyWindow (kill1)
+import XMonad.Actions.MouseResize
 import XMonad.Actions.WithAll (killAll, sinkAll)
+
+-- Hooks
+import XMonad.Hooks.ManageDocks (avoidStruts)
+
+-- Layouts
+import XMonad.Layout.Grid
+import XMonad.Layout.LayoutModifier
+import XMonad.Layout.NoBorders
+import XMonad.Layout.Spacing
+import XMonad.Layout.Renamed
+import XMonad.Layout.ResizableTile
 
 -- Utilities
 import XMonad.Util.EZConfig (additionalKeysP)
@@ -45,6 +58,8 @@ myKeys =
     , ("M-C-r", spawn "xmonad --restart")
     , ("M-C-q", io exitSuccess)
 
+    -- Layouts
+    , ("M-<Tab>", sendMessage NextLayout)
     -- Run Prompt
     , ("M1-<Space>", spawn "dmenu_run -l 10 -p 'Run: '")
 
@@ -70,11 +85,38 @@ myKeys =
     , ("M1-C-d y", spawn "dmenu_youtube")
     ]
 
+
+-- ----------------------------------------------------------------------------
+-- layouts
+-- ----------------------------------------------------------------------------
+
+mySpacing :: Integer -> l a -> XMonad.Layout.LayoutModifier.ModifiedLayout Spacing l a
+mySpacing x = spacingRaw False (Border x x x x) True (Border x x x x) True
+
+myBorderWidth :: Dimension
+myBorderWidth = 3
+
+tall = renamed [Replace "tall"]
+    $ smartBorders
+    $ mySpacing 10
+    $ ResizableTall 1 (3/100) (1/2) []
+
+grid = renamed [Replace "Grid"]
+    $ smartBorders
+    $ mySpacing 10
+    $ Grid
+
+myLayoutHook =  avoidStruts
+    $ withBorder myBorderWidth
+    $ tall ||| grid ||| Full
+
+
 -- ----------------------------------------------------------------------------
 -- main
 -- ----------------------------------------------------------------------------
---
+
 main :: IO ()
 main = xmonad $ def
     { modMask = myModMask
+    , layoutHook = myLayoutHook
     } `additionalKeysP` myKeys
