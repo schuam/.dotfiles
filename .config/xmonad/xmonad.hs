@@ -127,7 +127,7 @@ grid = renamed [Replace "Grid"]
 
 myLayoutHook =  avoidStruts
     $ withBorder myBorderWidth
-    $ tall ||| grid ||| Full
+    $ tall ||| Mirror tall ||| grid ||| Full
 
 
 -- ----------------------------------------------------------------------------
