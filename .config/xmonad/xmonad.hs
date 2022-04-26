@@ -15,6 +15,7 @@ import XMonad.Actions.WithAll (killAll, sinkAll)
 
 -- Hooks
 import XMonad.Hooks.ManageDocks (avoidStruts)
+import XMonad.Hooks.EwmhDesktops
 
 -- Layouts
 import XMonad.Layout.Grid
@@ -128,9 +129,9 @@ grid = renamed [Replace "Grid"]
     $ mySpacing 10
     $ Grid
 
-myLayoutHook =  avoidStruts
+myLayoutHook = avoidStruts
     $ withBorder myBorderWidth
-    $ tall ||| Mirror tall ||| grid ||| Full
+    $ tall ||| Mirror tall ||| grid ||| noBorders Full
 
 
 -- ----------------------------------------------------------------------------
@@ -156,7 +157,9 @@ myStartupHook = do
 -- ----------------------------------------------------------------------------
 
 main :: IO ()
-main = xmonad $ def
+main = xmonad $ ewmhFullscreen $ ewmh $ myConfig
+
+myConfig = def
     { modMask = myModMask
     , focusFollowsMouse = myFocusFollowsMouse
     , clickJustFocuses = myClickJustFocuses
