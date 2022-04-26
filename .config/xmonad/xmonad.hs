@@ -47,6 +47,8 @@ myEmailClient = "thunderbird"
 myFocusFollowsMouse :: Bool
 myFocusFollowsMouse = False
 
+myClickJustFocuses :: Bool
+myClickJustFocuses = False
 
 -- ----------------------------------------------------------------------------
 -- key bindings
@@ -138,5 +140,6 @@ main :: IO ()
 main = xmonad $ def
     { modMask = myModMask
     , focusFollowsMouse = myFocusFollowsMouse
+    , clickJustFocuses = myClickJustFocuses
     , layoutHook = myLayoutHook
     } `additionalKeysP` myKeys
