@@ -12,6 +12,7 @@ import System.Exit (exitSuccess)
 import XMonad.Actions.CopyWindow (kill1)
 import XMonad.Actions.MouseResize
 import XMonad.Actions.WithAll (killAll, sinkAll)
+import XMonad.Actions.PhysicalScreens
 
 -- Hooks
 import XMonad.Hooks.DynamicLog
@@ -110,6 +111,19 @@ myKeys =
     , ("M1-C-d s", spawn "dmenu_scrot")
     , ("M1-C-d m", spawn "dmenu_monitor")
     , ("M1-C-d y", spawn "dmenu_youtube")
+    , ("M1-C-<Delete>", spawn "dmenu_break")
+    ]
+    ++
+    -- Physical screens
+    -- The original xmonad shortcuts M-{wer} switch focus to the screens 1, 2,
+    -- and 3 respectively. Unfortunatley these screen number don't nessecarily
+    -- correspond to the the phyical set up of the screens. PhysicalScreens
+    -- allows you to switch to focos to screens depending on there actual
+    -- position in the monitor setup.
+    [("M-" ++ modKey2 ++ keyChar, screenOperation screen)
+        | (keyChar, screen) <- zip ["s", "d", "f"] [0..]
+        , (screenOperation, modKey2) <- [(viewScreen def, "")
+                                       , (sendToScreen def, "S-")]
     ]
 
 
