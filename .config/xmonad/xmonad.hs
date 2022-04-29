@@ -57,6 +57,17 @@ myFocusFollowsMouse = False
 myClickJustFocuses :: Bool
 myClickJustFocuses = False
 
+myWorkspaces = [ "<fn=1>\xf0e0</fn>"
+               , "<fn=1>\xf0ac</fn>"
+               , "<fn=1>\xf086</fn>"
+               , "<fn=1>\xf120</fn>1"
+               , "<fn=1>\xf120</fn>2"
+               , "<fn=1>\xf120</fn>3"
+               , "<fn=1>\xf121</fn>1"
+               , "<fn=1>\xf121</fn>2"
+               , "<fn=1>\xf121</fn>3"
+               ]
+
 
 -- ----------------------------------------------------------------------------
 -- key bindings
@@ -132,9 +143,9 @@ myKeys =
     -- on up to three screens. So pressing M-c for example places workspace 4
     -- on physical screen 0, workspace 5 on phyical screen 1, and workspace 6
     -- on physical screen 2. It also bring the focus on my primary screen.
-    [ ("M-x", sequence_ [sWW 0 "1", sWW 1 "2", sWW 2 "3", focusPrimary])
-    , ("M-c", sequence_ [sWW 0 "4", sWW 1 "5", sWW 2 "6", focusPrimary])
-    , ("M-v", sequence_ [sWW 0 "7", sWW 1 "8", sWW 2 "9", focusPrimary])
+    [ ("M-x", sequence_ [sWW 0 (mWS 0), sWW 1 (mWS 1), sWW 2 (mWS 2), focusPrimary])
+    , ("M-c", sequence_ [sWW 0 (mWS 3), sWW 1 (mWS 4), sWW 2 (mWS 5), focusPrimary])
+    , ("M-v", sequence_ [sWW 0 (mWS 6), sWW 1 (mWS 7), sWW 2 (mWS 8), focusPrimary])
     ]
 
 screenWithWorkspace :: PhysicalScreen -> String -> X()
@@ -143,6 +154,7 @@ screenWithWorkspace screen workspace =
 
 sWW = screenWithWorkspace
 vS  = viewScreen def
+mWS i = (myWorkspaces !! i)
 
 -- focusPrimary:
 -- was written by basically copying the xmonad's default keybin M-w. It moved
@@ -260,4 +272,5 @@ myConfig = def
     , clickJustFocuses = myClickJustFocuses
     , startupHook = myStartupHook
     , layoutHook = myLayoutHook
+    , workspaces = myWorkspaces
     } `additionalKeysP` myKeys
