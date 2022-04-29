@@ -172,6 +172,9 @@ mySpacing x = spacingRaw False (Border x x x x) True (Border x x x x) True
 myBorderWidth :: Dimension
 myBorderWidth = 3
 
+myNormalBorderColor  = "#555555"
+myFocusedBorderColor = "#268bd2"
+
 tall = renamed [Replace "tall"]
     $ smartBorders
     $ mySpacing 10
@@ -272,5 +275,7 @@ myConfig = def
     , clickJustFocuses = myClickJustFocuses
     , startupHook = myStartupHook
     , layoutHook = myLayoutHook
+    , normalBorderColor = myNormalBorderColor
+    , focusedBorderColor = myFocusedBorderColor
     , workspaces = myWorkspaces
     } `additionalKeysP` myKeys
