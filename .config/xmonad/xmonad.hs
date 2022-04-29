@@ -57,6 +57,7 @@ myFocusFollowsMouse = False
 myClickJustFocuses :: Bool
 myClickJustFocuses = False
 
+
 -- ----------------------------------------------------------------------------
 -- key bindings
 -- ----------------------------------------------------------------------------
@@ -125,6 +126,28 @@ myKeys =
         , (screenOperation, modKey2) <- [(viewScreen def, "")
                                        , (sendToScreen def, "S-")]
     ]
+    ++
+    -- View workspace sets
+    -- I wanted to have key bindings that allow me to set a set of workspaces
+    -- on up to three screens. So pressing M-c for example places workspace 4
+    -- on physical screen 0, workspace 5 on phyical screen 1, and workspace 6
+    -- on physical screen 2. It also bring the focus on my primary screen.
+    [ ("M-x", sequence_ [sWW 0 "1", sWW 1 "2", sWW 2 "3", focusPrimary])
+    , ("M-c", sequence_ [sWW 0 "4", sWW 1 "5", sWW 2 "6", focusPrimary])
+    , ("M-v", sequence_ [sWW 0 "7", sWW 1 "8", sWW 2 "9", focusPrimary])
+    ]
+
+screenWithWorkspace :: PhysicalScreen -> String -> X()
+screenWithWorkspace screen workspace =
+    sequence_ [vS screen, windows $ W.greedyView workspace]
+
+sWW = screenWithWorkspace
+vS  = viewScreen def
+
+-- focusPrimary:
+-- was written by basically copying the xmonad's default keybin M-w. It moved
+-- the fucus on the primary monitor (set e.g. by xrandr or ARandR).
+focusPrimary = screenWorkspace 0 >>= flip whenJust (windows . W.view)
 
 
 -- ----------------------------------------------------------------------------
