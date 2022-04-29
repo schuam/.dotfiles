@@ -2,6 +2,7 @@ export LANG=en_US.utf8
 
 export EDITOR="vim"
 
+export PATH="$PATH:$HOME/.local/bin"
 export PATH="$PATH:/opt/ruby/gems/bin"
 export PATH="$PATH:/opt/go/bin"
 
