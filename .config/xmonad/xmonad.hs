@@ -14,8 +14,11 @@ import XMonad.Actions.MouseResize
 import XMonad.Actions.WithAll (killAll, sinkAll)
 
 -- Hooks
-import XMonad.Hooks.ManageDocks (avoidStruts)
+import XMonad.Hooks.DynamicLog
 import XMonad.Hooks.EwmhDesktops
+import XMonad.Hooks.ManageDocks (avoidStruts)
+import XMonad.Hooks.StatusBar
+import XMonad.Hooks.StatusBar.PP
 
 -- Layouts
 import XMonad.Layout.Grid
@@ -28,6 +31,7 @@ import XMonad.Layout.ResizableTile
 -- Utilities
 import XMonad.Util.EZConfig (additionalKeysP)
 import XMonad.Util.SpawnOnce
+import XMonad.Util.Loggers
 
 
 -- ----------------------------------------------------------------------------
@@ -153,11 +157,65 @@ myStartupHook = do
 
 
 -- ----------------------------------------------------------------------------
+-- xmobar
+-- ----------------------------------------------------------------------------
+
+myXmobarPP :: PP
+myXmobarPP = def
+    { ppCurrent          = brightWhite . wrap "[ " " ]"
+    , ppVisible          = normalWhite . wrap "[ " " ]"
+    , ppHidden           = normalWhite . wrap "  " "* "
+    , ppHiddenNoWindows  = normalWhite . wrap "  " "  "
+    , ppUrgent           = normalRed   . wrap "  " "  "
+    , ppSep              = " │ "
+    , ppWsSep            = " "
+    , ppTitle            = brightWhite . shorten 50
+    , ppTitleSanitize    = xmobarStrip
+    , ppOrder           = \[ws, l, win] -> [ws, l, win]
+    }
+
+
+-- Color definition are matched to the once I use in my alacritty config.
+-- The used color scheme is my variation of solarizid dark.
+background, foreground :: String -> String
+background    = xmobarColor "#002b36" ""
+foreground    = xmobarColor "#839496" ""
+
+normalBlack, normalRed, normalGreen, normalYellow :: String -> String
+normalBlack   = xmobarColor "#083f4d" ""
+normalRed     = xmobarColor "#dc322f" ""
+normalGreen   = xmobarColor "#169921" ""
+normalYellow  = xmobarColor "#b58900" ""
+
+normalBlue, normalMagenta, normalCyan, normalWhite :: String -> String
+normalBlue    = xmobarColor "#268bd2" ""
+normalMagenta = xmobarColor "#da54da" ""
+normalCyan    = xmobarColor "#26958c" ""
+normalWhite   = xmobarColor "#839496" ""
+
+brightBlack, brightRed, brightGreen, brightYellow :: String -> String
+brightBlack   = xmobarColor "#0c677e" ""
+brightRed     = xmobarColor "#df5017" ""
+brightGreen   = xmobarColor "#1aba27" ""
+brightYellow  = xmobarColor "#daa400" ""
+
+brightBlue, brightMagenta, brightCyan, brightWhite :: String -> String
+brightBlue    = xmobarColor "#2a9dea" ""
+brightMagenta = xmobarColor "#fe61fe" ""
+brightCyan    = xmobarColor "#2db0a5" ""
+brightWhite   = xmobarColor "#d9f2f3" ""
+
+
+-- ----------------------------------------------------------------------------
 -- main
 -- ----------------------------------------------------------------------------
 
 main :: IO ()
-main = xmonad $ ewmhFullscreen $ ewmh $ myConfig
+main = xmonad 
+     . ewmhFullscreen
+     . ewmh
+     . withEasySB (statusBarProp "xmobar -x 0" (pure myXmobarPP)) defToggleStrutsKey
+     $ myConfig
 
 myConfig = def
     { modMask = myModMask
