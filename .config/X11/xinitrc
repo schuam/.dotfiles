@@ -25,6 +25,10 @@ fi
 if [[ $1 == "kde" ]]
 then
     exec /usr/bin/startplasma-x11
+elif [[ $1 == "xmonad" ]]
+then
+    xbindkeys -f "$XDG_CONFIG_HOME"/xbindkeys/xbindkeysrc
+    exec xmonad
 else
     xbindkeys -f "$XDG_CONFIG_HOME"/xbindkeys/xbindkeysrc
     exec qtile start
