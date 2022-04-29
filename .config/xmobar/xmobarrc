@@ -1,0 +1,63 @@
+Config { font             = "xft:Liberation Sans:pixelsize=16:antialias=true:hinting=true"
+       , additionalFonts  = ["xft:Font Awesome 6 Free Solid:pixelsize=14"]
+       , bgColor          = "#083f4d"
+       , fgColor          = "#839496"
+       , alpha            = 255
+       , position         = TopSize L 100 35
+       , textOffset       = -1    -- vertical text offset (neg. centered)
+       , iconOffset       = -1    -- vertical text offset (neg. centered)
+       , lowerOnStart     = True
+       , hideOnStart      = False
+--       , allDesktops      = False
+       , overrideRedirect = False
+--       , persisten        = True
+       , commands =
+           [
+             -- See: https://jao.io/blog/2020-08-08-xmobar-a-battery-trick.html
+             -- for the battery monitor
+             Run BatteryP
+                 ["BAT0"]
+                 [ "-t", "<acstatus> <left>"
+                 , "-S", "Off", "-d", "0", "-m", "3"
+                 , "-L", "10", "-H", "90", "-p", "3"
+                 , "-l", "#dc322f"
+                 , "-W", "0"
+                 , "-f", "\xf244\xf243\xf243\xf243\xf242\xf242\xf242\xf241\xf241\xf240"
+                 , "--"
+                 , "-P"
+                 , "-i", "<fn=1>\xf1e6</fn>"
+                 , "-O", "<fn=1><leftbar>  \xf1e6</fn>"
+                 , "-o", "<fn=1><leftbar></fn>"
+                 , "-A", "5"
+                 , "-a", "notify-send -u critical 'Battery running out!'"
+                 ]
+                 50
+           , Run Cpu
+                 [ "-t", "<fn=1>\xf108</fn> cpu:<total>%"
+                 , "-H", "50"
+                 , "-h", "#dc322f"
+                 , "-p", "3"
+                 ]
+                 50
+           , Run Memory
+                 [ "-t", "<fn=1>\xf233</fn> mem:<usedratio>%"
+                 , "-H", "50"
+                 , "-h", "#dc322f"
+                 , "-p", "3"
+                 ]
+                 50
+           , Run MultiCoreTemp
+                 ["-t", "<fn=1>\x1f321</fn> temp: <avg>°C"
+                 , "-H", "80"
+                 , "-h", "#dc322f"
+                 , "--"
+                 , "--mintemp", "20", "--maxtemp", "100"
+                 ]
+                 50
+           , Run Date "%a %Y-%m-%d <fc=#d9f2f3>%H:%M</fc>" "date" 300
+           , Run XMonadLog
+           ]
+       , sepChar  = "%"
+       , alignSep = "}{"
+       , template = "%XMonadLog% }{ %cpu% │ %memory% │ %multicoretemp% │ %battery% │ %date% "
+       }
