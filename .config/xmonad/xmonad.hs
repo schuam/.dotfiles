@@ -13,6 +13,7 @@ import Data.Monoid
 
 -- Actions
 import XMonad.Actions.CopyWindow (kill1)
+import XMonad.Actions.CycleWS
 import XMonad.Actions.MouseResize
 import XMonad.Actions.WithAll (killAll, sinkAll)
 import XMonad.Actions.PhysicalScreens
@@ -99,6 +100,20 @@ myKeys =
     , ("M-M1-l", sendMessage Expand)
     , ("M-M1-j", sendMessage MirrorShrink)
     , ("M-M1-k", sendMessage MirrorExpand)
+
+    -- Workspace navigation
+    , ("M-C-h",         prevWS)
+    , ("M-C-<Left>",    prevWS)
+    , ("M-C-l",         nextWS)
+    , ("M-C-<Right>",   nextWS)
+    , ("M-C-S-h",       shiftToPrev)
+    , ("M-C-S-<Left>",  shiftToPrev)
+    , ("M-C-S-l",       shiftToNext)
+    , ("M-C-S-<Right>", shiftToNext)
+
+    -- Floating windows
+    , ("M-t", withFocused $ windows . W.sink)
+    , ("M-S-t", sinkAll)
 
     -- Layouts
     , ("M-<Tab>", sendMessage NextLayout)
