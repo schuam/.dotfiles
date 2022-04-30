@@ -86,23 +86,23 @@ myModMask = mod4Mask    -- Set Mod to the Super/Windows key
 myKeys :: [(String, X ())]
 myKeys =
     -- Xmonad
-    [ ("M-C-c", spawn "xmonad --recompile")
-    , ("M-C-r", spawn "xmonad --restart")
-    , ("M-C-q", io exitSuccess)
+    [ ("M-C-c",         spawn "xmonad --recompile")
+    , ("M-C-r",         spawn "xmonad --restart")
+    , ("M-C-q",         io exitSuccess)
 
     -- Window navigation
-    , ("M-m", windows W.focusMaster)
-    , ("M-j", windows W.focusDown)
-    , ("M-k", windows W.focusUp)
-    , ("M-C-m", windows W.swapMaster)
-    , ("M-C-j", windows W.swapDown)
-    , ("M-C-k", windows W.swapUp)
+    , ("M-m",           windows W.focusMaster)
+    , ("M-j",           windows W.focusDown)
+    , ("M-k",           windows W.focusUp)
+    , ("M-C-m",         windows W.swapMaster)
+    , ("M-C-j",         windows W.swapDown)
+    , ("M-C-k",         windows W.swapUp)
 
     -- Window resizing
-    , ("M-M1-h", sendMessage Shrink)
-    , ("M-M1-l", sendMessage Expand)
-    , ("M-M1-j", sendMessage MirrorShrink)
-    , ("M-M1-k", sendMessage MirrorExpand)
+    , ("M-M1-h",        sendMessage Shrink)
+    , ("M-M1-l",        sendMessage Expand)
+    , ("M-M1-j",        sendMessage MirrorShrink)
+    , ("M-M1-k",        sendMessage MirrorExpand)
 
     -- Workspace navigation
     , ("M-C-h",         prevWS)
@@ -115,36 +115,36 @@ myKeys =
     , ("M-C-S-<Right>", shiftToNext)
 
     -- Floating windows
-    , ("M-t", withFocused $ windows . W.sink)
-    , ("M-S-t", sinkAll)
+    , ("M-t",           withFocused $ windows . W.sink)
+    , ("M-S-t",         sinkAll)
 
     -- Layouts
-    , ("M-<Tab>", sendMessage NextLayout)
+    , ("M-<Tab>",       sendMessage NextLayout)
 
     -- Run Prompt
-    , ("M1-<Space>", spawn "dmenu_run -l 10 -p 'Run: '")
+    , ("M1-<Space>",    spawn "dmenu_run -l 10 -p 'Run: '")
 
     -- Start some often used programs
-    , ("M1-<Return>", spawn (myTerminal ++ " --working-directory $HOME"))
-    , ("M1-C-b", spawn (myBrowser))
-    , ("M1-C-S-b", spawn (myBrowserAlt))
-    , ("M1-C-f", spawn (myTerminal ++ " -e $HOME/.dotfiles/.config/vifm/scripts/vifmrun"))
-    , ("M1-C-l", spawn "slock")
-    , ("M1-C-m", spawn (myEmailClient))
-    , ("M1-C-v", spawn "pavucontrol")
-    , ("M1-C-w", spawn "firefox --new-window https://web.whatsapp.com")
+    , ("M1-<Return>",   spawn (myTerminal ++ " --working-directory $HOME"))
+    , ("M1-C-b",        spawn (myBrowser))
+    , ("M1-C-S-b",      spawn (myBrowserAlt))
+    , ("M1-C-f",        spawn (myTerminal ++ " -e $HOME/.dotfiles/.config/vifm/scripts/vifmrun"))
+    , ("M1-C-l",        spawn "slock")
+    , ("M1-C-m",        spawn (myEmailClient))
+    , ("M1-C-v",        spawn "pavucontrol")
+    , ("M1-C-w",        spawn "firefox --new-window https://web.whatsapp.com")
 
     -- Close programs
-    , ("M-w", kill1)
-    , ("M1-<F4>", kill1)
-    , ("M-S-w", killAll)
-    , ("M1-S-<F4>", killAll)
+    , ("M-w",           kill1)
+    , ("M1-<F4>",       kill1)
+    , ("M-S-w",         killAll)
+    , ("M1-S-<F4>",     killAll)
 
     -- Dmenu scripts
-    , ("M1-C-d p", spawn "dmenu_pdf")
-    , ("M1-C-d s", spawn "dmenu_scrot")
-    , ("M1-C-d m", spawn "dmenu_monitor")
-    , ("M1-C-d y", spawn "dmenu_youtube")
+    , ("M1-C-d p",      spawn "dmenu_pdf")
+    , ("M1-C-d s",      spawn "dmenu_scrot")
+    , ("M1-C-d m",      spawn "dmenu_monitor")
+    , ("M1-C-d y",      spawn "dmenu_youtube")
     , ("M1-C-<Delete>", spawn "dmenu_break")
     ]
     ++
@@ -174,8 +174,8 @@ screenWithWorkspace :: PhysicalScreen -> String -> X()
 screenWithWorkspace screen workspace =
     sequence_ [vS screen, windows $ W.greedyView workspace]
 
-sWW = screenWithWorkspace
-vS  = viewScreen def
+sWW   = screenWithWorkspace
+vS    = viewScreen def
 mWS i = (myWorkspaces !! i)
 
 -- focusPrimary:
@@ -258,15 +258,15 @@ myStartupHook = do
 
 myXmobarPP :: PP
 myXmobarPP = def
-    { ppCurrent          = brightWhite . wrap "[ " " ]"
-    , ppVisible          = normalWhite . wrap "[ " " ]"
-    , ppHidden           = normalWhite . wrap "  " "* "
-    , ppHiddenNoWindows  = normalWhite . wrap "  " "  "
-    , ppUrgent           = normalRed   . wrap "  " "  "
-    , ppSep              = " │ "
-    , ppWsSep            = " "
-    , ppTitle            = brightWhite . shorten 50
-    , ppTitleSanitize    = xmobarStrip
+    { ppCurrent         = brightWhite . wrap "[ " " ]"
+    , ppVisible         = normalWhite . wrap "[ " " ]"
+    , ppHidden          = normalWhite . wrap "  " "* "
+    , ppHiddenNoWindows = normalWhite . wrap "  " "  "
+    , ppUrgent          = normalRed   . wrap "  " "  "
+    , ppSep             = " │ "
+    , ppWsSep           = " "
+    , ppTitle           = brightWhite . shorten 50
+    , ppTitleSanitize   = xmobarStrip
     , ppOrder           = \[ws, l, win] -> [ws, l, win]
     }
 
@@ -314,13 +314,13 @@ main = xmonad
      $ myConfig
 
 myConfig = def
-    { modMask = myModMask
-    , focusFollowsMouse = myFocusFollowsMouse
-    , clickJustFocuses = myClickJustFocuses
-    , startupHook = myStartupHook
-    , layoutHook = myLayoutHook
-    , normalBorderColor = myNormalBorderColor
+    { modMask            = myModMask
+    , focusFollowsMouse  = myFocusFollowsMouse
+    , clickJustFocuses   = myClickJustFocuses
+    , startupHook        = myStartupHook
+    , layoutHook         = myLayoutHook
+    , normalBorderColor  = myNormalBorderColor
     , focusedBorderColor = myFocusedBorderColor
-    , manageHook = myManageHook
-    , workspaces = myWorkspaces
+    , manageHook         = myManageHook
+    , workspaces         = myWorkspaces
     } `additionalKeysP` myKeys
