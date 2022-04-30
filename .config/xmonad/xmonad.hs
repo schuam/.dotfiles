@@ -8,6 +8,9 @@ import qualified XMonad.StackSet as W
 -- System
 import System.Exit (exitSuccess)
 
+-- Data
+import Data.Monoid
+
 -- Actions
 import XMonad.Actions.CopyWindow (kill1)
 import XMonad.Actions.MouseResize
@@ -191,6 +194,28 @@ myLayoutHook = avoidStruts
 
 
 -- ----------------------------------------------------------------------------
+-- hooks
+-- ----------------------------------------------------------------------------
+
+myManageHook :: XMonad.Query (Data.Monoid.Endo WindowSet)
+myManageHook = composeAll
+     [
+     -- float
+       className =? "confirm"         --> doFloat
+     , className =? "file_progress"   --> doFloat
+     , className =? "dialog"          --> doFloat
+     , className =? "download"        --> doFloat
+     , className =? "error"           --> doFloat
+     , className =? "notification"    --> doFloat
+     , className =? "pinentry-gtk-2"  --> doFloat
+     , (className =? "firefox" <&&> resource =? "Dialog") --> doFloat
+     , title =? "Oracle VM VirtualBox Manager"            --> doFloat
+     -- shift to certain workspace
+     , className =? "Thunderbird"     --> doShift (mWS 0)
+     ]
+
+
+-- ----------------------------------------------------------------------------
 -- startup
 -- ----------------------------------------------------------------------------
 
@@ -277,5 +302,6 @@ myConfig = def
     , layoutHook = myLayoutHook
     , normalBorderColor = myNormalBorderColor
     , focusedBorderColor = myFocusedBorderColor
+    , manageHook = myManageHook
     , workspaces = myWorkspaces
     } `additionalKeysP` myKeys
