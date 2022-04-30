@@ -52,6 +52,9 @@ myEditor = myTerminal ++ " -e vim "
 myBrowser :: String
 myBrowser = "qutebrowser"
 
+myBrowserAlt :: String
+myBrowserAlt = "firefox"
+
 myEmailClient :: String
 myEmailClient = "thunderbird"
 
@@ -124,6 +127,7 @@ myKeys =
     -- Start some often used programs
     , ("M1-<Return>", spawn (myTerminal ++ " --working-directory $HOME"))
     , ("M1-C-b", spawn (myBrowser))
+    , ("M1-C-S-b", spawn (myBrowserAlt))
     , ("M1-C-f", spawn (myTerminal ++ " -e $HOME/.dotfiles/.config/vifm/scripts/vifmrun"))
     , ("M1-C-l", spawn "slock")
     , ("M1-C-m", spawn (myEmailClient))
