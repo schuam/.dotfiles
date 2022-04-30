@@ -241,15 +241,15 @@ myManageHook = composeAll
 myStartupHook :: X ()
 myStartupHook = do
     spawnOnce "/usr/lib/notification-daemon-1.0/notification-daemon"
-    spawnOnce "trayer --edge top --align right --SetDockType true --SetPartialStrut true --expand true --width 10 --transparent true --tint 0x5f5f5f --height 18"
-    spawnOnce "nm-applet"
-    spawnOnce "blueman-applet"
-    spawnOnce "udiskie --no-automaount --no-notify --tray"
-    spawnOnce "keepassxc"
+    spawnOnce "trayer --monitor primary --edge top --align right --distance 5 --distancefrom top --padding 5 --SetDockType true --SetPartialStrut true --expand true --widthtype request --transparent true --alpha 0 --tint 0x083f4d --height 25 --iconspacing 5 &"
+    spawnOnce "nm-applet &"
+    spawnOnce "blueman-applet &"
+    spawnOnce "udiskie --no-automaount --no-notify --tray &"
+    spawnOnce "keepassxc &"
     spawnOnce "nitrogen --restore &"
     spawnOnce "picom --config ~/.config/picom/picom.conf &"
-    spawnOnce "xss-lock -- slock"
-    spawnOnce "xsetroot -cursor_name left_ptr"
+    spawnOnce "xss-lock -- slock &"
+    spawnOnce "xsetroot -cursor_name left_ptr &"
 
 
 -- ----------------------------------------------------------------------------
