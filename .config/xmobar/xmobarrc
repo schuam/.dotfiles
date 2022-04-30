@@ -26,28 +26,28 @@ Config { font             = "xft:Liberation Sans:pixelsize=16:antialias=true:hin
                  , "--"
                  , "-P"
                  , "-i", "<fn=1>\xf1e6</fn>"
-                 , "-O", "<fn=1><leftbar>  \xf1e6</fn>"
+                 , "-O", "<fn=1><leftbar></fn>  <fn=1>\xf1e6</fn>"
                  , "-o", "<fn=1><leftbar></fn>"
                  , "-A", "5"
                  , "-a", "notify-send -u critical 'Battery running out!'"
                  ]
                  50
            , Run Cpu
-                 [ "-t", "<fn=1>\xf108</fn> cpu:<total>%"
+                 [ "-t", "<fn=1>\xf108</fn> <total>%"
                  , "-H", "50"
                  , "-h", "#dc322f"
                  , "-p", "3"
                  ]
                  50
            , Run Memory
-                 [ "-t", "<fn=1>\xf233</fn> mem:<usedratio>%"
+                 [ "-t", "<fn=1>\xf233</fn> <usedratio>%"
                  , "-H", "50"
                  , "-h", "#dc322f"
                  , "-p", "3"
                  ]
                  50
            , Run MultiCoreTemp
-                 ["-t", "<fn=1>\x1f321</fn> temp: <avg>°C"
+                 ["-t", "<fn=1>\x1f321</fn> <avg>°C"
                  , "-H", "80"
                  , "-h", "#dc322f"
                  , "--"
