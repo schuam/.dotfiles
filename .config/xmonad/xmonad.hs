@@ -195,12 +195,12 @@ myFocusedBorderColor = "#268bd2"
 
 tall = renamed [Replace "tall"]
     $ smartBorders
-    $ mySpacing 10
+    $ mySpacing 5
     $ ResizableTall 1 (3/100) (1/2) []
 
 grid = renamed [Replace "Grid"]
     $ smartBorders
-    $ mySpacing 10
+    $ mySpacing 5
     $ Grid
 
 myLayoutHook = avoidStruts
