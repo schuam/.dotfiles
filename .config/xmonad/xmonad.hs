@@ -161,13 +161,25 @@ myKeys =
     ]
     ++
     -- View workspace sets
-    -- I wanted to have key bindings that allow me to set a set of workspaces
-    -- on up to three screens. So pressing M-c for example places workspace 4
-    -- on physical screen 0, workspace 5 on phyical screen 1, and workspace 6
-    -- on physical screen 2. It also bring the focus on my primary screen.
-    [ ("M-x", sequence_ [sWW 0 (mWS 0), sWW 1 (mWS 1), sWW 2 (mWS 2), focusPrimary])
-    , ("M-c", sequence_ [sWW 0 (mWS 3), sWW 1 (mWS 4), sWW 2 (mWS 5), focusPrimary])
-    , ("M-v", sequence_ [sWW 0 (mWS 6), sWW 1 (mWS 7), sWW 2 (mWS 8), focusPrimary])
+    -- I wanted to have key bindings that allow me to set a set of three
+    -- workspaces on up to three screens. I grouped my nine workspaces into
+    -- three sets of three workpaces as you can see by examining there names.
+    -- So pressing M-c for example places workspace 4 on physical screen 0,
+    -- workspace 5 on phyical screen 1, and workspace 6 on physical screen 2.
+    -- It also bring the focus on my primary screen. The reversed order in
+    -- which the workspaces are set to the screens metter (at least if there
+    -- are not three monitors). In case there is only one monitor I want to set
+    -- the first workspace of the corresponding set to that monitor. In case
+    -- there are two mointors I want to set the first workspace of the
+    -- corresponding set to the left most monitor and the second workspace of
+    -- the set to the other monitor. If the "_sequences" were ordered
+    -- differently, this wouldn't work. Somehow setting a workspace to a
+    -- physical screen that doesn't exist causes a behaviour that I didn't
+    -- think all the way through. I just realized that doing it the way it is
+    -- done now, works.
+    [ ("M-x", sequence_ [sWW 2 (mWS 2), sWW 1 (mWS 1), sWW 0 (mWS 0), focusPrimary])
+    , ("M-c", sequence_ [sWW 2 (mWS 5), sWW 1 (mWS 4), sWW 0 (mWS 3), focusPrimary])
+    , ("M-v", sequence_ [sWW 2 (mWS 8), sWW 1 (mWS 7), sWW 0 (mWS 6), focusPrimary])
     ]
 
 screenWithWorkspace :: PhysicalScreen -> String -> X()
