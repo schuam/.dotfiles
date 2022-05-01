@@ -52,11 +52,9 @@ Config { font             = "xft:Liberation Sans:pixelsize=16:antialias=true:hin
                  ]
                  50
            , Run Date "%a %Y-%m-%d <fc=#d9f2f3>%H:%M</fc>" "date" 300
-           , Run Com ".config/xmobar/trayer-padding-icon.sh" []
-           "trayerpad" 10
-           , Run XMonadLog
+           , Run XPropertyLog "_XMONAD_LOG_1"
            ]
        , sepChar  = "%"
        , alignSep = "}{"
-       , template = "%XMonadLog% }{ %cpu% │ %memory% │ %multicoretemp% │ %battery% │ %date% │ %trayerpad% "
+       , template = "%_XMONAD_LOG_1% }{ %cpu% │ %memory% │ %multicoretemp% │ %battery% │ %date% "
        }

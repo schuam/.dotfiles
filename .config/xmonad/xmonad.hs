@@ -23,7 +23,7 @@ import XMonad.Actions.WithAll (killAll, sinkAll)
 import XMonad.Hooks.DynamicLog
 import XMonad.Hooks.EwmhDesktops
 import XMonad.Hooks.InsertPosition
-import XMonad.Hooks.ManageDocks (avoidStruts)
+import XMonad.Hooks.ManageDocks
 import XMonad.Hooks.StatusBar
 import XMonad.Hooks.StatusBar.PP
 
@@ -271,8 +271,8 @@ myStartupHook = do
 -- xmobar
 -- ----------------------------------------------------------------------------
 
-myXmobarPP :: PP
-myXmobarPP = def
+myXmobarPP :: ScreenId -> PP
+myXmobarPP i = def
     { ppCurrent         = brightWhite . wrap "[ " " ]"
     , ppVisible         = normalWhite . wrap "[ " " ]"
     , ppHidden          = normalWhite . wrap "  " "* "
@@ -282,9 +282,23 @@ myXmobarPP = def
     , ppWsSep           = " "
     , ppTitle           = brightWhite . shorten 50
     , ppTitleSanitize   = xmobarStrip
-    , ppOrder           = \[ws, l, win] -> [ws, l, win]
+    , ppOrder           = \[ws, l, win, extras] -> [ws, extras, l, win]
+    , ppExtras          = [ xmobarColorL "#d9f2f3" "" $ logCurrentOnScreen i ]
     }
 
+myXmobarPP0 = myXmobarPP 0
+myXmobarPP1 = myXmobarPP 1
+myXmobarPP2 = myXmobarPP 2
+
+myXmobar0 = statusBarPropTo "_XMONAD_LOG_0" "xmobar -x 0 ~/.config/xmobar/xmobarrc_0" (pure myXmobarPP0)
+myXmobar1 = statusBarPropTo "_XMONAD_LOG_1" "xmobar -x 1 ~/.config/xmobar/xmobarrc_1" (pure myXmobarPP1)
+myXmobar2 = statusBarPropTo "_XMONAD_LOG_2" "xmobar -x 2 ~/.config/xmobar/xmobarrc_2" (pure myXmobarPP2)
+
+myBarSpawner :: ScreenId -> IO StatusBarConfig
+myBarSpawner 0 = pure $ myXmobar0
+myBarSpawner 1 = pure $ myXmobar1
+myBarSpawner 2 = pure $ myXmobar2
+myBarSpawner _ = mempty
 
 -- Color definition are matched to the once I use in my alacritty config.
 -- The used color scheme is my variation of solarizid dark.
@@ -325,7 +339,8 @@ main :: IO ()
 main = xmonad 
      . ewmhFullscreen
      . ewmh
-     . withEasySB (statusBarProp "xmobar -x 0" (pure myXmobarPP)) defToggleStrutsKey
+     . dynamicSBs myBarSpawner
+     . docks
      $ myConfig
 
 myConfig = def
