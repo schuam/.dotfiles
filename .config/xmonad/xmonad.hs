@@ -15,8 +15,9 @@ import Data.Monoid
 import XMonad.Actions.CopyWindow (kill1)
 import XMonad.Actions.CycleWS
 import XMonad.Actions.MouseResize
-import XMonad.Actions.WithAll (killAll, sinkAll)
 import XMonad.Actions.PhysicalScreens
+import XMonad.Actions.SpawnOn
+import XMonad.Actions.WithAll (killAll, sinkAll)
 
 -- Hooks
 import XMonad.Hooks.DynamicLog
@@ -30,14 +31,14 @@ import XMonad.Hooks.StatusBar.PP
 import XMonad.Layout.Grid
 import XMonad.Layout.LayoutModifier
 import XMonad.Layout.NoBorders
-import XMonad.Layout.Spacing
 import XMonad.Layout.Renamed
 import XMonad.Layout.ResizableTile
+import XMonad.Layout.Spacing
 
 -- Utilities
 import XMonad.Util.EZConfig (additionalKeysP)
-import XMonad.Util.SpawnOnce
 import XMonad.Util.Loggers
+import XMonad.Util.SpawnOnce
 
 
 -- ----------------------------------------------------------------------------
@@ -133,7 +134,7 @@ myKeys =
     , ("M1-C-l",        spawn "slock")
     , ("M1-C-m",        spawn (myEmailClient))
     , ("M1-C-v",        spawn "pavucontrol")
-    , ("M1-C-w",        spawn "firefox --new-window https://web.whatsapp.com")
+    , ("M1-C-w",        spawnOn (myWorkspaces !! 2) "firefox --new-window https://web.whatsapp.com")
 
     -- Close programs
     , ("M-w",           kill1)
