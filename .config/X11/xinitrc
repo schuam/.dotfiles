@@ -28,6 +28,7 @@ then
 elif [[ $1 == "xmonad" ]]
 then
     xbindkeys -f "$XDG_CONFIG_HOME"/xbindkeys/xbindkeysrc
+    $XDG_CONFIG_HOME/startup/startup_screen_setup.sh
     exec xmonad
 else
     xbindkeys -f "$XDG_CONFIG_HOME"/xbindkeys/xbindkeysrc
