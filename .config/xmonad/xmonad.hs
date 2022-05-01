@@ -21,6 +21,7 @@ import XMonad.Actions.PhysicalScreens
 -- Hooks
 import XMonad.Hooks.DynamicLog
 import XMonad.Hooks.EwmhDesktops
+import XMonad.Hooks.InsertPosition
 import XMonad.Hooks.ManageDocks (avoidStruts)
 import XMonad.Hooks.StatusBar
 import XMonad.Hooks.StatusBar.PP
@@ -334,6 +335,6 @@ myConfig = def
     , layoutHook         = myLayoutHook
     , normalBorderColor  = myNormalBorderColor
     , focusedBorderColor = myFocusedBorderColor
-    , manageHook         = myManageHook
+    , manageHook         = insertPosition Below Newer <+> manageSpawn <+> myManageHook
     , workspaces         = myWorkspaces
     } `additionalKeysP` myKeys
