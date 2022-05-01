@@ -220,11 +220,12 @@ myManageHook :: XMonad.Query (Data.Monoid.Endo WindowSet)
 myManageHook = composeAll
      [
      -- float
-       className =? "confirm"         --> doFloat
-     , className =? "file_progress"   --> doFloat
+       className =? "Blueman-manager" --> doFloat
+     , className =? "confirm"         --> doFloat
      , className =? "dialog"          --> doFloat
      , className =? "download"        --> doFloat
      , className =? "error"           --> doFloat
+     , className =? "file_progress"   --> doFloat
      , className =? "notification"    --> doFloat
      , className =? "pinentry-gtk-2"  --> doFloat
      , (className =? "firefox" <&&> resource =? "Dialog") --> doFloat
