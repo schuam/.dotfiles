@@ -259,7 +259,7 @@ myStartupHook = do
     spawnOnce "trayer --monitor primary --edge top --align right --distance 5 --distancefrom top --padding 5 --SetDockType true --SetPartialStrut true --expand true --widthtype request --transparent true --alpha 0 --tint 0x083f4d --height 25 --iconspacing 5 &"
     spawnOnce "nm-applet &"
     spawnOnce "blueman-applet &"
-    spawnOnce "udiskie --no-automaount --no-notify --tray &"
+    spawnOnce "udiskie --no-automount --no-notify --tray &"
     spawnOnce "keepassxc &"
     spawnOnce "nitrogen --restore &"
     spawnOnce "picom --config ~/.config/picom/picom.conf &"
