@@ -145,7 +145,7 @@ myKeys =
     -- Dmenu scripts
     , ("M1-C-d p",      spawn "dmenu_pdf")
     , ("M1-C-d s",      spawn "dmenu_scrot")
-    , ("M1-C-d m",      spawn "dmenu_monitor")
+    , ("M1-C-d m",      spawn "dmenu_monitors")
     , ("M1-C-d y",      spawn "dmenu_youtube")
     , ("M1-C-<Delete>", spawn "dmenu_break")
     ]
@@ -154,7 +154,7 @@ myKeys =
     -- The original xmonad shortcuts M-{wer} switch focus to the screens 1, 2,
     -- and 3 respectively. Unfortunatley these screen number don't nessecarily
     -- correspond to the the phyical set up of the screens. PhysicalScreens
-    -- allows you to switch to focos to screens depending on there actual
+    -- allows you to switch to focus to screens depending on there actual
     -- position in the monitor setup.
     [("M-" ++ modKey2 ++ keyChar, screenOperation screen)
         | (keyChar, screen) <- zip ["s", "d", "f"] [0..]
@@ -179,9 +179,9 @@ myKeys =
     -- physical screen that doesn't exist causes a behaviour that I didn't
     -- think all the way through. I just realized that doing it the way it is
     -- done now, works.
-    [ ("M-x", sequence_ [sWW 2 (mWS 2), sWW 1 (mWS 1), sWW 0 (mWS 0), focusPrimary])
-    , ("M-c", sequence_ [sWW 2 (mWS 5), sWW 1 (mWS 4), sWW 0 (mWS 3), focusPrimary])
-    , ("M-v", sequence_ [sWW 2 (mWS 8), sWW 1 (mWS 7), sWW 0 (mWS 6), focusPrimary])
+    [ ("M-x", showSet1)
+    , ("M-c", showSet2)
+    , ("M-v", showSet3)
     ]
 
 screenWithWorkspace :: PhysicalScreen -> String -> X()
@@ -197,6 +197,9 @@ mWS i = (myWorkspaces !! i)
 -- the fucus on the primary monitor (set e.g. by xrandr or ARandR).
 focusPrimary = screenWorkspace 0 >>= flip whenJust (windows . W.view)
 
+showSet1 = sequence_ [sWW 2 (mWS 2), sWW 1 (mWS 1), sWW 0 (mWS 0), focusPrimary]
+showSet2 = sequence_ [sWW 2 (mWS 5), sWW 1 (mWS 4), sWW 0 (mWS 3), focusPrimary]
+showSet3 = sequence_ [sWW 2 (mWS 8), sWW 1 (mWS 7), sWW 0 (mWS 6), focusPrimary]
 
 -- ----------------------------------------------------------------------------
 -- layouts
@@ -259,12 +262,13 @@ myStartupHook = do
     spawnOnce "trayer --monitor primary --edge top --align right --distance 5 --distancefrom top --padding 5 --SetDockType true --SetPartialStrut true --expand true --widthtype request --transparent true --alpha 0 --tint 0x083f4d --height 25 --iconspacing 5 &"
     spawnOnce "nm-applet &"
     spawnOnce "blueman-applet &"
-    spawnOnce "udiskie --no-automaount --no-notify --tray &"
+    spawnOnce "udiskie --no-automount --no-notify --tray &"
     spawnOnce "keepassxc &"
     spawnOnce "nitrogen --restore &"
     spawnOnce "picom --config ~/.config/picom/picom.conf &"
     spawnOnce "xss-lock -- slock &"
     spawnOnce "xsetroot -cursor_name left_ptr &"
+    showSet1
 
 
 -- ----------------------------------------------------------------------------

@@ -19,7 +19,7 @@
 
 LAYOUT_SCRIPT_DIR="$XDG_DATA_HOME/screenlayouts"
 
-hostname=`hostname`
+hostname=`cat /etc/hostname`
 num_monitors=`xrandr --listactivemonitors | head -n 1 | cut -d " " -f2`
 
 # Assuming that the lid of a laptop is open, when you start the laptop, one of
