@@ -145,7 +145,7 @@ myKeys =
     -- Dmenu scripts
     , ("M1-C-d p",      spawn "dmenu_pdf")
     , ("M1-C-d s",      spawn "dmenu_scrot")
-    , ("M1-C-d m",      spawn "dmenu_monitor")
+    , ("M1-C-d m",      spawn "dmenu_monitors")
     , ("M1-C-d y",      spawn "dmenu_youtube")
     , ("M1-C-<Delete>", spawn "dmenu_break")
     ]
