@@ -245,6 +245,7 @@ myManageHook = composeAll
      , className =? "file_progress"   --> doFloat
      , className =? "notification"    --> doFloat
      , className =? "pinentry-gtk-2"  --> doFloat
+     , className =? "Pavucontrol"     --> doFloat
      , (className =? "firefox" <&&> resource =? "Dialog") --> doFloat
      , title =? "Oracle VM VirtualBox Manager"            --> doFloat
      -- shift to certain workspace
