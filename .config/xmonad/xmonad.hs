@@ -38,6 +38,7 @@ import XMonad.Layout.Spacing
 -- Utilities
 import XMonad.Util.EZConfig (additionalKeysP)
 import XMonad.Util.Loggers
+import XMonad.Util.NamedScratchpad
 import XMonad.Util.SpawnOnce
 
 
@@ -136,6 +137,11 @@ myKeys =
     , ("M1-C-v",        spawn "pavucontrol")
     , ("M1-C-w",        spawnOn (myWorkspaces !! 2) "firefox --new-window https://web.whatsapp.com")
 
+    -- Open scratchpads
+    , ("M1-C-<Return>", namedScratchpadAction myScratchPads "terminal")
+    , ("M1-C-c",        namedScratchpadAction myScratchPads "calendar")
+    , ("M1-C-q",        namedScratchpadAction myScratchPads "calculator")
+
     -- Close programs
     , ("M-w",           kill1)
     , ("M1-<F4>",       kill1)
@@ -230,6 +236,42 @@ myLayoutHook = avoidStruts
 
 
 -- ----------------------------------------------------------------------------
+-- scratchpads
+-- ----------------------------------------------------------------------------
+
+myScratchPads :: [NamedScratchpad]
+myScratchPads = [ NS "terminal"   spawnTerm findTerm manageTerm
+                , NS "calculator" spawnCalc findCalc manageCalc
+                , NS "calendar"   spawnCal  findCal  manageCal
+                ]
+  where
+    spawnTerm  = myTerminal ++ " -t spTerminal"
+    findTerm   = title =? "spTerminal"
+    manageTerm = customFloating $ W.RationalRect l t w h
+               where
+                 h = 0.8
+                 w = 0.8
+                 t = 0.1
+                 l = 0.1
+    spawnCal   = myTerminal ++ " --hold -t spCal -e cal -m -Y -S"
+    findCal    = title =? "spCal"
+    manageCal  = customFloating $ W.RationalRect l t w h
+               where
+                 h = 0.85
+                 w = 0.45
+                 t = 0.075
+                 l = 0.275
+    spawnCalc  = "qalculate-gtk"
+    findCalc   = className =? "Qalculate-gtk"
+    manageCalc = customFloating $ W.RationalRect l t w h
+               where
+                 h = 0.7
+                 w = 0.5
+                 t = 0.15
+                 l = 0.25
+
+
+-- ----------------------------------------------------------------------------
 -- hooks
 -- ----------------------------------------------------------------------------
 
@@ -250,7 +292,7 @@ myManageHook = composeAll
      , title =? "Oracle VM VirtualBox Manager"            --> doFloat
      -- shift to certain workspace
      , className =? "Thunderbird"     --> doShift (mWS 0)
-     ]
+     ] <+> namedScratchpadManageHook myScratchPads
 
 
 -- ----------------------------------------------------------------------------
@@ -277,7 +319,7 @@ myStartupHook = do
 -- ----------------------------------------------------------------------------
 
 myXmobarPP :: ScreenId -> PP
-myXmobarPP i = def
+myXmobarPP i = filterOutWsPP [scratchpadWorkspaceTag] $ def
     { ppCurrent         = brightWhite . wrap "[ " " ]"
     , ppVisible         = normalWhite . wrap "[ " " ]"
     , ppHidden          = normalWhite . wrap "  " "* "
