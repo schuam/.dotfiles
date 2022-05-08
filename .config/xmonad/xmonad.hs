@@ -285,6 +285,7 @@ myManageHook = composeAll
      , className =? "download"        --> doFloat
      , className =? "error"           --> doFloat
      , className =? "file_progress"   --> doFloat
+     , className =? "mpv"             --> doFloat
      , className =? "notification"    --> doFloat
      , className =? "pinentry-gtk-2"  --> doFloat
      , className =? "Pavucontrol"     --> doFloat
