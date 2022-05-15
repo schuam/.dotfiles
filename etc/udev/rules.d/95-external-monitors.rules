@@ -1,0 +1,3 @@
+# My rule to automatically detect and react to external monitor connection
+# changes
+ACTION=="change", KERNEL=="card0", SUBSYSTEM=="drm", RUN+="/usr/bin/systemctl start monitor-hotplug.service"

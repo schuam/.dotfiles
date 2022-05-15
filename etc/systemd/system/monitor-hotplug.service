@@ -1,0 +1,11 @@
+[Unit]
+Description=Monitor Hotplug
+
+[Service]
+Type=simple
+RemainAfterExit=no
+User=andreas
+ExecStart=/home/andreas/.config/startup/monitor_connection_change.sh
+
+[Install]
+WantedBy=multi-user.target

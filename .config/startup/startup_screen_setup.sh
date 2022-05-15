@@ -17,10 +17,46 @@
 # actual script
 # -----------------------------------------------------------------------------
 
-LAYOUT_SCRIPT_DIR="$XDG_DATA_HOME/screenlayouts"
+log_file="/tmp/monitor_log.txt"
+echo $0 >> $log_file
+
+LAYOUT_SCRIPT_DIR="/home/andreas/.local/share/screenlayouts"
+
+# I cannot remember where I found the following lines to set the DISPLAY and
+# XAUTHORITY environmental variables, but it is needed if this script is run as
+# root and not as me.
+_display=$(find /tmp/.X11-unix/* | sed s#/tmp/.X11-unix/X##)
+export DISPLAY=":${_display}.0"
+_xauthority=$(ps -C Xorg -f --no-header | sed -n 's/.*-auth //; s/ -[^ ].*//; p')
+export XAUTHORITY=${_xauthority}
 
 hostname=`cat /etc/hostname`
-num_monitors=`xrandr --listactivemonitors | head -n 1 | cut -d " " -f2`
+xrandr --auto
+
+
+monitors=(/sys/class/drm/*/status)
+num_monitors=0
+
+for monitor in "${monitors[@]}";
+do
+    if [[ "connected" == $(cat "${monitor}") ]]
+    then
+        num_monitors=$((num_monitors + 1))
+    fi
+done
+
+# Check if X recognizes the same number of monitors.
+# This check is necessary, because when I plug in a new hdmi monitor, a udev
+# rule is triggered that starts a systemd service that eventually runs this
+# script. By the time this scripts run the new monitor might not already be
+# recognizes by X and therefore the layout script will fail. In order to
+# prevent this, the while loop waits until X sees the same number of monitors
+# as the system does.
+while [ $(xrandr --listactivemonitors | head -n 1 | cut -d " " -f2) -ne $num_monitors ]
+do
+    echo "test"
+    sleep 1
+done
 
 # Assuming that the lid of a laptop is open, when you start the laptop, one of
 # the monitors will be the internal laptop monitor. Therefore:
@@ -34,6 +70,9 @@ layout_script_name=`printf \
     $num_external_monitors`
 
 layout_script_path="$LAYOUT_SCRIPT_DIR/$layout_script_name"
+
+echo "Total:" $num_monitors "Int:" $num_internal_monitors "Ext:" $num_external_monitors "Active:" $num_active_monitors >> $log_file
+echo "Layout:" $layout_script_path >> $log_file
 
 if [ -f $layout_script_path ]
 then
