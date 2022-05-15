@@ -51,7 +51,6 @@ done
 # as the system does.
 while [ $(xrandr --listactivemonitors | head -n 1 | cut -d " " -f2) -ne $num_monitors ]
 do
-    echo "test"
     sleep 1
 done
 
