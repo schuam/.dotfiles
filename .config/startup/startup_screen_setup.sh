@@ -31,9 +31,6 @@ _xauthority=$(ps -C Xorg -f --no-header | sed -n 's/.*-auth //; s/ -[^ ].*//; p'
 export XAUTHORITY=${_xauthority}
 
 hostname=`cat /etc/hostname`
-xrandr --auto
-
-
 monitors=(/sys/class/drm/*/status)
 num_monitors=0
 
