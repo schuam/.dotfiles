@@ -47,7 +47,7 @@ import XMonad.Util.SpawnOnce
 -- ----------------------------------------------------------------------------
 
 myTerminal :: String
-myTerminal = "alacritty"
+myTerminal = "alacritty -o font.size=10"
 
 myEditor :: String
 myEditor = myTerminal ++ " -e vim "
