@@ -49,6 +49,7 @@ done
 # recognizes by X and therefore the layout script will fail. In order to
 # prevent this, the while loop waits until X sees the same number of monitors
 # as the system does.
+xrandr --auto
 while [ $(xrandr --listactivemonitors | head -n 1 | cut -d " " -f2) -ne $num_monitors ]
 do
     sleep 1
