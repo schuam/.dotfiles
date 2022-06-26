@@ -100,6 +100,7 @@ myKeys =
     , ("M-C-m",         windows W.swapMaster)
     , ("M-C-j",         windows W.swapDown)
     , ("M-C-k",         windows W.swapUp)
+    , ("M1-<Tab>",      windows W.focusDown)
 
     -- Window resizing
     , ("M-M1-h",        sendMessage Shrink)
