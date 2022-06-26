@@ -12,7 +12,7 @@
 	url = https://github.com/preservim/nerdcommenter.git
 [submodule "vim/.vim/pack/vendor/start/tabular"]
 	path = .config/vim/pack/vendor/start/tabular
-	url = git://github.com/godlygeek/tabular.git
+	url = https://github.com/godlygeek/tabular.git
 [submodule "vim/.vim/pack/vendor/start/nerdtree"]
 	path = .config/vim/pack/vendor/start/nerdtree
 	url = https://github.com/preservim/nerdtree.git
