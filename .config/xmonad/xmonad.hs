@@ -291,7 +291,6 @@ myManageHook = composeAll
      , className =? "pinentry-gtk-2"  --> doFloat
      , className =? "Pavucontrol"     --> doFloat
      , (className =? "firefox" <&&> resource =? "Dialog") --> doFloat
-     , title =? "Oracle VM VirtualBox Manager"            --> doFloat
      -- shift to certain workspace
      , className =? "Thunderbird"     --> doShift (mWS 0)
      ] <+> namedScratchpadManageHook myScratchPads
