@@ -45,7 +45,7 @@ export VAGRANT_ALIAS_FILE="$XDG_DATA_HOME"/vagrant/aliases
 # Workaround for a bug in libreoffice: needed to show menu icons correctly.
 export SAL_USE_VCLPLUGIN=gen
 
-source ~/.bashrc
+[[ -f ~/.bashrc ]] && source ~/.bashrc
 
 # Automatically start the x server when in tty1
 if [[ "$(tty)" = "/dev/tty1" ]]; then
