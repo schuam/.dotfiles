@@ -42,7 +42,7 @@ mkdir -p $XDG_CONFIG_HOME
 
 cd .config
 
-for configuration in `find * -maxdepth 0 ! -iname xdg-user-dirs ! -iname plasma-localerc`
+for configuration in `find * -maxdepth 0`
 do
     mv $HOME/.config/$configuration $backup_dir
     ln -svn $PWD/$configuration $XDG_CONFIG_HOME/$configuration
