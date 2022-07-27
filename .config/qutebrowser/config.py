@@ -197,7 +197,7 @@ c.url.searchengines = {
 # `colors.webpage.darkmode.threshold.background` to 205.  - "With
 # selective inversion of everything": Combines the two variants   above.
 # Type: Bool
-c.colors.webpage.darkmode.enabled = True
+c.colors.webpage.preferred_color_scheme = "dark"
 
 # Render all colors as grayscale. This only has an effect when
 # `colors.webpage.darkmode.algorithm` is set to `lightness-hsl` or
