@@ -265,10 +265,8 @@ require'nvim-treesitter.configs'.setup {
     -- highlighting will fallback to default Vim syntax highlighting
     highlight = {
         enable = true,
-        disable = {'org'},
-        additional_vim_regex_highlighting = {'org'},
     },
-    ensure_installed = {'org'}, -- Or run :TSUpdate org
+    ensure_installed = {'bash', 'bibtex', 'c', 'cmake', 'cpp', 'css', 'dot', 'go', 'html', 'http', 'json', 'latex', 'lua', 'org', 'python', 'regex', 'vim', 'yaml'},
 }
 
 require('orgmode').setup({
