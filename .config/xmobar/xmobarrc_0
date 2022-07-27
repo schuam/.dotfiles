@@ -25,7 +25,7 @@ Config { font             = "xft:Liberation Sans:pixelsize=16:antialias=true:hin
                  , "-i", "<fn=1>\xf1e6</fn>"
                  , "-O", "<fn=1><leftbar></fn>  <fn=1>\xf1e6</fn>"
                  , "-o", "<fn=1><leftbar></fn>"
-                 , "-A", "5"
+                 , "-A", "10"
                  , "-a", "notify-send -u critical 'Battery running out!'"
                  ]
                  50
