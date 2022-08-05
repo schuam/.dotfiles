@@ -243,7 +243,7 @@ let g:airline_right_alt_sep=''
 " python
 " -----------------------------------------------------------------------------
 
-let g:python3_host_prog='/usr/bin/python'
+let g:python3_host_prog='/usr/bin/python3'
 
 
 " orgmode
