@@ -76,6 +76,7 @@ myWorkspaces = [ "<fn=1>\xf0e0</fn>"
                , "<fn=1>\xf121</fn>1"
                , "<fn=1>\xf121</fn>2"
                , "<fn=1>\xf121</fn>3"
+               , "<fn=1>\xf03a</fn>"
                ]
 
 
@@ -117,6 +118,9 @@ myKeys =
     , ("M-C-S-<Left>",  shiftToPrev)
     , ("M-C-S-l",       shiftToNext)
     , ("M-C-S-<Right>", shiftToNext)
+    -- I have my todo list on the tens workspace.
+    , ("M-0",           windows $ W.greedyView (myWorkspaces !! 9))
+    , ("M-S-0",         windows $ W.shift (myWorkspaces !! 9))
 
     -- Floating windows
     , ("M-t",           withFocused $ windows . W.sink)
@@ -137,6 +141,10 @@ myKeys =
     , ("M1-C-m",        spawn (myEmailClient))
     , ("M1-C-v",        spawn "pavucontrol")
     , ("M1-C-w",        spawnOn (myWorkspaces !! 2) "firefox --new-window https://web.whatsapp.com")
+    , ("M1-C-t",        sequence_ [ windows $ W.greedyView (myWorkspaces !! 9)
+                                  , spawn (myTerminal ++ " --working-directory $HOME")
+                                  ]
+      )
 
     -- Open scratchpads
     , ("M1-C-<Return>", namedScratchpadAction myScratchPads "terminal")
