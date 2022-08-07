@@ -526,7 +526,7 @@ schemes:
       black:   '#b3afa2'
       red:     '#ff0000'
       green:   '#00a800'
-      yellow:  '#ffff00'
+      yellow:  '#bbbb00'
       blue:    '#0033ff'
       magenta: '#ff00ff'
       cyan:    '#00c3c3'
