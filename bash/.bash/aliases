@@ -67,3 +67,7 @@ alias mocp='mocp -C "$XDG_CONFIG_HOME"/mocp/config -m'
 
 # zettelkasten
 alias zettelkasten='java -jar /opt/zettelkasten/zettelkasten.jar'
+
+# molecule (ansible)
+alias molecule='PY_COLORS=1 molecule'
+alias molecule_complete='eval "$(_MOLECULE_COMPLETE=bash_source molecule)"'
