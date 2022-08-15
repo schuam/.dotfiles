@@ -43,11 +43,20 @@ export VAGRANT_HOME="$XDG_DATA_HOME"/vagrant
 export VAGRANT_ALIAS_FILE="$XDG_DATA_HOME"/vagrant/aliases
 export COOKIECUTTER_CONFIG="$XDG_CONFIG_HOME"/cookiecutter/config.yml
 export DOCKER_CONFIG="$XDG_CONFIG_HOME"/docker
+export UNCRUSTIFY_CONFIG="$XDG_CONFIG_HOME"/uncrustify/schuam.cfg
 
 # Workaround for a bug in libreoffice: needed to show menu icons correctly.
 export SAL_USE_VCLPLUGIN=gen
 
 [[ -f ~/.bashrc ]] && source ~/.bashrc
+
+# Start the ssh agent
+if ! pgrep -u "$USER" ssh-agent > /dev/null; then
+    ssh-agent -t 1h > "$XDG_RUNTIME_DIR/ssh-agent.env"
+fi
+if [[ ! "$SSH_AUTH_SOCK" ]]; then
+    source "$XDG_RUNTIME_DIR/ssh-agent.env" >/dev/null
+fi
 
 # Automatically start the x server when in tty1
 if [[ "$(tty)" = "/dev/tty1" ]]; then
