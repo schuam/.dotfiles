@@ -74,8 +74,6 @@ Afterwards, within /opt/xmonad/src, I run:
 stack init
 ```
 
-In order for Xmonad to not create a .xmonad directory in my home directory, I
-ma
 Then I changed into Xmonad's configuration directory, created some symbolic
 links, and build and installed Xmonad.
 
