@@ -50,10 +50,6 @@ done
 
 cd ..
 
-echo
-echo "WARNING: xdg-user-dirs was ignored!"
-echo "WARNING: plasma-localerc was ignored!"
-
 # Create some special directories needed by vim
 mkdir -p $XDG_DATA_HOME/vim/undo
 mkdir -p $XDG_DATA_HOME/vim/swap
@@ -65,19 +61,9 @@ curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs \
 
 
 # -----------------------------------------------------------------------------
-# etc
-# -----------------------------------------------------------------------------
-
-echo
-echo "WARNING: files in 'etc' are not linked or copied!"
-echo "         Do that manually if needed!"
-
-
-# -----------------------------------------------------------------------------
 # kde
 # -----------------------------------------------------------------------------
 
 echo
 echo "WARNING: files in 'kde' are not linked or copied!"
 echo "         Do that manually if needed!"
-
