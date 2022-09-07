@@ -26,6 +26,7 @@ import XMonad.Hooks.InsertPosition
 import XMonad.Hooks.ManageDocks
 import XMonad.Hooks.StatusBar
 import XMonad.Hooks.StatusBar.PP
+import XMonad.Hooks.WindowSwallowing
 
 -- Layouts
 import XMonad.Layout.Grid
@@ -303,6 +304,8 @@ myManageHook = composeAll
      , className =? "Thunderbird"     --> doShift (mWS 0)
      ] <+> namedScratchpadManageHook myScratchPads
 
+myHandleEventHook = swallowEventHook (className =? "Alacritty") (return True)
+
 
 -- ----------------------------------------------------------------------------
 -- startup
@@ -408,5 +411,6 @@ myConfig = def
     , normalBorderColor  = myNormalBorderColor
     , focusedBorderColor = myFocusedBorderColor
     , manageHook         = insertPosition Below Newer <+> manageSpawn <+> myManageHook
+    , handleEventHook    = myHandleEventHook
     , workspaces         = myWorkspaces
     } `additionalKeysP` myKeys
