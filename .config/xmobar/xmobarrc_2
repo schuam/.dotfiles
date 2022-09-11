@@ -56,5 +56,5 @@ Config { font             = "xft:Liberation Sans:pixelsize=16:antialias=true:hin
            ]
        , sepChar  = "%"
        , alignSep = "}{"
-       , template = "%_XMONAD_LOG_2% }{ %cpu% │ %memory% │ %multicoretemp% │ %battery% │ %date% "
+       , template = "%_XMONAD_LOG_2% }{ %battery% │ %cpu% │ %memory% │ %multicoretemp% │ %date% "
        }
