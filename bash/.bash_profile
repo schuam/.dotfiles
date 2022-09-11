@@ -44,6 +44,7 @@ export VAGRANT_ALIAS_FILE="$XDG_DATA_HOME"/vagrant/aliases
 export COOKIECUTTER_CONFIG="$XDG_CONFIG_HOME"/cookiecutter/config.yml
 export DOCKER_CONFIG="$XDG_CONFIG_HOME"/docker
 export UNCRUSTIFY_CONFIG="$XDG_CONFIG_HOME"/uncrustify/schuam.cfg
+export QT_QPA_PLATFORMTHEME=qt5ct
 
 # Workaround for a bug in libreoffice: needed to show menu icons correctly.
 export SAL_USE_VCLPLUGIN=gen
