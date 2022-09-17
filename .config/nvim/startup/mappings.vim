@@ -190,3 +190,14 @@ endif
 " majutsushi/tagbar
 nnoremap <leader>tb :TagbarToggle<CR>
 
+" easymotion
+map <Leader>m <Plug>(easymotion-prefix)
+nnoremap <Leader>mf <Plug>(easymotion-overwin-f)
+xnoremap <Leader>mf <Plug>(easymotion-bd-f)
+onoremap <Leader>mf <Plug>(easymotion-bd-f)
+nnoremap <Leader>ml <Plug>(easymotion-overwin-line)
+xnoremap <Leader>ml <Plug>(easymotion-bd-jk)
+onoremap <Leader>ml <Plug>(easymotion-bd-jk)
+nnoremap <Leader>mw <Plug>(easymotion-overwin-w)
+xnoremap <Leader>mw <Plug>(easymotion-bd-w)
+onoremap <Leader>mw <Plug>(easymotion-bd-w)

@@ -15,5 +15,6 @@ Plug 'schuam/orgmode'
 Plug 'junegunn/fzf'
 Plug 'junegunn/fzf.vim'
 Plug 'majutsushi/tagbar'
+Plug 'easymotion/vim-easymotion'
 call plug#end()
 
