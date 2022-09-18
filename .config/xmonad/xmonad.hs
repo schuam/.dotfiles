@@ -301,7 +301,7 @@ myManageHook = composeAll
      , className =? "Pavucontrol"     --> doFloat
      , (className =? "firefox" <&&> resource =? "Dialog") --> doFloat
      -- shift to certain workspace
-     , className =? "Thunderbird"     --> doShift (mWS 0)
+     , className =? "Thunderbird" <||> className =? "thunderbird" --> doShift (mWS 0)
      ] <+> namedScratchpadManageHook myScratchPads
 
 myHandleEventHook = swallowEventHook (className =? "Alacritty") (return True)
