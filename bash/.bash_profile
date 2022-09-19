@@ -3,7 +3,6 @@ export LANG=en_US.utf8
 export EDITOR="vim"
 
 export PATH="$PATH:$HOME/.local/bin"
-export PATH="$PATH:/opt/ruby/gems/bin"
 export PATH="$PATH:/opt/go/bin"
 
 # Clean Up (XDG)
@@ -21,9 +20,6 @@ export XDG_VIDEOS_DIR="$HOME/multimedia/pictures_and_videos"
 export BUNDLE_USER_CONFIG="$XDG_CONFIG_HOME"/bundle
 export BUNDLE_USER_CACHE="$XDG_CACHE_HOME"/bundle
 export BUNDLE_USER_PLUGIN="$XDG_DATA_HOME"/bundle
-export GEM_HOME=/opt/ruby/gems
-export GEM_PATH=/opt/ruby/gems
-export GEM_SPEC_CACHE="$XDG_CACHE_HOME"/gem
 export GOPATH=/opt/go
 export PASSWORD_STORE_DIR="$XDG_DATA_HOME/pass"
 export LESSHISTFILE="-"
