@@ -87,7 +87,7 @@ config file:
 
 ```yaml
 key_bindings:
-  - { key: F, mods: Control, command: {program: "set_colorscheme.py"} }
+  - { key: F, mods: Control, command: {program: "set_colorscheme"} }
 ```
 
 Now I'm able to circle through my color schemes by pressing \<Ctrl-F\>.

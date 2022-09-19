@@ -424,7 +424,7 @@ font:
 # at once.
 key_bindings:
   - { key: N, mods: Control|Shift, action: SpawnNewInstance }
-  - { key: F, mods: Control, command: {program: "set_colorscheme.py"} }
+  - { key: F, mods: Control, command: {program: "set_colorscheme"} }
   # (Windows, Linux, and BSD only)
   - { key: V,        mods: Control|Shift, action: Paste            }
   - { key: C,        mods: Control|Shift, action: Copy             }
