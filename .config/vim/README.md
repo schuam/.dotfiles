@@ -1,9 +1,10 @@
 # My Vim Configuration
 
 Instead of cramping my whole configuration into one single file (.vimrc), I use
-three different files:
+four different files:
 
 - settings.vim
+- plugins.vim
 - functions.vim
 - mappings.vim
 
@@ -12,22 +13,16 @@ They are located in the startup directory and sourced by .vimrc in that order.
 
 # Plugins
 
-Since Vim8 it is possible to load plugins without a plugin manager or placing
-the plugins in your .vimrc file. I make use of that new feature by placing
-plugins I want to use into the directory '.vim/pack/vendor/start'. The 'vendor'
-sub-directory is supposed to indicate that the plugins in that folder are not
-written by me. I think I'll never write my own plugins, but who know. In case I
-do at some point the plan in to place them into their own directory.
-
-Since I use git to version my dotfiles, I decided to use git submodules to add
-plugins. To add a new plugin, I just add a new submodule to the
-'.vim/pack/vendor/start' directory. For example:
-
-```
-cd ~/.vim/pack/vendor/start/
-git submodule add https://github.com/tpope/vim-surround.git
-git commit -v
-```
+A while back I started to use NeoVim and to install plugins for NeoVim I use
+[vim-plug[(https://github.com/junegunn/vim-plug). Now (2022-10-23) I decided to
+do the same for regular vim. Even though I don't really use vim anymore on my
+main machine. I might need it on some other machines. Also I was annoyed by the
+big .dotfiles repo. Well not the actual repo was the problem, but all the
+submodules inside, that I used for plugins in regular vim.. Now (2022-10-23) I
+decided to do the same for regular vim. Even though I don't really use vim
+anymore on my main machine. I might need it on some other machines. Also I was
+annoyed by the big .dotfiles repo. Well not the actual repo was the problem,
+but all the submodules inside, that I used for plugins in regular vim.
 
 In case the plugin comes as a vimball, I download the vimball and open the
 downloaded file in vim. Than in vim I run:
