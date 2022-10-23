@@ -8,7 +8,7 @@ set backupdir=$XDG_DATA_HOME/vim/backup
 set viewdir=$XDG_DATA_HOME/vim/view
 set viminfo+='1000,n$XDG_DATA_HOME/vim/viminfo
 set packpath+=$XDG_CONFIG_HOME/vim
-set runtimepath=$XDG_CONFIG_HOME/vim,$VIMRUNTIME
+set runtimepath=$XDG_CONFIG_HOME/vim,$XDG_DATA_HOME/vim/site,$VIMRUNTIME
 
 
 " *****************************************************************************

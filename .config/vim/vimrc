@@ -9,6 +9,7 @@ augroup END " }
 " *****************************************************************************
 
 source $XDG_CONFIG_HOME/vim/startup/settings.vim
+source $XDG_CONFIG_HOME/vim/startup/plugins.vim
 source $XDG_CONFIG_HOME/vim/startup/functions.vim
 source $XDG_CONFIG_HOME/vim/startup/mappings.vim
 
