@@ -32,6 +32,7 @@ local options = {
     shiftround = true,         -- moves text to the next indentation level
     listchars = {tab = ">~", nbsp = "_", trail = "."},
     list = true,               -- highlight character in listchars
+    termguicolors = false,     -- allows more color scheme options
 }
 
 for k, v in pairs(options) do
