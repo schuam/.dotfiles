@@ -27,6 +27,11 @@ vim.cmd([[
 return require('packer').startup(function(use)
   use 'wbthomason/packer.nvim'        -- Have packer manage itself.
   -- My plugins here
+  -- lua functions that many plugins use
+  use("nvim-lua/plenary.nvim")
+  use("nvim-tree/nvim-web-devicons")
+
+  use("nvim-tree/nvim-tree.lua")      -- file explorer
 
   -- autocompletion
   use("hrsh7th/nvim-cmp")             -- completion plugin

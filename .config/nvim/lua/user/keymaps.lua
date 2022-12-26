@@ -83,6 +83,9 @@ keymap("n", "<A-j>", "<C-w>j", opts)
 keymap("n", "<A-k>", "<C-w>k", opts)
 keymap("n", "<A-l>", "<C-w>l", opts)
 
+-- NERDTree
+keymap("n", "<Leader>e", ":NvimTreeToggle<CR>", opts)
+
 -- TODO: Check which of the below mappings are still needed?
 -- TODO: Sort this file a little bit.
 
