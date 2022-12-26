@@ -43,6 +43,10 @@ return require('packer').startup(function(use)
   use("saadparwaiz1/cmp_luasnip")     -- for autocompletion
   use("rafamadriz/friendly-snippets") -- useful snippets
 
+  -- fuzzy finding w/ telescope
+  use({ "nvim-telescope/telescope-fzf-native.nvim", run = "make" }) -- dependency for better sorting performance
+  use({ "nvim-telescope/telescope.nvim", branch = "0.1.x" }) -- fuzzy finder
+
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins
   if packer_bootstrap then
