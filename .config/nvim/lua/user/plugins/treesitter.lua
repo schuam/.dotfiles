@@ -11,6 +11,10 @@ treesitter.setup({
     disable = { 'org' },
     additional_vim_regex_highlighting = { 'org' },
   },
+  -- enable indentation
+  indent = { enable = true },
+  -- enable autotagging (w/ nvim-ts-autotag plugin)
+  autotag = { enable = true },
   ensure_installed = {
     'bash',
     'bibtex',
