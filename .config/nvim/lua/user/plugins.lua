@@ -32,6 +32,9 @@ return require('packer').startup(function(use)
   use("nvim-tree/nvim-web-devicons")
 
   use("nvim-tree/nvim-tree.lua")      -- file explorer
+  
+  -- statusline
+  use("nvim-lualine/lualine.nvim")
 
   -- autocompletion
   use("hrsh7th/nvim-cmp")             -- completion plugin

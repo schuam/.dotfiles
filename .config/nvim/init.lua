@@ -5,4 +5,5 @@ require "user.colorscheme"
 
 require "user.plugins.nvim-cmp"
 require "user.plugins.nvim-tree"
+require "user.plugins.lualine"
 require "user.plugins.telescope"
