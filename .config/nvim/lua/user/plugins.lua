@@ -31,6 +31,9 @@ return require('packer').startup(function(use)
   use("nvim-lua/plenary.nvim")
   use("nvim-tree/nvim-web-devicons")
 
+  -- some essentaial plugins
+  use("preservim/nerdcommenter")
+  use("tpope/vim-surround")
   use("nvim-tree/nvim-tree.lua")      -- file explorer
   
   -- statusline
