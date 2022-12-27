@@ -9,7 +9,7 @@ treesitter.setup({
   highlight = {
     enable = true,
     disable = { 'org' },
-    additional_vim_regex_highlighting = { 'org' },
+    additional_vim_regex_highlighting = { 'org', 'markdown' },
   },
   -- enable indentation
   indent = { enable = true },
