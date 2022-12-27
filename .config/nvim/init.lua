@@ -1,7 +1,7 @@
-require "user.options"
-require "user.plugins"
-require "user.keymaps"
-require "user.colorscheme"
+require "user.plugins-setup"
+require "user.core.options"
+require "user.core.keymaps"
+require "user.core.colorscheme"
 
 require "user.plugins.nvim-cmp"
 require "user.plugins.nvim-tree"
