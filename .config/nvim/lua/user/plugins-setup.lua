@@ -41,6 +41,13 @@ return require('packer').startup(function(use)
   use("preservim/nerdcommenter")
   use("tpope/vim-surround")
   use("nvim-tree/nvim-tree.lua")      -- file explorer
+  use({ 
+    "phaazon/hop.nvim",
+    tag = "v2.0.3",
+    config = function()
+      require'hop'.setup {}
+    end
+  })
 
   -- statusline
   use("nvim-lualine/lualine.nvim")
