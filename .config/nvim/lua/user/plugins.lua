@@ -62,11 +62,11 @@ return require('packer').startup(function(use)
     end,
   })
 
-  -- managing & installing lsp servers, linters & formatters
+  -- managing, installing and configuring lsp servers, linters & formatters
   use("williamboman/mason.nvim") -- in charge of managing lsp servers, linters & formatters
   use("williamboman/mason-lspconfig.nvim") -- bridges gap b/w mason & lspconfig
-
-  -- configuring lsp servers
+  use("hrsh7th/cmp-nvim-lsp") -- for autocompletion
+  use({ "glepnir/lspsaga.nvim", branch = "main" }) -- enhanced lsp uis
   use("neovim/nvim-lspconfig") -- easily configure language servers
 
   -- auto closing
