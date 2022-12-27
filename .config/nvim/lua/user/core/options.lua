@@ -1,3 +1,7 @@
+-- ----------------------------------------------------------------------------
+-- general options for nvim
+-- ----------------------------------------------------------------------------
+
 local options = {
     cursorline = true,         -- Highlights line the cursor is on
     cursorcolumn = true,       -- Highlights the column tht cursor is in

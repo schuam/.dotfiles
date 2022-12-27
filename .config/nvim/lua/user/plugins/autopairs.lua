@@ -1,5 +1,6 @@
-local autopairs_setup, autopairs = pcall(require, "nvim-autopairs")
-if not autopairs_setup then
+-- load nvim-autopairs plugin
+local autopairs_status, autopairs = pcall(require, "nvim-autopairs")
+if not autopairs_status then
   return
 end
 

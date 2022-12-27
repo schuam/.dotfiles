@@ -1,9 +1,10 @@
+-- load lspsage plugin
 local saga_status, saga = pcall(require, "lspsaga")
 if not saga_status then
-  vim.notify("Plugin 'lspsaga' not found!")
   return
 end
 
+-- initialize the lspsage plugin
 saga.init_lsp_saga({
   -- keybinds for navigation in lspsaga window
   move_in_saga = { prev = "<C-p>", next = "<C-n>" },

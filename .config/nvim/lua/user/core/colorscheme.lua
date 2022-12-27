@@ -1,8 +1,8 @@
+-- set the colorscheme
 local colorscheme = "schuam"
+local colorscheme_status, _ = pcall(vim.cmd, "colorscheme " .. colorscheme)
 
-local status_ok, _ = pcall(vim.cmd, "colorscheme " .. colorscheme)
-
-if not status_ok then
+if not colorscheme_status then
   vim.notify("colorscheme " .. colorscheme .. " not found!")
   return
 end

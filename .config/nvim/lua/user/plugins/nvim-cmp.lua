@@ -1,15 +1,16 @@
-local cmp_status_ok, cmp = pcall(require, "cmp")
-if not cmp_status_ok then
-  vim.notify("Plugin 'cmp' not found!")
+-- load cmp plugin
+local cmp_status, cmp = pcall(require, "cmp")
+if not cmp_status then
   return
 end
 
+-- load luasnip plugin
 local snip_status_ok, luasnip = pcall(require, "luasnip")
 if not snip_status_ok then
-  vim.notify("Plugin 'luasnip' not found!")
   return
 end
 
+-- configure plugins
 require("luasnip/loaders/from_vscode").lazy_load()
 
 local check_backspace = function()
