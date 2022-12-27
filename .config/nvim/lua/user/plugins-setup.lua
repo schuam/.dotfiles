@@ -48,6 +48,7 @@ return require('packer').startup(function(use)
       require'hop'.setup {}
     end
   })
+  use { "alexghergh/nvim-tmux-navigation" }
 
   -- statusline
   use("nvim-lualine/lualine.nvim")
