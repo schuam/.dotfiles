@@ -8,7 +8,7 @@ end
 treesitter.setup({
   highlight = {
     enable = true,
-    disable = { 'org' },
+    disable = { 'org', 'gitcommit' },
     additional_vim_regex_highlighting = { 'org', 'markdown' },
   },
   -- enable indentation
