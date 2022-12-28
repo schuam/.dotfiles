@@ -34,7 +34,7 @@ return require('packer').startup(function(use)
   use("wbthomason/packer.nvim")       -- Have packer manage itself.
   -- My plugins here
   -- lua functions that many plugins use
-  use("nvim-lua/plenary.nvim")
+  use({ "nvim-lua/plenary.nvim", tag = "v0.1.0"})
   use("nvim-tree/nvim-web-devicons")
 
   -- some essentaial plugins
@@ -54,12 +54,12 @@ return require('packer').startup(function(use)
   use("nvim-lualine/lualine.nvim")
 
   -- autocompletion
-  use("hrsh7th/nvim-cmp")             -- completion plugin
+  use({ "hrsh7th/nvim-cmp", tag = "v0.0.1" })    -- completion plugin
   use("hrsh7th/cmp-buffer")           -- source for text in buffer
   use("hrsh7th/cmp-path")             -- source for file system paths
 
   -- snippets
-  use("L3MON4D3/LuaSnip")             -- snippet engine
+  use({ "L3MON4D3/LuaSnip", tag = "v1.1.0" })    -- snippet engine
   use("saadparwaiz1/cmp_luasnip")     -- for autocompletion
   use("rafamadriz/friendly-snippets") -- useful snippets
 
