@@ -41,14 +41,14 @@ return require('packer').startup(function(use)
   use({ "numToStr/Comment.nvim", tag = "v0.7.0" })
   use("tpope/vim-surround")
   use("nvim-tree/nvim-tree.lua")      -- file explorer
-  use({ 
+  use({
     "phaazon/hop.nvim",
     tag = "v2.0.3",
     config = function()
       require'hop'.setup {}
     end
   })
-  use { "alexghergh/nvim-tmux-navigation" }
+  use("alexghergh/nvim-tmux-navigation")
 
   -- statusline
   use("nvim-lualine/lualine.nvim")
