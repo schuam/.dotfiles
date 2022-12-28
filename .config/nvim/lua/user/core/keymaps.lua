@@ -18,9 +18,9 @@ local keymap = vim.api.nvim_set_keymap
 -- ----------------------------------------------------------------------------
 
 --Remap "-" as leader key
-keymap("", " ", "<Nop>", opts)
-vim.g.mapleader = " "
-vim.g.maplocalleader = " "
+keymap("", "-", "<Nop>", opts)
+vim.g.mapleader = "-"
+vim.g.maplocalleader = "-"
 
 -- Disable arrow movement, resize splits instead.
 keymap("n", "<Up>", ":resize +2<CR>", opts)

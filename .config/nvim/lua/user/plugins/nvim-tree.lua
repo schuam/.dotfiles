@@ -24,6 +24,8 @@ nvimtree.setup({
       },
     },
   },
+  on_attach = on_attach,
+  remove_keymaps = ({"-"}),
   -- disable window_picker for
   -- explorer to work well with
   -- window splits
