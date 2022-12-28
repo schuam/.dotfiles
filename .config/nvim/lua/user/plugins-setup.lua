@@ -38,7 +38,7 @@ return require('packer').startup(function(use)
   use("nvim-tree/nvim-web-devicons")
 
   -- some essentaial plugins
-  use("preservim/nerdcommenter")
+  use({ "numToStr/Comment.nvim", tag = "v0.7.0" })
   use("tpope/vim-surround")
   use("nvim-tree/nvim-tree.lua")      -- file explorer
   use({ 
