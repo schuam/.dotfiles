@@ -59,5 +59,21 @@ schuam_theme = {
 lualine.setup({
   options = {
     theme = schuam_theme
+  },
+  winbar = {
+    lualine_a = {'buffers'},
+    lualine_b = {},
+    lualine_c = {},
+    lualine_x = {},
+    lualine_y = {},
+    lualine_z = {}
+  },
+  inactive_winbar = {
+    lualine_a = {'buffers'},
+    lualine_b = {},
+    lualine_c = {},
+    lualine_x = {},
+    lualine_y = {},
+    lualine_z = {}
   }
 })
