@@ -3,7 +3,10 @@ let mapleader="-"
 
 " Easier moving between tabs
 nnoremap <C-n> :bn<CR>
+nnoremap <S-h> :bn<CR>
 nnoremap <C-p> :bp<CR>
+nnoremap <S-l> :bp<CR>
+
 
 " Moving between splits (and tmux)
 if exists('$TMUX')
@@ -64,7 +67,7 @@ noremap <Leader>l :NERDTreeToggle<CR>
 
 
 " Shows the syntax highlight gourp
-nnoremap <C-i> :call CheckSyntaxHighlightGroup()<cr>
+nnoremap <C-y> :call CheckSyntaxHighlightGroup()<cr>
 
 
 " Inserts timestamps
