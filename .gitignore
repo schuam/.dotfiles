@@ -9,3 +9,4 @@ konsole/bookmarks*
 .config/xmonad/xmonad.o
 .config/xmonad/.stack-work/
 .config/xmonad/stack.yaml.lock
+.config/nvim/plugin/packer_compiled.lua

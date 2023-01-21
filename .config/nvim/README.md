@@ -1,41 +1,58 @@
 # My Neovim Configuration
 
-Instead of cramping my whole configuration into one single file (init.vim), I
-use four different files:
+As it seems that configuring Neovim entirely with Lua becomes more and more
+pupulare, I decided to give it a try myself. Now, everyting is configured in
+Lua except the definition of my own colorscheme. I was to lazy to port that to
+Lua was well.
 
-- plugins.vim
-- settings.vim
-- functions.vim
-- mappings.vim
+In order to configure Neovim, I set up the following directory structure:
 
-They are located in the startup directory and sourced by init.vim in that
-order.
+```
+$XDG_CONFIG_HOME/nvim/
+├── init.lua
+├── README.md
+├── colors
+│   └── schuam.vim
+└── lua
+    └── user
+        ├── plugins-setup.lua
+        ├── core
+        │   ├── colorscheme.lua
+        │   ├── keymaps.lua
+        │   └── options.lua
+        └── plugins
+            ├── <PLUGIN-1>.lua
+            ├── <PLUGIN-2>.lua
+            └── ...
+```
+
+The `init.lua` file serves as the **entry point** for my configuration. I
+doesn't really do anything itself, it just loads (`require`) all the necessary
+configuration files.
+
+The `colors` directory contains just one file - my own colorscheme.
+
+The `lua` directory contains the actual configuration files. To prevent any
+clashes that might happen due to name confilicts with internal Neovim files,
+there is a sub-directory called `user` wihtin the `lua` directory. The `user`
+directory contains one file `plugins-setup.lua` that sets up all plugins (with
+the plugin manager `packer`), and two further sub-directories (`core` and
+`plugins`).
+
+The `core` directory contains some configuration files to configure Neovim
+itself, the `plugins` directory contains files to configure my plugins.
 
 
 # Plugins
 
-For now I decided to use vim-plug to install plugins into Neovim. In order to
-do so I had to install vim-plug first. This was done using the command:
+To load and configure my plugins, I use `packer`. The entry point for packer is
+the file `lua/user/plugin-setup.lua`. All plugins that I want to use are lised
+in the `setup()` function of `packer` at the end of the mentioned configuration
+file.
 
-```bash
-curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs \
-    https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-```
-
-After that all further plugins are installed in two steps:
-
-1. First they are added in the plugins.vim file by adding a new line for every
-   new plugin, e.g.:
-
-   ```
-   Plug 'preservim/nerdcommenter'
-   ```
-
-2. Acutally install and update them in Neovim by running the following commands
-   in Neovim:
-
-   ```
-   :PlugInstall
-   :PlugUpdate
-   ```
+For some plugins it is enough to just list them in the
+`lua/user/plugins-setup.lua` file to use them. Otehr need some configuration.
+For every plugin that I needed/wanted to configure, I put an extra
+configuration file into the `lua/user/plugins/` directory. These files are
+named after the coresponding plugin and the files are loaded from `init.lua`.
 

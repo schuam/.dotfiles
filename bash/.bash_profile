@@ -31,7 +31,7 @@ export WGETRC="$XDG_CONFIG_HOME"/wget/wgetrc
 export XINITRC="$XDG_CONFIG_HOME"/X11/xinitrc
 export XAUTHORITY="$XDG_RUNTIME_DIR"/Xauthority
 export SQLITE_HISTORY="$XDG_DATA_HOME"/sqlite_history
-export VIMINIT='if !has("nvim") | let $MYVIMRC="$XDG_CONFIG_HOME/vim/vimrc" | else | let $MYVIMRC="$XDG_CONFIG_HOME/nvim/init.vim" | endif | source $MYVIMRC'
+export VIMINIT='if !has("nvim") | let $MYVIMRC="$XDG_CONFIG_HOME/vim/vimrc" | else | let $MYVIMRC="$XDG_CONFIG_HOME/nvim/init.lua" | endif | source $MYVIMRC'
 export HISTFILE="$XDG_DATA_HOME"/bash/history
 export PYTHONSTARTUP="$XDG_CONFIG_HOME"/python/startup.py
 export STACK_ROOT="$XDG_CACHE_HOME"/stack
