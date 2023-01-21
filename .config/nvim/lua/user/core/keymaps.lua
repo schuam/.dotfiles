@@ -59,8 +59,8 @@ keymap("n", "]s", "]szz", opts)
 keymap("n", "[s", "[szz", opts)
 
 -- easier moving between tabs
-keymap("n", "<C-l>", ":bn<CR>", opts)
-keymap("n", "<C-h>", ":bp<CR>", opts)
+keymap("n", "<S-l>", ":bn<CR>", opts)
+keymap("n", "<S-h>", ":bp<CR>", opts)
 
 -- easier moving between splits
 keymap("n", "<A-h>", "<C-w>h", opts)
