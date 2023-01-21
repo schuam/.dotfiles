@@ -233,6 +233,12 @@ c.bindings.key_mappings = {
 # Bindings for normal mode
 config.bind('<Ctrl+v>', 'hint links spawn mpv {hint-url}')
 config.bind('<Ctrl+l>', 'set-cmd-text -s :open', mode='normal')
+config.bind('<Shift+h>', 'tab-prev', mode='normal')
+config.bind('<Shift+l>', 'tab-next', mode='normal')
+config.bind('<Alt+Left>', 'back', mode='normal')
+config.bind('<Shift+k>', 'back', mode='normal')
+config.bind('<Alt+Right>', 'forward', mode='normal')
+config.bind('<Shift+j>', 'forward', mode='normal')
 
 # Start page
 config.set('url.start_pages', ['https://google.com'])
