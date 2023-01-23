@@ -37,6 +37,9 @@ return require('packer').startup(function(use)
   use({ "nvim-lua/plenary.nvim", tag = "v0.1.0"})
   use("nvim-tree/nvim-web-devicons")
 
+  -- orgmode
+  use({ "nvim-orgmode/orgmode", tag = "0.2.1" })
+
   -- some essentaial plugins
   use({ "numToStr/Comment.nvim", tag = "v0.7.0" })
   use("tpope/vim-surround")

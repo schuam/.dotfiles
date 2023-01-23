@@ -7,6 +7,7 @@ require("user.core.keymaps")
 require("user.core.colorscheme")
 
 -- Load configurations for plugins
+require("user.plugins.orgmode")
 require("user.plugins.nvim-cmp")
 require("user.plugins.nvim-tree")
 require("user.plugins.lualine")
