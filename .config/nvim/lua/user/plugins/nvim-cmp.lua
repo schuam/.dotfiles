@@ -100,8 +100,8 @@ cmp.setup {
   formatting = {
     fields = { "abbr", "kind", "menu" },
     format = function(entry, vim_item)
-      vim_item.kind = string.format("(%s)", vim_item.kind)
-      -- vim_item.kind = string.format("%s", kind_icons[vim_item.kind])
+      -- vim_item.kind = string.format("(%s)", vim_item.kind)
+      vim_item.kind = string.format("%s", kind_icons[vim_item.kind])
       -- vim_item.kind = string.format('%s %s', kind_icons[vim_item.kind], vim_item.kind) -- This concatonates the icons with the name of the item kind
       vim_item.menu = ({
         luasnip = "[Snippet]",
@@ -123,6 +123,7 @@ cmp.setup {
   },
   window = {
     documentation = cmp.config.window.bordered(),
+    completion = cmp.config.window.bordered(),
   },
   experimental = {
     ghost_text = false,
