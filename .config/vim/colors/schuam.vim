@@ -161,8 +161,8 @@ exe "hi! MoreMsg"        .s:fg_none             .s:bg_none             .s:fmt_no
 exe "hi! Operator"       .s:fg_dark_magenta     .s:bg_none             .s:fmt_none
 
 " !complete menu
-exe "hi! Pmenu"          .s:fg_none             .s:bg_none             .s:fmt_none
-exe "hi! PmenuSel"       .s:fg_none             .s:bg_none             .s:fmt_none
+exe "hi! Pmenu"          .s:fg_none             .s:bg_light_bg         .s:fmt_none
+exe "hi! PmenuSel"       .s:fg_none             .s:bg_intense_light_bg .s:fmt_none
 exe "hi! PmenuSbar"      .s:fg_none             .s:bg_none             .s:fmt_none
 exe "hi! PmenuThumb"     .s:fg_none             .s:bg_none             .s:fmt_none
 
@@ -171,7 +171,6 @@ exe "hi! PreProc"        .s:fg_dark_magenta     .s:bg_none             .s:fmt_no
 exe "hi! Question"       .s:fg_none             .s:bg_none             .s:fmt_none
 exe "hi! Repeat"         .s:fg_dark_yellow      .s:bg_none             .s:fmt_none
 exe "hi! Search"         .s:fg_none             .s:bg_none             .s:fmt_revbbu
-
 
 " !marks column
 exe "hi! SignColumn"     .s:fg_none             .s:bg_none             .s:fmt_none
@@ -199,6 +198,8 @@ exe "hi! VisualNOS"      .s:fg_none             .s:bg_intense_light_bg .s:fmt_no
 exe "hi! Visual"         .s:fg_none             .s:bg_intense_light_bg .s:fmt_none
 exe "hi! WarningMsg"     .s:fg_none             .s:bg_none             .s:fmt_none
 
+exe "hi! NormalFloat"    .s:fg_none             .s:bg_light_bg         .s:fmt_none
+exe "hi! FloatBorder"    .s:fg_none             .s:bg_none             .s:fmt_none
 
 " -----------------------------------------------------------------------------
 " tex highlighting
