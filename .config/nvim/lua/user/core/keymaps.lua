@@ -75,13 +75,13 @@ keymap("n", "<C-b>", ":bn<bar>sp<bar>bp<bar>bd<CR>", opts)
 keymap("n", "<C-q>", "<C-w>c", opts)
 
 -- inserts timestamps
-keymap("n", "<Leader>td", "a<C-R>=strftime('%F')<CR><Esc>", opts)
-keymap("n", "<Leader>tt", "a<C-R>=strftime('%T')<CR><Esc>", opts)
-keymap("n", "<Leader>tdt", "a<C-R>=strftime('%FT%T%z')<CR><Esc>", opts)
+keymap("n", "<Leader>dd", "a<C-R>=strftime('%F')<CR><Esc>", opts)
+keymap("n", "<Leader>dt", "a<C-R>=strftime('%T')<CR><Esc>", opts)
+keymap("n", "<Leader>ddt", "a<C-R>=strftime('%FT%T%z')<CR><Esc>", opts)
 
-keymap("i", "<Leader>td", "<C-R>=strftime('%F')<CR>", opts)
-keymap("i", "<Leader>tt", "<C-R>=strftime('%T')<CR>", opts)
-keymap("i", "<Leader>tdt", "<C-R>=strftime('%FT%T%z')<CR>", opts)
+keymap("i", "<Leader>dd", "<C-R>=strftime('%F')<CR>", opts)
+keymap("i", "<Leader>dt", "<C-R>=strftime('%T')<CR>", opts)
+keymap("i", "<Leader>ddt", "<C-R>=strftime('%FT%T%z')<CR>", opts)
 
 -- insert empty line without going into inser mode.
 keymap("n", "<Leader>jj", "o<Esc>k", opts)
