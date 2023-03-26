@@ -239,6 +239,7 @@ config.bind('<Alt+Left>', 'back', mode='normal')
 config.bind('<Shift+k>', 'back', mode='normal')
 config.bind('<Alt+Right>', 'forward', mode='normal')
 config.bind('<Shift+j>', 'forward', mode='normal')
+config.bind('<Ctrl+d>', 'close', mode='normal')
 
 # Start page
 config.set('url.start_pages', ['https://google.com'])
