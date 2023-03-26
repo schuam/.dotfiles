@@ -47,9 +47,6 @@ alias mbsync='mbsync -c "$XDG_CONFIG_HOME"/mbsync/mbsyncrc'
 # grep
 alias grep='grep --color'
 
-# use neovim instead of vim
-alias vim='nvim'
-
 # aliases for nvim-org-mode and gtd (getting things done)
 alias gtd='cd $XDG_DATA_HOME/gtd'
 alias gtd_todo='nvim $XDG_DATA_HOME/gtd/todo.org'
