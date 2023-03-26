@@ -9,7 +9,9 @@ orgmode.setup_ts_grammar()
 
 orgmode.setup({
     org_agenda_files = {
-        '~/.local/share/gtd/todo.org', '~/.local/share/gtd/regular.org'
+        '~/.local/share/gtd/todo.org',
+        '~/.local/share/gtd/regular.org',
+        '~/.local/share/gtd/someday.org',
     },
     org_archive_location = '~/.local/share/gtd/archive.org',
     org_default_notes_file = '~/.local/share/gtd/inbox.org',
