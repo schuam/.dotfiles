@@ -85,6 +85,7 @@ return require('packer').startup(function(use)
   --use("hrsh7th/cmp-nvim-lsp") -- for autocompletion
   --use({ "glepnir/lspsaga.nvim", branch = "main" }) -- enhanced lsp uis
   --use("neovim/nvim-lspconfig") -- easily configure language servers
+  use({ "folke/trouble.nvim", tag = "v1.0.2" })
 
   -- auto closing
   use("windwp/nvim-autopairs") -- autoclose parens, brackets, quotes, etc...
