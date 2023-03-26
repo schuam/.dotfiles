@@ -107,6 +107,7 @@ cmp.setup {
         luasnip = "[Snippet]",
         buffer = "[Buffer]",
         path = "[Path]",
+        nvim_lsp = "[LSP]",
       })[entry.source.name]
       return vim_item
     end,
