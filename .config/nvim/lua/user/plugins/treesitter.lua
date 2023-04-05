@@ -12,7 +12,10 @@ treesitter.setup({
     additional_vim_regex_highlighting = { 'org', 'markdown' },
   },
   -- enable indentation
-  indent = { enable = true },
+  indent = {
+    enable = true,
+    disable = { 'yaml' }
+  },
   -- enable autotagging (w/ nvim-ts-autotag plugin)
   autotag = { enable = true },
   ensure_installed = {
