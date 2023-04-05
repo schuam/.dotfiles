@@ -19,7 +19,6 @@ mason_lspconfig.setup({
     -- "haskell-language-server",
     "jsonls",
     "ltex",
-    "sumneko_lua",
     "marksman",
     "pyright",
     "sqlls",
