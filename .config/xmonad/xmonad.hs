@@ -24,6 +24,7 @@ import XMonad.Hooks.DynamicLog
 import XMonad.Hooks.EwmhDesktops
 import XMonad.Hooks.InsertPosition
 import XMonad.Hooks.ManageDocks
+import XMonad.Hooks.RefocusLast (refocusLastLayoutHook, refocusLastWhen, refocusingIsActive, isFloat)
 import XMonad.Hooks.StatusBar
 import XMonad.Hooks.StatusBar.PP
 import XMonad.Hooks.WindowSwallowing
@@ -242,6 +243,7 @@ grid = renamed [Replace "Grid"]
 
 myLayoutHook = avoidStruts
     $ withBorder myBorderWidth
+    $ refocusLastLayoutHook
     $ tall ||| Mirror tall ||| grid ||| noBorders Full
 
 
@@ -304,7 +306,12 @@ myManageHook = composeAll
      , className =? "Thunderbird" <||> className =? "thunderbird" --> doShift (mWS 0)
      ] <+> namedScratchpadManageHook myScratchPads
 
-myHandleEventHook = swallowEventHook (className =? "Alacritty") (return True)
+myHandleEventHook :: Event -> X All
+myHandleEventHook = mconcat
+    [
+      refocusLastWhen (refocusingIsActive <||> isFloat)
+    , swallowEventHook (className =? "Alacritty") (return True)
+    ]
 
 
 -- ----------------------------------------------------------------------------
