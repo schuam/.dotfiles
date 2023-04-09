@@ -44,8 +44,6 @@ for k, v in pairs(options) do
     vim.opt[k] = v
 end
 
-vim.diagnostic.config({ virtual_text = false })
-
 -- TODO: order the options a little bit
 -- TODO: check if I need any of the following options from my old configuation:
 --   - wildmenu
