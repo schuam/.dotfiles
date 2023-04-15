@@ -24,6 +24,7 @@ import XMonad.Hooks.DynamicLog
 import XMonad.Hooks.EwmhDesktops
 import XMonad.Hooks.InsertPosition
 import XMonad.Hooks.ManageDocks
+import XMonad.Hooks.ManageHelpers
 import XMonad.Hooks.RefocusLast (refocusLastLayoutHook, refocusLastWhen, refocusingIsActive, isFloat)
 import XMonad.Hooks.StatusBar
 import XMonad.Hooks.StatusBar.PP
@@ -288,22 +289,27 @@ myScratchPads = [ NS "terminal"   spawnTerm findTerm manageTerm
 -- ----------------------------------------------------------------------------
 
 myManageHook :: XMonad.Query (Data.Monoid.Endo WindowSet)
-myManageHook = composeAll
+myManageHook = composeOne
     [
     -- float
-      className =? "Blueman-manager" --> doFloat
-    , className =? "confirm"         --> doFloat
-    , className =? "dialog"          --> doFloat
-    , className =? "download"        --> doFloat
-    , className =? "error"           --> doFloat
-    , className =? "file_progress"   --> doFloat
-    , className =? "mpv"             --> doFloat
-    , className =? "notification"    --> doFloat
-    , className =? "pinentry-gtk-2"  --> doFloat
-    , className =? "Pavucontrol"     --> doFloat
-    , (className =? "firefox" <&&> resource =? "Dialog") --> doFloat
+      isDialog -?> doFloat
+    , className =? "Blueman-manager" -?> doFloat
+    , className =? "confirm"         -?> doFloat
+    , className =? "dialog"          -?> doFloat
+    , className =? "download"        -?> doFloat
+    , className =? "error"           -?> doFloat
+    , className =? "file_progress"   -?> doFloat
+    , className =? "mpv"             -?> doFloat
+    , className =? "notification"    -?> doFloat
+    , className =? "pinentry-gtk-2"  -?> doFloat
+    , className =? "Pavucontrol"     -?> doFloat
+    , (className =? "firefox" <&&> resource =? "Dialog") -?> doFloat
     -- shift to certain workspace
-    , className =? "Thunderbird" <||> className =? "thunderbird" --> doShift (mWS 0)
+    , className =? "Thunderbird" <||> className =? "thunderbird" -?> doShift (mWS 0)
+
+    -- all non floating new windows insert below the current one in the window
+    -- stack
+    , return True -?> insertPosition Below Newer
     ] <+> namedScratchpadManageHook myScratchPads
 
 myHandleEventHook :: Event -> X All
@@ -417,7 +423,7 @@ myConfig = def
     , layoutHook         = myLayoutHook
     , normalBorderColor  = myNormalBorderColor
     , focusedBorderColor = myFocusedBorderColor
-    , manageHook         = insertPosition Below Newer <+> manageSpawn <+> myManageHook
+    , manageHook         = manageSpawn <+> myManageHook
     , handleEventHook    = myHandleEventHook
     , workspaces         = myWorkspaces
     } `additionalKeysP` myKeys
