@@ -30,5 +30,5 @@ orgmode.setup({
     },
     org_todo_keyword_faces = {
         SUSP = ':foreground cyan :weight bold',
-    }
+    },
 })

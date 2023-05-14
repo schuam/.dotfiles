@@ -38,7 +38,7 @@ return require('packer').startup(function(use)
   use("nvim-tree/nvim-web-devicons")
 
   -- orgmode
-  use({ "nvim-orgmode/orgmode", tag = "0.2.1" })
+  use({ "nvim-orgmode/orgmode", commit = "4647d20" })
 
   -- some essentaial plugins
   use({ "numToStr/Comment.nvim", tag = "v0.7.0" })
