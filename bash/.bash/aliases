@@ -9,7 +9,7 @@ alias la='ls -lah'
 alias tree='tree --dirsfirst'
 alias desk='cd ~/Desktop && l'
 alias act='cd ~/projects/active && l'
-alias work='cd ~/work && l'
+alias work='cd ~/work && echo -e "\n\033[33mYour [inbox] contains the following:\033[0m" && ls inbox && echo ""'
 alias ..='cd ..'
 alias ...='cd ../..'
 alias ....='cd ../../..'
@@ -69,3 +69,10 @@ alias zettelkasten='java -jar /opt/zettelkasten/zettelkasten.jar'
 # molecule (ansible)
 alias molecule='PY_COLORS=1 molecule'
 alias molecule_complete='eval "$(_MOLECULE_COMPLETE=bash_source molecule)"'
+
+# LFS courses
+alias lfs='cd ~/resources/courses/linux_foundation'
+
+# alias to quickly open a minutes file
+alias minutes='nvim $XDG_DESKTOP_DIR/minutes_$(date +"%Y-%m-%d_%H-%M-%S").md'
+
