@@ -52,9 +52,9 @@ Config { font             = "xft:Liberation Sans:pixelsize=16:antialias=true:hin
                  ]
                  50
            , Run Date "%a %Y-%m-%d <fc=#d9f2f3>%H:%M</fc>" "date" 300
-           , Run XPropertyLog "_XMONAD_LOG_2"
+           , Run XPropertyLog "_XMONAD_LOG_3"
            ]
        , sepChar  = "%"
        , alignSep = "}{"
-       , template = "%_XMONAD_LOG_2% }{ %battery% │ %cpu% │ %memory% │ %multicoretemp% │ %date% "
+       , template = "%_XMONAD_LOG_3% }{ %battery% │ %cpu% │ %memory% │ %multicoretemp% │ %date% "
        }

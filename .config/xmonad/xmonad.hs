@@ -175,7 +175,7 @@ myKeys =
     -- allows you to switch to focus to screens depending on there actual
     -- position in the monitor setup.
     [("M-" ++ modKey2 ++ keyChar, screenOperation screen)
-        | (keyChar, screen) <- zip ["s", "d", "f"] [0..]
+        | (keyChar, screen) <- zip ["s", "d", "f", "g"] [0..]
         , (screenOperation, modKey2) <- [(viewScreen def, "")
                                        , (sendToScreen def, "S-")]
     ]
@@ -184,15 +184,15 @@ myKeys =
     -- I wanted to have key bindings that allow me to set a set of three
     -- workspaces on up to three screens. I grouped my nine workspaces into
     -- three sets of three workpaces as you can see by examining there names.
-    -- So pressing M-c for example places workspace 4 on physical screen 0,
-    -- workspace 5 on phyical screen 1, and workspace 6 on physical screen 2.
+    -- So pressing M-c for example places workspace 3 on physical screen 0,
+    -- workspace 4 on phyical screen 1, and workspace 5 on physical screen 2.
     -- It also bring the focus on my primary screen. The reversed order in
     -- which the workspaces are set to the screens metter (at least if there
     -- are not three monitors). In case there is only one monitor I want to set
     -- the first workspace of the corresponding set to that monitor. In case
     -- there are two mointors I want to set the first workspace of the
     -- corresponding set to the left most monitor and the second workspace of
-    -- the set to the other monitor. If the "_sequences" were ordered
+    -- the set to the other monitor. If the "sequences" were ordered
     -- differently, this wouldn't work. Somehow setting a workspace to a
     -- physical screen that doesn't exist causes a behaviour that I didn't
     -- think all the way through. I just realized that doing it the way it is
@@ -361,15 +361,18 @@ myXmobarPP i = filterOutWsPP [scratchpadWorkspaceTag] $ def
 myXmobarPP0 = myXmobarPP 0
 myXmobarPP1 = myXmobarPP 1
 myXmobarPP2 = myXmobarPP 2
+myXmobarPP3 = myXmobarPP 3
 
 myXmobar0 = statusBarPropTo "_XMONAD_LOG_0" "xmobar -x 0 ~/.config/xmobar/xmobarrc_0" (pure myXmobarPP0)
 myXmobar1 = statusBarPropTo "_XMONAD_LOG_1" "xmobar -x 1 ~/.config/xmobar/xmobarrc_1" (pure myXmobarPP1)
 myXmobar2 = statusBarPropTo "_XMONAD_LOG_2" "xmobar -x 2 ~/.config/xmobar/xmobarrc_2" (pure myXmobarPP2)
+myXmobar3 = statusBarPropTo "_XMONAD_LOG_3" "xmobar -x 3 ~/.config/xmobar/xmobarrc_3" (pure myXmobarPP3)
 
 myBarSpawner :: ScreenId -> IO StatusBarConfig
 myBarSpawner 0 = pure $ myXmobar0
 myBarSpawner 1 = pure $ myXmobar1
 myBarSpawner 2 = pure $ myXmobar2
+myBarSpawner 3 = pure $ myXmobar3
 myBarSpawner _ = mempty
 
 -- Color definition are matched to the once I use in my alacritty config.
@@ -408,7 +411,7 @@ brightWhite   = xmobarColor "#d9f2f3" ""
 -- ----------------------------------------------------------------------------
 
 main :: IO ()
-main = xmonad 
+main = xmonad
      . ewmhFullscreen
      . ewmh
      . dynamicSBs myBarSpawner
