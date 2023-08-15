@@ -18,6 +18,7 @@
 # -----------------------------------------------------------------------------
 
 log_file="/tmp/monitor_log.txt"
+echo `date` >> $log_file
 echo $0 >> $log_file
 
 LAYOUT_SCRIPT_DIR="/home/andreas/.local/share/screenlayouts"
