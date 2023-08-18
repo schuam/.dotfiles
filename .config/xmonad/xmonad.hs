@@ -62,7 +62,7 @@ myBrowserAlt :: String
 myBrowserAlt = "firefox"
 
 myEmailClient :: String
-myEmailClient = "thunderbird"
+myEmailClient = (myTerminal ++ " --working-directory $HOME -e neomutt")
 
 myFocusFollowsMouse :: Bool
 myFocusFollowsMouse = False
@@ -141,7 +141,7 @@ myKeys =
     , ("M1-C-S-b",      spawn (myBrowserAlt))
     , ("M1-C-f",        spawn (myTerminal ++ " -e $HOME/.dotfiles/.config/vifm/scripts/vifmrun"))
     , ("M1-C-l",        spawn "slock")
-    , ("M1-C-m",        spawn (myEmailClient))
+    , ("M1-C-m",        spawnOn (myWorkspaces !! 0) myEmailClient)
     , ("M1-C-v",        spawn "pavucontrol")
     , ("M1-C-w",        spawnOn (myWorkspaces !! 2) "firefox --new-window https://web.whatsapp.com")
     , ("M1-C-t",        sequence_ [ windows $ W.greedyView (myWorkspaces !! 9)
