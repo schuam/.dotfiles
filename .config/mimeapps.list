@@ -19,3 +19,4 @@ x-scheme-handler/http=firefox.desktop;
 x-scheme-handler/https=firefox.desktop;
 x-scheme-handler/mailto=userapp-Thunderbird-FLY0O0.desktop;
 x-scheme-handler/msteams=teams.desktop
+application/pdf=org.pwmt.zathura.desktop
