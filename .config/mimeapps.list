@@ -1,0 +1,21 @@
+[Added Associations]
+application/force-download=org.pwmt.zathura.desktop;
+application/pdf=okularApplication_pdf.desktop;
+application/x-java-jnlp-file=firefox.desktop;
+audio/x-scpls=vlc.desktop;
+inode/directory=org.kde.dolphin.desktop;
+message/rfc822=userapp-Thunderbird-FLY0O0.desktop;
+x-scheme-handler/mailto=userapp-Thunderbird-FLY0O0.desktop;
+image/jpeg=sxiv.desktop;
+text/x-csrc=vim.desktop;
+video/quicktime=mpv.desktop;
+application/x-file-download=sxiv.desktop;org.pwmt.zathura-ps.desktop;
+text/x-python=libreoffice-writer.desktop;nvim.desktop;
+
+[Default Applications]
+inode/directory=org.kde.dolphin.desktop;
+message/rfc822=userapp-Thunderbird-FLY0O0.desktop
+x-scheme-handler/http=firefox.desktop;
+x-scheme-handler/https=firefox.desktop;
+x-scheme-handler/mailto=userapp-Thunderbird-FLY0O0.desktop;
+x-scheme-handler/msteams=teams.desktop
