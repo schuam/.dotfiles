@@ -15,8 +15,11 @@ text/x-python=libreoffice-writer.desktop;nvim.desktop;
 [Default Applications]
 inode/directory=org.kde.dolphin.desktop;
 message/rfc822=userapp-Thunderbird-FLY0O0.desktop
-x-scheme-handler/http=firefox.desktop;
-x-scheme-handler/https=firefox.desktop;
+x-scheme-handler/about=org.qutebrowser.qutebrowser.desktop
+x-scheme-handler/unknown=org.qutebrowser.qutebrowser.desktop
+x-scheme-handler/http=org.qutebrowser.qutebrowser.desktop
+x-scheme-handler/https=org.qutebrowser.qutebrowser.desktop
 x-scheme-handler/mailto=userapp-Thunderbird-FLY0O0.desktop;
 x-scheme-handler/msteams=teams.desktop
 application/pdf=org.pwmt.zathura.desktop
+text/html=org.qutebrowser.qutebrowser.desktop
