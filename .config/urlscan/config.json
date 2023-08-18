@@ -3,8 +3,8 @@
         "default": [
             [
                 "header",
-                "white",
-                "dark blue",
+                "brown",
+                "black",
                 "standout"
             ],
             [
@@ -21,8 +21,8 @@
             ],
             [
                 "msgtext",
-                "",
-                ""
+                "light cyan",
+                "black"
             ],
             [
                 "msgtext:ellipses",
@@ -42,15 +42,15 @@
             ],
             [
                 "urlref:url",
-                "white",
+                "dark green",
                 "black",
                 "standout"
             ],
             [
                 "url:sel",
                 "white",
-                "dark blue",
-                "bold"
+                "black",
+                ""
             ]
         ],
         "bw": [
