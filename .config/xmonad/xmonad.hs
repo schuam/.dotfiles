@@ -44,6 +44,7 @@ import XMonad.Util.Loggers
 import XMonad.Util.NamedScratchpad
 import XMonad.Util.SpawnOnce
 
+import Graphics.X11.Xinerama (getScreenInfo)
 
 -- ----------------------------------------------------------------------------
 -- general definitions
@@ -215,9 +216,24 @@ mWS i = (myWorkspaces !! i)
 -- the fucus on the primary monitor (set e.g. by xrandr or ARandR).
 focusPrimary = screenWorkspace 0 >>= flip whenJust (windows . W.view)
 
-showSet1 = sequence_ [sWW 2 (mWS 2), sWW 1 (mWS 1), sWW 0 (mWS 0), focusPrimary]
-showSet2 = sequence_ [sWW 2 (mWS 5), sWW 1 (mWS 4), sWW 0 (mWS 3), focusPrimary]
-showSet3 = sequence_ [sWW 2 (mWS 8), sWW 1 (mWS 7), sWW 0 (mWS 6), focusPrimary]
+numScreens :: X Int
+numScreens = withDisplay (io.fmap length.getScreenInfo)
+
+showSet1 = do
+    ns <- numScreens
+    if ns == 4
+        then sequence_ [sWW 3 (mWS 9), sWW 2 (mWS 2), sWW 1 (mWS 1), sWW 0 (mWS 0), focusPrimary]
+        else sequence_ [sWW 2 (mWS 2), sWW 1 (mWS 1), sWW 0 (mWS 0), focusPrimary]
+showSet2 = do
+    ns <- numScreens
+    if ns == 4
+        then sequence_ [sWW 0 (mWS 9), sWW 2 (mWS 5), sWW 1 (mWS 4), sWW 0 (mWS 3), focusPrimary]
+        else sequence_ [sWW 2 (mWS 5), sWW 1 (mWS 4), sWW 0 (mWS 3), focusPrimary]
+showSet3 = do
+    ns <- numScreens
+    if ns == 4
+        then sequence_ [sWW 0 (mWS 9), sWW 2 (mWS 8), sWW 1 (mWS 7), sWW 0 (mWS 6), focusPrimary]
+        else sequence_ [sWW 2 (mWS 8), sWW 1 (mWS 7), sWW 0 (mWS 6), focusPrimary]
 
 -- ----------------------------------------------------------------------------
 -- layouts
