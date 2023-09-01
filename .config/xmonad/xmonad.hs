@@ -227,12 +227,12 @@ showSet1 = do
 showSet2 = do
     ns <- numScreens
     if ns == 4
-        then sequence_ [sWW 0 (mWS 9), sWW 2 (mWS 5), sWW 1 (mWS 4), sWW 0 (mWS 3), focusPrimary]
+        then sequence_ [sWW 3 (mWS 9), sWW 2 (mWS 5), sWW 1 (mWS 4), sWW 0 (mWS 3), focusPrimary]
         else sequence_ [sWW 2 (mWS 5), sWW 1 (mWS 4), sWW 0 (mWS 3), focusPrimary]
 showSet3 = do
     ns <- numScreens
     if ns == 4
-        then sequence_ [sWW 0 (mWS 9), sWW 2 (mWS 8), sWW 1 (mWS 7), sWW 0 (mWS 6), focusPrimary]
+        then sequence_ [sWW 3 (mWS 9), sWW 2 (mWS 8), sWW 1 (mWS 7), sWW 0 (mWS 6), focusPrimary]
         else sequence_ [sWW 2 (mWS 8), sWW 1 (mWS 7), sWW 0 (mWS 6), focusPrimary]
 
 -- ----------------------------------------------------------------------------
