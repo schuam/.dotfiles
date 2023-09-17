@@ -78,7 +78,19 @@ complete -cf sudo
 export GIT_PS1_SHOWDIRTYSTATE=1
 export GIT_PS1_SHOWUNTRACKEDFILES=1
 
-PS1='\e[32m\]\u@\h:\e[94m\]\w\[\e[33m\]$(__git_ps1)\[\e[0m\]\n>> '    # Adds git branch
+get_ps1() {
+   local color=32
+   if    [ -n "$SSH_CONNECTION" ] \
+      || [ -n "$SSH_CLIENT" ] \
+      || [ -n "$SSH_TTY" ];
+   then
+   color=91
+   fi
+  printf '\[\e[%dm\]\\u@\h:\[\e[94m\]\w\[\e[33m\]$(__git_ps1)\[\e[0m\]\n>> ' "$color"
+}
+
+# Adds git branch
+PS1="$(get_ps1)"
 PROMPT_DIRTRIM=4                # Maximal number of shown direcotries.
 
 
