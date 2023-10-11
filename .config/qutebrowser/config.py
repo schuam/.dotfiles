@@ -231,7 +231,7 @@ c.bindings.key_mappings = {
 }
 
 # Bindings for normal mode
-config.bind('<Ctrl+v>', 'hint links spawn mpv {hint-url}')
+config.bind('<Ctrl+v>', 'hint links spawn --detach mpv {hint-url}')
 config.bind('<Ctrl+l>', 'set-cmd-text -s :open', mode='normal')
 config.bind('<Shift+h>', 'tab-prev', mode='normal')
 config.bind('<Shift+l>', 'tab-next', mode='normal')
