@@ -14,4 +14,5 @@ if [ -x "$(command -v kubectl)" ]; then
 fi
 
 echo -e "\033[33mDesk:\033[0m" && ls -l ~/Desktop/ | tail -n +2
+echo
 
