@@ -13,10 +13,11 @@ export BROWSER="qutebrowser"
 # PATH
 # -----------------------------------------------------------------------------
 
-export PATH="$PATH:$HOME/.local/bin"
-export PATH="$PATH:/opt/go/bin"
+export GOPATH="$HOME/.local/go/bin"
 
-export GOPATH="/opt/go"
+export PATH="$PATH:$HOME/.local/bin"
+export PATH="$PATH:$GOPATH"
+
 
 
 # -----------------------------------------------------------------------------
