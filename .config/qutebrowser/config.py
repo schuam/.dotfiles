@@ -88,6 +88,22 @@ config.set('content.headers.accept_language', '', 'https://matchmaker.krunker.io
 # between 5.12 and 5.14 (inclusive), changing the value exposed to
 # JavaScript requires a restart.
 # Type: FormatString
+config.set('content.headers.user_agent', 'Mozilla/5.0 ({os_info}) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/99 Safari/537.36', 'https://*.slack.com/*')
+
+# User agent to send.  The following placeholders are defined:  *
+# `{os_info}`: Something like "X11; Linux x86_64". * `{webkit_version}`:
+# The underlying WebKit version (set to a fixed value   with
+# QtWebEngine). * `{qt_key}`: "Qt" for QtWebKit, "QtWebEngine" for
+# QtWebEngine. * `{qt_version}`: The underlying Qt version. *
+# `{upstream_browser_key}`: "Version" for QtWebKit, "Chrome" for
+# QtWebEngine. * `{upstream_browser_version}`: The corresponding
+# Safari/Chrome version. * `{qutebrowser_version}`: The currently
+# running qutebrowser version.  The default value is equal to the
+# unchanged user agent of QtWebKit/QtWebEngine.  Note that the value
+# read from JavaScript is always the global value. With QtWebEngine
+# between 5.12 and 5.14 (inclusive), changing the value exposed to
+# JavaScript requires a restart.
+# Type: FormatString
 config.set('content.headers.user_agent', 'Mozilla/5.0 ({os_info}) AppleWebKit/{webkit_version} (KHTML, like Gecko) {upstream_browser_key}/{upstream_browser_version} Safari/{webkit_version}', 'https://web.whatsapp.com/')
 
 # User agent to send.  The following placeholders are defined:  *
@@ -105,22 +121,6 @@ config.set('content.headers.user_agent', 'Mozilla/5.0 ({os_info}) AppleWebKit/{w
 # JavaScript requires a restart.
 # Type: FormatString
 config.set('content.headers.user_agent', 'Mozilla/5.0 ({os_info}; rv:90.0) Gecko/20100101 Firefox/90.0', 'https://accounts.google.com/*')
-
-# User agent to send.  The following placeholders are defined:  *
-# `{os_info}`: Something like "X11; Linux x86_64". * `{webkit_version}`:
-# The underlying WebKit version (set to a fixed value   with
-# QtWebEngine). * `{qt_key}`: "Qt" for QtWebKit, "QtWebEngine" for
-# QtWebEngine. * `{qt_version}`: The underlying Qt version. *
-# `{upstream_browser_key}`: "Version" for QtWebKit, "Chrome" for
-# QtWebEngine. * `{upstream_browser_version}`: The corresponding
-# Safari/Chrome version. * `{qutebrowser_version}`: The currently
-# running qutebrowser version.  The default value is equal to the
-# unchanged user agent of QtWebKit/QtWebEngine.  Note that the value
-# read from JavaScript is always the global value. With QtWebEngine
-# between 5.12 and 5.14 (inclusive), changing the value exposed to
-# JavaScript requires a restart.
-# Type: FormatString
-config.set('content.headers.user_agent', 'Mozilla/5.0 ({os_info}) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/99 Safari/537.36', 'https://*.slack.com/*')
 
 # Load images automatically in web pages.
 # Type: Bool
@@ -145,6 +145,14 @@ config.set('content.javascript.enabled', True, 'chrome://*/*')
 # Enable JavaScript.
 # Type: Bool
 config.set('content.javascript.enabled', True, 'qute://*/*')
+
+# Allow locally loaded documents to access remote URLs.
+# Type: Bool
+config.set('content.local_content_can_access_remote_urls', True, 'file:///home/andreas/.local/share/qutebrowser/userscripts/*')
+
+# Allow locally loaded documents to access other local URLs.
+# Type: Bool
+config.set('content.local_content_can_access_file_urls', False, 'file:///home/andreas/.local/share/qutebrowser/userscripts/*')
 
 # Allow websites to show notifications.
 # Type: BoolAsk
@@ -187,23 +195,21 @@ c.url.searchengines = {
     'DEFAULT': 'https://google.com/search?q={}',
 }
 
-# Render all web contents using a dark theme. Example configurations
-# from Chromium's `chrome://flags`:  - "With simple HSL/CIELAB/RGB-based
-# inversion": Set   `colors.webpage.darkmode.algorithm` accordingly.  -
-# "With selective image inversion": Set
-# `colors.webpage.darkmode.policy.images` to `smart`.  - "With selective
-# inversion of non-image elements": Set
-# `colors.webpage.darkmode.threshold.text` to 150 and
-# `colors.webpage.darkmode.threshold.background` to 205.  - "With
-# selective inversion of everything": Combines the two variants   above.
-# Type: Bool
-c.colors.webpage.preferred_color_scheme = "dark"
+# Page(s) to open at the start.
+# Type: List of FuzzyUrl, or FuzzyUrl
+c.url.start_pages = ['https://google.com']
 
-# Render all colors as grayscale. This only has an effect when
-# `colors.webpage.darkmode.algorithm` is set to `lightness-hsl` or
-# `brightness-rgb`.
-# Type: Bool
-c.colors.webpage.darkmode.grayscale.all = False
+# Value to use for `prefers-color-scheme:` for websites. The "light"
+# value is only available with QtWebEngine 5.15.2+. On older versions,
+# it is the same as "auto". The "auto" value is broken on QtWebEngine
+# 5.15.2 due to a Qt bug. There, it will fall back to "light"
+# unconditionally.
+# Type: String
+# Valid values:
+#   - auto: Use the system-wide color scheme setting.
+#   - light: Force a light theme.
+#   - dark: Force a dark theme.
+c.colors.webpage.preferred_color_scheme = 'dark'
 
 # Map keys to other keys, so that they are equivalent in all modes. When
 # the key used as dictionary-key is pressed, the binding for the key
@@ -231,16 +237,12 @@ c.bindings.key_mappings = {
 }
 
 # Bindings for normal mode
+config.bind('<Alt+Left>', 'back')
+config.bind('<Alt+Right>', 'forward')
+config.bind('<Ctrl+d>', 'close')
+config.bind('<Ctrl+l>', 'set-cmd-text -s :open')
 config.bind('<Ctrl+v>', 'hint links spawn --detach mpv {hint-url}')
-config.bind('<Ctrl+l>', 'set-cmd-text -s :open', mode='normal')
-config.bind('<Shift+h>', 'tab-prev', mode='normal')
-config.bind('<Shift+l>', 'tab-next', mode='normal')
-config.bind('<Alt+Left>', 'back', mode='normal')
-config.bind('<Shift+k>', 'back', mode='normal')
-config.bind('<Alt+Right>', 'forward', mode='normal')
-config.bind('<Shift+j>', 'forward', mode='normal')
-config.bind('<Ctrl+d>', 'close', mode='normal')
-
-# Start page
-config.set('url.start_pages', ['https://google.com'])
-
+config.bind('H', 'tab-prev')
+config.bind('J', 'forward')
+config.bind('K', 'back')
+config.bind('L', 'tab-next')
