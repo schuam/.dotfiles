@@ -1,0 +1,30 @@
+# Colors (my dark color scheme)
+
+# Default colors
+[colors.primary]
+background = "#000000"
+foreground = "#aaaaaa"
+
+# Normal colors
+[colors.normal]
+black   = "#262626"
+blue    = "#006cd8"
+cyan    = "#00a1a1"
+green   = "#00a100"
+magenta = "#ff00ff"
+red     = "#cc0000"
+white   = "#aaaaaa"
+yellow  = "#a6a600"
+
+# Bright colors
+[colors.bright]
+black   = "#626262"
+blue    = "#0080ff"
+cyan    = "#00eaea"
+green   = "#00ff00"
+magenta = "#ff55ff"
+red     = "#ff4400"
+white   = "#dedede"
+yellow  = "#ffff00"
+
+
