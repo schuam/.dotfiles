@@ -1,4 +1,4 @@
-# Color Scheme
+# Color Theme
 
 I work quite a bit in the terminal and therefore like the color scheme to be
 easy on the eyes. My preferred color scheme is my own variation of the famous
@@ -11,84 +11,111 @@ seemed to be to difficult. Having a key binding to do that would be nice. So I
 figured out a way to do it. The next section briefly describe my solution.
 
 
-## alacritty.yml
+## Color Theme Files
 
-First of all I put all the color schemes I want to be able to switch between
-into Alacritty's config file (alacritty.yml). All color schemes have to be
-within the **schemes** section of the config file and look something like this
-(by the way, in case you're wondering, the example below is not my version of
-the solarized color scheme):
+First of all I created a directory $XDG_CONFIG_HOME/alacritty/themes/. Within
+that directory I placed a sub-directory `schuam_themes` that contains my own
+color themes. In case I will use other color themes in the futur (e.g. from
+https://github.com/alacritty/alacritty-theme), I would put them into separate
+sub-directories.
 
-```yaml
-schemes:
-  schuam_dark: &schuam_dark
-    primary:
-      background: '#000000'
-      foreground: '#aaaaaa'
-    normal:
-      black:   '#262626'
-      red:     '#cc0000'
-      green:   '#00a100'
-      yellow:  '#a6a600'
-      blue:    '#006cd8'
-      magenta: '#ff00ff'
-      cyan:    '#00a1a1'
-      white:   '#aaaaaa'
-    bright:
-      black:   '#626262'
-      red:     '#ff4400'
-      green:   '#00ff00'
-      yellow:  '#ffff00'
-      blue:    '#0080ff'
-      magenta: '#ff55ff'
-      cyan:    '#00eaea'
-      white:   '#dedede'
+I color theme file looks like the following (the example is my schuam_dark
+theme):
 
+```toml
+# Colors (my dark color scheme)
+
+# Default colors
+[colors.primary]
+background = "#000000"
+foreground = "#aaaaaa"
+
+# Normal colors
+[colors.normal]
+black   = "#262626"
+blue    = "#006cd8"
+cyan    = "#00a1a1"
+green   = "#00a100"
+magenta = "#ff00ff"
+red     = "#cc0000"
+white   = "#aaaaaa"
+yellow  = "#a6a600"
+
+# Bright colors
+[colors.bright]
+black   = "#626262"
+blue    = "#0080ff"
+cyan    = "#00eaea"
+green   = "#00ff00"
+magenta = "#ff55ff"
+red     = "#ff4400"
+white   = "#dedede"
+yellow  = "#ffff00"
 ```
 
-For the rest of the setup it's important to name the anchor of each color
-scheme exactly the same as the name of the color scheme itself. In the example
-above:
+Once all theme files were in place, I created symbolic links to the once I want
+to be able to cicly through in $XDG_CONFIG_HOME/alacritty/themes/. So the
+content of the $XDG_CONFIG_HOME/alacritty/themes directory looks like this:
 
-```yaml
-  schuam_dark: &schuam_dark
+```bash
+themes/
+├── schuam_dark.toml -> schuam_themes/schuam_dark.toml
+├── schuam_solarized_dark.toml -> schuam_themes/schuam_solarized_dark.toml
+├── schuam_solarized_light.toml -> schuam_themes/schuam_solarized_light.toml
+└── schuam_themes
+    ├── schuam_dark.toml
+    ├── schuam_solarized_dark.toml
+    └── schuam_solarized_light.toml
 ```
 
-Than underneath all the color schemes there is a line in the config file that
-determines with scheme is in use. For example:
+The final step of the setup, was to add the following to my alacritty.toml
+file:
 
-```yaml
-colors: *schuam_dark
+```toml
+import = [
+    "/home/andreas/.config/alacritty/themes/schuam_solarized_dark.toml",    # COLOR_THEME
+]
 ```
 
+The comment `# COLOR_THEME` is important, as it is used by the script that
+cycles through the color themes. The script is descrbed in the next section.
 
-## Python Script
 
-Then I wrote a short python script ([set_colorscheme.py](set_colorscheme.py)).
-This script parses the configuration file, looks for all available color
-schemes, checks which one is currently set, and than replaces the current color
-scheme with the next available one.
+## Color Theme Script
 
-In order for it to work the Python's **pyyaml** package must be installed on
-the system. When I wrote the script I had Python 3.8.5 installed on my machine.
-I haven't tested is with any other version, but it should pretty much work with
-any other version of python (a least any other Python 3 version).
+I wrote a script called `set_color_theme.sh` that does the following:
 
-Additionally the script has to be executable by the user, and reachable from
-the user's PATH. Since I wanted to keep the script in Alacritty's config
-directory, I placed a link in a directory that is in my PATH where I keep other
-executable scripts as well.
+- It gets a sorted list of files and links that are in
+  $XDG_CONFIG_HOME/alacritty/themes/.
+- It looks for the line containing `# COLOR_THEME` in
+  $XDG_CONFIG_HOME/alacritty/alacritty.toml.
+- It checks if the currently configured color theme is in the list from the
+  first bullet point.
+  - If so, it replaces the path of the currently configured color theme with
+    the path of the next color theme in the list.
+  - If not, it places the path of the first color theme from the list into the
+    configuration line.
+
+Afterwards I made the script executable and placed it in a directory that is
+part of my $PATH.
 
 
 ## Key Binding
 
-Finally I put the following line into the key_bindings section of Alacritty's
-config file:
+Finally I put the following lines into the
+$XDG_CONFIG_HOME/alacritty/alacritty.toml configuration file:
 
-```yaml
-key_bindings:
-  - { key: F, mods: Control, command: {program: "set_colorscheme"} }
+```toml
+[[keyboard.bindings]]
+key = "F"
+mods = "Control|Shift"
+
+[keyboard.bindings.command]
+program = "set_color_theme"
 ```
 
-Now I'm able to circle through my color schemes by pressing \<Ctrl-F\>.
+Well actully `alacritty migrate` did that, when I switched from the
+configuration file alacritty.yml to alacritty.toml.
+
+Now I'm able to circle through my color schemes by pressing \<Ctrl-Shift-F\>.
 
