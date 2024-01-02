@@ -1,0 +1,55 @@
+import = [
+    "/home/andreas/.config/alacritty/themes/schuam_solarized_dark.toml",    # COLOR_THEME
+]
+
+[font]
+size = 10.0
+
+[font.normal]
+family = "monospace"
+
+[[keyboard.bindings]]
+action = "SpawnNewInstance"
+key = "N"
+mods = "Control|Shift"
+
+[[keyboard.bindings]]
+key = "F"
+mods = "Control|Shift"
+
+[keyboard.bindings.command]
+program = "set_color_theme"
+
+[[keyboard.bindings]]
+action = "Paste"
+key = "V"
+mods = "Control|Shift"
+
+[[keyboard.bindings]]
+action = "Copy"
+key = "C"
+mods = "Control|Shift"
+
+[[keyboard.bindings]]
+action = "ScrollLineUp"
+key = "K"
+mods = "Control"
+
+[[keyboard.bindings]]
+action = "ScrollLineDown"
+key = "J"
+mods = "Control"
+
+[[keyboard.bindings]]
+action = "ScrollPageUp"
+key = "K"
+mods = "Control|Shift"
+
+[[keyboard.bindings]]
+action = "ScrollPageDown"
+key = "J"
+mods = "Control|Shift"
+
+[window.padding]
+x = 10
+y = 10
