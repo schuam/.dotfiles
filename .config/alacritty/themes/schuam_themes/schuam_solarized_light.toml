@@ -1,0 +1,29 @@
+# Colors (my version of the Solarized Light theme)
+
+# Default colors
+[colors.primary]
+background = "#e5dfce"
+foreground = "#717171"
+
+# Normal colors
+[colors.normal]
+black   = "#d4cfbf"
+blue    = "#0039d6"
+cyan    = "#00958b"
+green   = "#007f00"
+magenta = "#b000b0"
+red     = "#cc0000"
+white   = "#717171"
+yellow  = "#939a15"
+
+# Bright colors
+[colors.bright]
+black   = "#b3afa2"
+blue    = "#0033ff"
+cyan    = "#00c3c3"
+green   = "#00a800"
+magenta = "#ff00ff"
+red     = "#ff0000"
+white   = "#2c2c2c"
+yellow  = "#bbbb00"
+
