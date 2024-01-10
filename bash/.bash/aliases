@@ -76,3 +76,6 @@ alias lfs='cd ~/resources/courses/linux_foundation'
 # alias to quickly open a minutes file
 alias minutes='nvim $XDG_DESKTOP_DIR/minutes_$(date +"%Y-%m-%d_%H-%M-%S").md'
 
+# alias for diffs
+alias diff='diff -u --color'
+
