@@ -37,10 +37,16 @@ local on_attach = function(client, bufnr)
   keymap.set("n", "K", "<cmd>Lspsaga hover_doc<CR>", opts) -- show documentation for what is under cursor
   keymap.set("n", "<leader>o", "<cmd>LSoutlineToggle<CR>", opts) -- see outline on right hand side
   else
-  keymap.set("n", "gD", "<Cmd>lua vim.lsp.buf.declaration()<CR>", opts) -- got to declaration
-  keymap.set("n", "gd", "<Cmd>lua vim.lsp.buf.declaration()<CR>", opts) -- got to declaration
-  keymap.set("n", "gi", "<cmd>lua vim.lsp.buf.implementation()<CR>", opts) -- go to implementation
-  keymap.set("n", "<leader>o", "<cmd>LSoutlineToggle<CR>", opts) -- see outline on right hand side
+  keymap.set("n", "gD", "<Cmd>lua vim.lsp.buf.declaration()<CR>", opts) -- go to declaration
+  keymap.set("n", "gd", "<Cmd>lua vim.lsp.buf.definition()<CR>", opts) -- go to definition
+  keymap.set("n", "<leader>ca", "<cmd>lua vim.lsp.buf.code_action()<CR>", opts) -- see available code actions
+  keymap.set("n", "<leader>rn", "<cmd>lua vim.lsp.buf.rename()<CR>", opts) -- rename
+  keymap.set("n", "<leader>rr", "<cmd>lua vim.lsp.buf.references()<CR>", opts) -- show references
+  keymap.set("n", "<leader>ws", "<cmd>lua vim.lsp.buf.workspace_symbol()<CR>", opts) -- show query for workspace symbole
+  keymap.set("n", "<leader>sh", "<cmd>lua vim.lsp.buf.signature_help()<CR>", opts) -- show signature help
+  keymap.set("n", "<leader>vd", "<cmd>lua vim.diagnostic.open_float()<CR>", opts) -- open diagnostics
+  keymap.set("n", "[d", "<cmd>lua vim.diagnostic.goto_next()<CR>", opts) -- jump to previous diagnostic in buffer
+  keymap.set("n", "]d", "<cmd>lua vim.diagnostic.goto_prev()<CR>", opts) -- jump to next diagnostic in buffer
   end
 end
 
