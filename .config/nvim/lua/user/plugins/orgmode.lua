@@ -13,6 +13,7 @@ orgmode.setup({
         '~/.local/share/gtd/regular.org',
         '~/.local/share/gtd/someday.org',
     },
+    win_split_mode = "auto",
     org_archive_location = '~/.local/share/gtd/archive.org',
     org_default_notes_file = '~/.local/share/gtd/inbox.org',
     org_todo_keywords = {
