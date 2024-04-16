@@ -1,0 +1,5 @@
+set page-padding 10
+set window-height 1000
+set window-width  1200
+set database sqlite
+
