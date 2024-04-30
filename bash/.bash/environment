@@ -95,3 +95,9 @@ export QT_QPA_PLATFORMTHEME="qt5ct"
 # Workaround for a bug in libreoffice: needed to show menu icons correctly.
 export SAL_USE_VCLPLUGIN="gen"
 
+# -----------------------------------------------------------------------------
+# cmake (generate compile_commands.json by default)
+# -----------------------------------------------------------------------------
+
+export CMAKE_EXPORT_COMPILE_COMMANDS=1
+
