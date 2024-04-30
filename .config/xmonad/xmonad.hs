@@ -319,6 +319,7 @@ myManageHook = composeOne
     , className =? "notification"    -?> doFloat
     , className =? "pinentry-gtk-2"  -?> doFloat
     , className =? "Pavucontrol"     -?> doFloat
+    , className =? "com.st.app.Main" -?> doFloat
     , (className =? "firefox" <&&> resource =? "Dialog") -?> doFloat
     -- shift to certain workspace
     , className =? "Thunderbird" <||> className =? "thunderbird" -?> doShift (mWS 0)
