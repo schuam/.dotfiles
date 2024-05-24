@@ -179,6 +179,11 @@ myKeys =
         | (keyChar, screen) <- zip ["s", "d", "f", "g"] [0..]
         , (screenOperation, modKey2) <- [(viewScreen def, "")
                                        , (sendToScreen def, "S-")]
+
+    ]
+    ++
+    [ ("M-l",           onNextNeighbour def W.view )
+    , ("M-h",           onPrevNeighbour def W.view )
     ]
     ++
     -- View workspace sets
