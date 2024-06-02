@@ -45,3 +45,4 @@ treesitter.setup({
         },
     },
 })
+
