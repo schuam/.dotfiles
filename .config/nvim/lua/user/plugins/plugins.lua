@@ -41,6 +41,7 @@ require("lazy").setup({
         "neovim/nvim-lspconfig",
         dependencies = { "cmp-nvim-lsp" },
         config = function()
+            require("user/plugins/lsp/handlers").setup()
             require("user/plugins/lsp/lspconfig")
         end,
     },
