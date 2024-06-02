@@ -18,5 +18,31 @@ require("lazy").setup({
             require("user/plugins/nvim-treesitter")
         end,
     },
+    {
+        "hrsh7th/nvim-cmp",
+        tag = "v0.0.1",
+    },
+    {
+        "hrsh7th/cmp-buffer",
+        dependencies = { "nvim-cmp" },
+        commit = "3022dbc",
+    },
+    {
+        "hrsh7th/cmp-path",
+        dependencies = { "nvim-cmp" },
+        commit = "91ff86c",
+    },
+    {
+        "hrsh7th/cmp-nvim-lsp",
+        dependencies = { "nvim-cmp" },
+        commit = "39e2eda",
+    },
+    {
+        "neovim/nvim-lspconfig",
+        dependencies = { "cmp-nvim-lsp" },
+        config = function()
+            require("user/plugins/lsp/lspconfig")
+        end,
+    },
 })
 
