@@ -35,6 +35,10 @@ local options = {
     list = true,               -- highlight character in listchars
     termguicolors = false,     -- allows more color scheme options
     signcolumn = "yes",
+    scrolloff = 999,           -- keeps the cursor in the middle of the screen
+    virtualedit = "block",     -- allows to select past the last column of a
+                               -- line in visual block mode
+    inccommand = "split",      -- show substitutions in split window
 }
 
 for k, v in pairs(options) do
