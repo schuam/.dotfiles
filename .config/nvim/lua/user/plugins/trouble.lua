@@ -1,7 +1,7 @@
 -- load nvim trouble plugin
 local nvim_trouble_status, trouble = pcall(require, "trouble")
 if not nvim_trouble_status then
-  return
+    return
 end
 
 trouble.setup({
@@ -12,9 +12,8 @@ trouble.setup({
 local opts = { noremap = true, silent = true }
 local keymap = vim.keymap.set
 
-keymap("n", "<Leader>t<Space>", "<cmd>TroubleToggle<cr>", opts)
-keymap("n", "<Leader>tw", "<cmd>TroubleToggle workspace_diagnostics<cr>", opts)
-keymap("n", "<Leader>td", "<cmd>TroubleToggle document_diagnostics<cr>", opts)
-keymap("n", "<Leader>tl", "<cmd>TroubleToggle loclist<cr>", opts)
-keymap("n", "<Leader>tq", "<cmd>TroubleToggle quickfix<cr>", opts)
-keymap("n", "<Leader>tR", "<cmd>TroubleToggle lsp_references<cr>", opts)
+keymap("n", "<Leader>td", "<cmd>Trouble diagnostics toggle<cr>", opts)
+keymap("n", "<Leader>ts", "<cmd>Trouble symbols toggle<cr>", opts)
+keymap("n", "<Leader>tl", "<cmd>Trouble loclist toggle<cr>", opts)
+keymap("n", "<Leader>tq", "<cmd>Trouble quickfix toggle<cr>", opts)
+

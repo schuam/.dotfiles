@@ -17,7 +17,6 @@ local options = {
     splitright = true,         -- new splits to the right of the current one
     encoding = "utf-8",        -- the encoding displayed
     fileencoding = "utf-8",    -- the encoding written to file
-
     wrap = true,               -- Enables wrapping
     linebreak = true,          -- Makes sure that there is no linebreak within
                                -- a word
@@ -33,9 +32,8 @@ local options = {
     shiftround = true,         -- moves text to the next indentation level
     listchars = {tab = ">~", nbsp = "_", trail = "."},
     list = true,               -- highlight character in listchars
-    termguicolors = false,     -- allows more color scheme options
-    signcolumn = "yes",
-    scrolloff = 999,           -- keeps the cursor in the middle of the screen
+    termguicolors = false,     -- disallow more color scheme options
+    signcolumn = "yes",        -- allow a sign column
     virtualedit = "block",     -- allows to select past the last column of a
                                -- line in visual block mode
     inccommand = "split",      -- show substitutions in split window
@@ -47,11 +45,3 @@ end
 
 vim.api.nvim_set_option("clipboard", "unnamedplus")
 
--- TODO: order the options a little bit
--- TODO: check if I need any of the following options from my old configuation:
---   - wildmenu
---   - laststatus
---   - nrformats
---   - wildmode
---   - spelllang
---   - omnifunc

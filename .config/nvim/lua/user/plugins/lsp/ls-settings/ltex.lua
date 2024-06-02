@@ -1,8 +1,9 @@
 local opts = {
-  filetypes = {
-    "tex",
-    "bib",
-  }
+    filetypes = {
+        "tex",
+        "bib",
+    }
 }
 
 return opts
+

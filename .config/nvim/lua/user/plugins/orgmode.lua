@@ -1,7 +1,7 @@
 -- load orgmode plugin
 local orgmode_status, orgmode = pcall(require, "orgmode")
 if not orgmode_status then
-  return
+    return
 end
 
 
@@ -33,3 +33,4 @@ orgmode.setup({
         SUSP = ':foreground cyan :weight bold',
     },
 })
+
