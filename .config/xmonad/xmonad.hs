@@ -323,7 +323,7 @@ myManageHook = composeOne
     , className =? "mpv"             -?> doFloat
     , className =? "notification"    -?> doFloat
     , className =? "pinentry-gtk-2"  -?> doFloat
-    , className =? "Pavucontrol"     -?> doFloat
+    , className =? "pavucontrol"     -?> doFloat
     , className =? "com.st.app.Main" -?> doFloat
     , className =? "STM32CubeIDE"    -?> doFloat
     , (className =? "firefox" <&&> resource =? "Dialog") -?> doFloat
