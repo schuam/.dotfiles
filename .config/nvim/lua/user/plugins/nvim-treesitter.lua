@@ -27,6 +27,7 @@ treesitter.setup({
         "http",
         "json",
         "lua",
+        "org",
         "python",
         "query",
         "regex",
