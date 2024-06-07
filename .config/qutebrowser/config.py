@@ -239,7 +239,7 @@ c.bindings.key_mappings = {
 # Bindings for normal mode
 config.bind('<Alt+Left>', 'back')
 config.bind('<Alt+Right>', 'forward')
-config.bind('<Ctrl+d>', 'close')
+config.bind('<Ctrl+c>', 'close')
 config.bind('<Ctrl+l>', 'set-cmd-text -s :open')
 config.bind('<Ctrl+v>', 'hint links spawn --detach mpv {hint-url}')
 config.bind('H', 'tab-prev')
