@@ -13,6 +13,12 @@ vim.opt.rtp:prepend(lazypath)
 
 require("lazy").setup({
     {
+        "schuam/nvim-base16cterm",
+        config = function()
+            vim.cmd.colorscheme("base16-cterm")
+        end,
+    },
+    {
         "nvim-lua/plenary.nvim",
         tag = "v0.1.0",
     },
