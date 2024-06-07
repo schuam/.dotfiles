@@ -1,0 +1,40 @@
+# OKSolar (dark): https://meat.io/oksolar
+
+# Default colors
+[colors.primary]
+background = "#002b36"
+foreground = "#8faaab"
+
+# Normal colors
+[colors.normal]
+black   = "#002b36"
+red     = "#f23749"
+green   = "#819500"
+yellow  = "#ac8300"
+blue    = "#2b90d8"
+magenta = "#dd459d"
+cyan    = "#259d94"
+white   = "#8faaab"
+
+# Bright colors
+[colors.bright]
+black   = "#657377"
+red     = "#f23749"
+green   = "#819500"
+yellow  = "#ac8300"
+blue    = "#2b90d8"
+magenta = "#dd459d"
+cyan    = "#259d94"
+white   = "#fbf7ef"
+
+# Indexed colors
+[colors]
+indexed_colors = [
+    { index = 16, color = "#d56500" },
+    { index = 17, color = "#7d80d1" },
+    { index = 18, color = "#093946" },
+    { index = 19, color = "#5b7279" },
+    { index = 20, color = "#98a8a8" },
+    { index = 21, color = "#f1e9d2" },
+]
+

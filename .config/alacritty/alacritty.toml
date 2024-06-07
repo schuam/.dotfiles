@@ -1,5 +1,5 @@
 import = [
-    "/home/andreas/.config/alacritty/themes/schuam_solarized_dark.toml",    # COLOR_THEME
+    "/home/andreas/.config/alacritty/themes/oksolar_dark.toml",    # COLOR_THEME
 ]
 
 [font]
