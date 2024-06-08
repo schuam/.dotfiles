@@ -18,7 +18,7 @@ white   = "#5b7279"
 
 # Bright colors
 [colors.bright]
-black   = "#98a8a8"
+black   = "#f1e9d2"
 red     = "#f23749"
 green   = "#819500"
 yellow  = "#ac8300"
@@ -32,7 +32,7 @@ white   = "#002d38"
 indexed_colors = [
     { index = 16, color = "#d56500" },
     { index = 17, color = "#7d80d1" },
-    { index = 18, color = "#f1e9d2" },
+    { index = 18, color = "#98a8a8" },
     { index = 19, color = "#8faaab" },
     { index = 20, color = "#657377" },
     { index = 21, color = "#093946" },
