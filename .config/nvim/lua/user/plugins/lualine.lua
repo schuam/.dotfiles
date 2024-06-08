@@ -5,7 +5,7 @@ if not lualine_status then
 end
 
 local colors = {
-    light_bg         = 000,
+    light_bg         = 008,
     dark_red         = 001,
     dark_green       = 002,
     dark_yellow      = 003,
@@ -13,7 +13,7 @@ local colors = {
     dark_magenta     = 005,
     dark_cyan        = 006,
     fg               = 007,
-    intense_light_bg = 008,
+    intense_light_bg = 019,
     light_red        = 009,
     light_green      = 010,
     light_yellow     = 011,
