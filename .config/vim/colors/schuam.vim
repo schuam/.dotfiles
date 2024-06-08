@@ -117,10 +117,10 @@ exe "let s:fmt_revbbu            = ' ".s:vmode."=NONE".s:r.s:bb.s:u." term=NONE"
 
 exe "hi! Normal"         .s:fg_none             .s:bg_none             .s:fmt_none
 exe "hi! Comment"        .s:fg_dark_cyan        .s:bg_none             .s:fmt_none
-exe "hi! CursorLine"     .s:fg_none             .s:bg_light_bg         .s:fmt_none
-exe "hi! CursorColumn"   .s:fg_none             .s:bg_light_bg         .s:fmt_none
-exe "hi! ColorColumn"    .s:fg_none             .s:bg_light_bg         .s:fmt_none
-exe "hi! LineNr"         .s:fg_none             .s:bg_light_bg         .s:fmt_none
+exe "hi! CursorLine"     .s:fg_none             .s:bg_intense_light_bg .s:fmt_none
+exe "hi! CursorColumn"   .s:fg_none             .s:bg_intense_light_bg .s:fmt_none
+exe "hi! ColorColumn"    .s:fg_none             .s:bg_intense_light_bg .s:fmt_none
+exe "hi! LineNr"         .s:fg_none             .s:bg_intense_light_bg .s:fmt_none
 exe "hi! NonText"        .s:fg_none             .s:bg_none             .s:fmt_none
 
 exe "hi! Boolean"        .s:fg_none             .s:bg_none             .s:fmt_none
