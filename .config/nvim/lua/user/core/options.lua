@@ -34,6 +34,7 @@ local options = {
     list = true,               -- highlight character in listchars
     termguicolors = false,     -- disallow more color scheme options
     signcolumn = "yes",        -- allow a sign column
+    scrolloff = 5,             -- start scrolling 5 lines from the top/bottom
     virtualedit = "block",     -- allows to select past the last column of a
                                -- line in visual block mode
     inccommand = "split",      -- show substitutions in split window
