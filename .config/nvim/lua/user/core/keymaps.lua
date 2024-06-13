@@ -102,6 +102,9 @@ keymap("n", "<leader>fs", "<cmd>Telescope grep_string<cr>", opts) -- find string
 keymap("n", "<leader>fb", "<cmd>Telescope buffers<cr>", opts) -- list open buffers in current neovim instance
 keymap("n", "<leader>fh", "<cmd>Telescope help_tags<cr>", opts) -- list available help tags
 
+-- search word under cursor without jumping to next occurence
+keymap("n", "*", "*N", opts)
+keymap("n", "#", "#N", opts)
 
 -- TODO: Check which of the below mappings are still needed?
 -- TODO: Sort this file a little bit.
