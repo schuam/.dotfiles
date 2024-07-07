@@ -55,10 +55,6 @@ mkdir -p $XDG_DATA_HOME/vim/undo
 mkdir -p $XDG_DATA_HOME/vim/swap
 mkdir -p $XDG_DATA_HOME/vim/backup
 
-# Some special steps for Neovim
-curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs \
-    https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-
 
 # -----------------------------------------------------------------------------
 # kde
