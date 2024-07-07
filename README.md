@@ -1,5 +1,17 @@
 # My Dotfiles
 
+**Note: I used to share my dotfiles in this repository for a long time. I
+would still do so, because it might help others to set up there configuration
+files and I like helping out with that. Unfortunately I used to have a second
+repository with configuration files that I didn't want to share (due to privacy
+concerns). Over time it became more and more cumbersome to maintain two
+different repositories. That's why I decided to merge my two repositories into
+one that I don't share anymore. This means I will no longer actively maintain
+this repository. Sorry for that. I might occasionally update the files here,
+but I can't promise to do so on a regular basis.**
+
+
+
 This repository contains my personal dotfiles.
 
 Whenever possible, I try to organize my configuration files according to the
